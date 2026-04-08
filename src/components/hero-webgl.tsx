@@ -1,194 +1,138 @@
-import { Canvas, extend, useFrame } from "@react-three/fiber"
-import { useAspect, useTexture } from "@react-three/drei"
-import { useMemo, useRef, useState, useEffect } from "react"
-import * as THREE from "three"
+import { useState } from "react"
+import Icon from "@/components/ui/icon"
 
-const TEXTUREMAP = { src: "https://i.postimg.cc/XYwvXN8D/img-4.png" }
-const DEPTHMAP = { src: "https://i.postimg.cc/2SHKQh2q/raw-4.webp" }
+const stats = [
+  { value: "₽2.3М+", label: "Выплачено участникам" },
+  { value: "1 200+", label: "Активных трейдеров" },
+  { value: "34%", label: "Средний доход в месяц" },
+  { value: "2 года", label: "На рынке" },
+]
 
-extend(THREE as unknown as Record<string, unknown>)
+export function Hero3DWebGL() {
+  const [phone, setPhone] = useState("")
+  const [name, setName] = useState("")
+  const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
 
-const WIDTH = 300
-const HEIGHT = 300
-
-const Scene = () => {
-  const [rawMap, depthMap] = useTexture([TEXTUREMAP.src, DEPTHMAP.src])
-  const meshRef = useRef<THREE.Mesh>(null)
-
-  const material = useMemo(() => {
-    const vertexShader = `
-      varying vec2 vUv;
-      void main() {
-        vUv = uv;
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-      }
-    `
-
-    const fragmentShader = `
-      uniform sampler2D uTexture;
-      uniform sampler2D uDepthMap;
-      uniform vec2 uPointer;
-      uniform float uProgress;
-      uniform float uTime;
-      varying vec2 vUv;
-
-      // Simple noise function
-      float random(vec2 st) {
-        return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
-      }
-
-      float noise(vec2 st) {
-        vec2 i = floor(st);
-        vec2 f = fract(st);
-        float a = random(i);
-        float b = random(i + vec2(1.0, 0.0));
-        float c = random(i + vec2(0.0, 1.0));
-        float d = random(i + vec2(1.0, 1.0));
-        vec2 u = f * f * (3.0 - 2.0 * f);
-        return mix(a, b, u.x) + (c - a)* u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
-      }
-
-      void main() {
-        vec2 uv = vUv;
-
-        // Depth-based displacement
-        float depth = texture2D(uDepthMap, uv).r;
-        vec2 displacement = depth * uPointer * 0.01;
-        vec2 distortedUv = uv + displacement;
-
-        // Base texture
-        vec4 baseColor = texture2D(uTexture, distortedUv);
-
-        // Create scanning effect
-        float aspect = ${WIDTH}.0 / ${HEIGHT}.0;
-        vec2 tUv = vec2(uv.x * aspect, uv.y);
-        vec2 tiling = vec2(120.0);
-        vec2 tiledUv = mod(tUv * tiling, 2.0) - 1.0;
-
-        float brightness = noise(tUv * tiling * 0.5);
-        float dist = length(tiledUv);
-        float dot = smoothstep(0.5, 0.49, dist) * brightness;
-
-        // Flow effect based on progress
-        float flow = 1.0 - smoothstep(0.0, 0.02, abs(depth - uProgress));
-
-        // Red scanning overlay
-        vec3 mask = vec3(dot * flow * 10.0, 0.0, 0.0);
-
-        // Combine effects
-        vec3 final = baseColor.rgb + mask;
-
-        gl_FragColor = vec4(final, 1.0);
-      }
-    `
-
-    return new THREE.ShaderMaterial({
-      uniforms: {
-        uTexture: { value: rawMap },
-        uDepthMap: { value: depthMap },
-        uPointer: { value: new THREE.Vector2(0, 0) },
-        uProgress: { value: 0 },
-        uTime: { value: 0 },
-      },
-      vertexShader,
-      fragmentShader,
-    })
-  }, [rawMap, depthMap])
-
-  const [w, h] = useAspect(WIDTH, HEIGHT)
-
-  useFrame(({ clock, pointer }) => {
-    if (material.uniforms) {
-      material.uniforms.uProgress.value = Math.sin(clock.getElapsedTime() * 0.5) * 0.5 + 0.5
-      material.uniforms.uPointer.value = pointer
-      material.uniforms.uTime.value = clock.getElapsedTime()
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!name || !phone) return
+    setLoading(true)
+    try {
+      const res = await fetch("https://functions.poehali.dev/1e3b2a64-3ec9-4963-aa20-f90aaff560b4", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone }),
+      })
+      if (res.ok) setSubmitted(true)
+    } catch {
+      setSubmitted(true)
     }
-  })
-
-  const scaleFactor = 0.3
-  return (
-    <mesh ref={meshRef} scale={[w * scaleFactor, h * scaleFactor, 1]} material={material}>
-      <planeGeometry />
-    </mesh>
-  )
-}
-
-export const Hero3DWebGL = () => {
-  const titleWords = "Synapse AI".split(" ")
-  const subtitle = "Нейроинтерфейсы нового поколения."
-  const [visibleWords, setVisibleWords] = useState(0)
-  const [subtitleVisible, setSubtitleVisible] = useState(false)
-  const [delays, setDelays] = useState<number[]>([])
-  const [subtitleDelay, setSubtitleDelay] = useState(0)
-
-  useEffect(() => {
-    setDelays(titleWords.map(() => Math.random() * 0.07))
-    setSubtitleDelay(Math.random() * 0.1)
-  }, [titleWords.length])
-
-  useEffect(() => {
-    if (visibleWords < titleWords.length) {
-      const timeout = setTimeout(() => setVisibleWords(visibleWords + 1), 600)
-      return () => clearTimeout(timeout)
-    } else {
-      const timeout = setTimeout(() => setSubtitleVisible(true), 800)
-      return () => clearTimeout(timeout)
-    }
-  }, [visibleWords, titleWords.length])
+    setLoading(false)
+  }
 
   return (
-    <div className="h-screen bg-black relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none z-10">
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
-        <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-black to-transparent" />
-        <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-black to-transparent" />
+    <section className="hero-gradient min-h-screen flex flex-col items-center justify-center px-4 pt-20 pb-16 relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-primary/3 blur-[100px]" />
+        <div className="absolute top-0 left-0 w-full h-full opacity-20"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(74,222,128,0.15) 1px, transparent 0)`,
+            backgroundSize: "40px 40px"
+          }}
+        />
       </div>
 
-      <div className="h-screen uppercase items-center w-full absolute z-[60] pointer-events-none px-10 flex justify-center flex-col">
-        <div className="text-3xl md:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold font-orbitron">
-          <div className="flex space-x-2 lg:space-x-6 overflow-hidden text-white">
-            {titleWords.map((word, index) => (
-              <div
-                key={index}
-                className={index < visibleWords ? "fade-in" : ""}
-                style={{
-                  animationDelay: `${index * 0.13 + (delays[index] || 0)}s`,
-                  opacity: index < visibleWords ? undefined : 0,
-                }}
-              >
-                {word}
-              </div>
-            ))}
-          </div>
+      <div className="relative z-10 max-w-5xl mx-auto text-center">
+        <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-8 animate-fade-up">
+          <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <span className="text-primary text-sm font-medium">Telegram-канал уже работает — заходи прямо сейчас</span>
         </div>
-        <div className="text-xs md:text-xl xl:text-2xl 2xl:text-3xl mt-2 overflow-hidden text-white font-bold max-w-4xl mx-auto text-center px-4">
-          <div
-            className={subtitleVisible ? "fade-in-subtitle" : ""}
-            style={{
-              animationDelay: `${titleWords.length * 0.13 + 0.2 + subtitleDelay}s`,
-              opacity: subtitleVisible ? undefined : 0,
-            }}
+
+        <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6 animate-fade-up delay-100">
+          Зарабатывай на{" "}
+          <span className="gradient-text glow-green-text">P2P Арбитраже</span>
+          {" "}от 50 000 ₽/месяц
+        </h1>
+
+        <p className="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-up delay-200">
+          Обучаем реальному заработку на разнице курсов криптовалюты. Без опыта, без сложных схем — понятная система с поддержкой 24/7.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-up delay-300">
+          <a
+            href="https://t.me/+Z7SebGxjJmMxNDAy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary inline-flex items-center justify-center gap-2 text-base rounded-xl"
           >
-            {subtitle}
+            <Icon name="Send" size={18} />
+            Вступить в Telegram канал
+          </a>
+          <a href="#how" className="btn-outline inline-flex items-center justify-center gap-2 text-base rounded-xl">
+            <Icon name="PlayCircle" size={18} />
+            Как это работает
+          </a>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 animate-fade-up delay-400">
+          {stats.map((stat) => (
+            <div key={stat.label} className="card-glow rounded-2xl p-5 text-center">
+              <div className="font-display text-2xl sm:text-3xl font-bold gradient-text mb-1">{stat.value}</div>
+              <div className="text-muted-foreground text-xs sm:text-sm">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div id="lead" className="max-w-md mx-auto animate-fade-up delay-500">
+          <div className="card-glow rounded-2xl p-6 border border-primary/20">
+            <h3 className="font-display font-bold text-xl text-foreground mb-2">Получи бесплатный урок</h3>
+            <p className="text-muted-foreground text-sm mb-5">Оставь заявку — мы пришлём первый урок и покажем как зарабатывать</p>
+            {submitted ? (
+              <div className="text-center py-4">
+                <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-3">
+                  <Icon name="CheckCircle" size={28} className="text-primary" />
+                </div>
+                <p className="text-primary font-semibold text-lg">Заявка отправлена!</p>
+                <p className="text-muted-foreground text-sm mt-1">Мы свяжемся с тобой в ближайшее время</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                <input
+                  type="text"
+                  placeholder="Твоё имя"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  className="bg-input border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors"
+                />
+                <input
+                  type="tel"
+                  placeholder="Номер телефона или Telegram"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                  className="bg-input border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors"
+                />
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="btn-primary w-full py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-60"
+                >
+                  {loading ? (
+                    <Icon name="Loader2" size={18} className="animate-spin" />
+                  ) : (
+                    <Icon name="ArrowRight" size={18} />
+                  )}
+                  {loading ? "Отправляю..." : "Получить бесплатный урок"}
+                </button>
+                <p className="text-muted-foreground text-xs text-center">Нажимая кнопку, вы соглашаетесь с обработкой данных</p>
+              </form>
+            )}
           </div>
         </div>
       </div>
-
-      <Canvas
-        flat
-        gl={{
-          antialias: true,
-          alpha: false,
-          powerPreference: "high-performance",
-        }}
-        camera={{ position: [0, 0, 1] }}
-        style={{ background: "#000000" }}
-      >
-        <Scene />
-      </Canvas>
-    </div>
+    </section>
   )
 }
-
-export default Hero3DWebGL

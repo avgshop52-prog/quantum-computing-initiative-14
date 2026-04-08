@@ -1,85 +1,63 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import Icon from "@/components/ui/icon"
 
 const features = [
   {
-    title: "Адаптивная нейрообработка",
-    description: "Самооптимизирующиеся алгоритмы, которые обучаются на нейронных паттернах и улучшают интерпретацию сигналов.",
-    icon: "brain",
-    badge: "ИИ",
+    icon: "TrendingUp",
+    title: "Стабильный доход",
+    desc: "Зарабатывай на разнице курсов крипты каждый день — независимо от роста или падения рынка",
   },
   {
-    title: "Медицинская защита",
-    description: "Шифрование по стандартам FDA со сквозной защитой конфиденциальных нейронных данных.",
-    icon: "lock",
-    badge: "Сертификат",
+    icon: "Shield",
+    title: "Безопасная стратегия",
+    desc: "P2P арбитраж не требует рискованных ставок. Ты торгуешь с гарантированной маржой",
   },
   {
-    title: "Интуитивное управление",
-    description: "Естественная трансляция мыслей в действия с откликом менее миллисекунды и точностью 99,7%.",
-    icon: "globe",
-    badge: "Точность",
+    icon: "Zap",
+    title: "Быстрый старт",
+    desc: "Первую сделку можно провести уже в первый день. Обучение простое и понятное даже для новичков",
   },
   {
-    title: "Предиктивная калибровка",
-    description: "ML-модели, которые предугадывают намерения пользователя и оптимизируют нейронные пути.",
-    icon: "zap",
-    badge: "Умный",
+    icon: "Users",
+    title: "Сообщество 1 200+ человек",
+    desc: "Живое сообщество, общий чат, поддержка кураторов и разборы сделок в прямом эфире",
   },
   {
-    title: "Биометрическая интеграция",
-    description: "Бесшовная синхронизация с мониторингом жизненных показателей для контроля здоровья.",
-    icon: "link",
-    badge: "Связь",
+    icon: "Clock",
+    title: "Работа 2-4 часа в день",
+    desc: "Не нужно сидеть за экраном 24/7. Зарабатывай в своём темпе, совмещая с основной работой",
   },
   {
-    title: "Поддержка XR",
-    description: "Нативная совместимость с AR/VR-средами для терапевтических и рабочих приложений.",
-    icon: "target",
-    badge: "XR Ready",
+    icon: "BarChart2",
+    title: "Прозрачная аналитика",
+    desc: "Все сделки фиксируются, доход считается честно. Видишь каждый рубль, который зарабатываешь",
   },
 ]
 
 export function FeaturesSection() {
   return (
-    <section className="py-24 px-6 bg-background">
+    <section id="features" className="py-24 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4 font-sans">Возможности нового поколения</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Почувствуйте будущее с технологиями, которые переопределяют возможное
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-4">
+            <span className="text-primary text-sm font-medium">Почему выбирают нас</span>
+          </div>
+          <h2 className="font-display text-4xl sm:text-5xl font-bold text-foreground mb-4">
+            Всё что нужно для <span className="gradient-text">стабильного заработка</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+            Мы даём систему, знания и поддержку — тебе остаётся только применять
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <Card
-              key={index}
-              className="glow-border hover:shadow-lg transition-all duration-300 slide-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-3xl">
-                    {feature.icon === "brain" && "&#129504;"}
-                    {feature.icon === "lock" && "&#128274;"}
-                    {feature.icon === "globe" && "&#127760;"}
-                    {feature.icon === "zap" && "&#9889;"}
-                    {feature.icon === "link" && "&#128279;"}
-                    {feature.icon === "target" && "&#127919;"}
-                  </span>
-                  <Badge variant="secondary" className="bg-accent text-accent-foreground">
-                    {feature.badge}
-                  </Badge>
-                </div>
-                <CardTitle className="text-xl font-bold text-card-foreground">{feature.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {features.map((f) => (
+            <div key={f.title} className="card-glow rounded-2xl p-6 group">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                <Icon name={f.icon} size={22} className="text-primary" />
+              </div>
+              <h3 className="font-display font-semibold text-lg text-foreground mb-2">{f.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{f.desc}</p>
+            </div>
           ))}
         </div>
       </div>

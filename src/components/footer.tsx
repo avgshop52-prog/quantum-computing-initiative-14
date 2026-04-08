@@ -1,126 +1,88 @@
-import { Github, Twitter, Linkedin, Mail } from "lucide-react"
+import Icon from "@/components/ui/icon"
 
 export function Footer() {
   return (
-    <footer className="bg-black border-t border-red-500/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="col-span-1 md:col-span-2">
-            <h2 className="font-orbitron text-2xl font-bold text-white mb-4">
-              Synapse<span className="text-red-500">AI</span>
-            </h2>
-            <p className="font-space-mono text-gray-300 mb-6 max-w-md">
-              Продвигаем будущее нейросвязи с передовыми технологиями интерфейса мозг-компьютер.
+    <footer className="border-t border-border py-12 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+          <div>
+            <div className="flex items-center gap-2.5 mb-4">
+              <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-xs font-display">P2P</span>
+              </div>
+              <span className="font-display font-bold text-lg text-foreground">
+                P2P <span className="gradient-text">Арбитраж</span>
+              </span>
+            </div>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-5">
+              Помогаем людям зарабатывать на P2P арбитраже. Обучение, поддержка и сообщество единомышленников.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-red-500 transition-colors duration-200">
-                <Twitter size={20} />
+            <a
+              href="https://t.me/+Z7SebGxjJmMxNDAy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm font-medium"
+            >
+              <Icon name="Send" size={16} />
+              Наш Telegram канал
+            </a>
+          </div>
+
+          <div>
+            <h4 className="font-display font-semibold text-foreground mb-4">Навигация</h4>
+            <ul className="flex flex-col gap-2.5">
+              {[
+                { label: "О нас", href: "#about" },
+                { label: "Как заработать", href: "#how" },
+                { label: "Преимущества", href: "#features" },
+                { label: "Безопасность", href: "#safety" },
+                { label: "Отзывы", href: "#reviews" },
+                { label: "FAQ", href: "#faq" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-display font-semibold text-foreground mb-4">Связаться с нами</h4>
+            <div className="flex flex-col gap-3">
+              <a
+                href="https://t.me/+Z7SebGxjJmMxNDAy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card-glow rounded-xl p-4 flex items-center gap-3 group"
+              >
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Icon name="Send" size={17} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-foreground text-sm font-medium group-hover:text-primary transition-colors">Telegram канал</p>
+                  <p className="text-muted-foreground text-xs">Подписаться и начать</p>
+                </div>
               </a>
-              <a href="#" className="text-gray-400 hover:text-red-500 transition-colors duration-200">
-                <Github size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-red-500 transition-colors duration-200">
-                <Linkedin size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-red-500 transition-colors duration-200">
-                <Mail size={20} />
+              <a href="#lead" className="card-glow rounded-xl p-4 flex items-center gap-3 group">
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Icon name="MessageCircle" size={17} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-foreground text-sm font-medium group-hover:text-primary transition-colors">Оставить заявку</p>
+                  <p className="text-muted-foreground text-xs">Перезвоним в течение часа</p>
+                </div>
               </a>
             </div>
-          </div>
-
-          {/* Product */}
-          <div>
-            <h3 className="font-orbitron text-white font-semibold mb-4">Продукт</h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="#technology"
-                  className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200"
-                >
-                  Технологии
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#applications"
-                  className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200"
-                >
-                  Применения
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#safety"
-                  className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200"
-                >
-                  Безопасность
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#faq"
-                  className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200"
-                >
-                  Вопросы
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="font-orbitron text-white font-semibold mb-4">Компания</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
-                  О нас
-                </a>
-              </li>
-              <li>
-                <a href="#" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
-                  Карьера
-                </a>
-              </li>
-              <li>
-                <a href="#" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
-                  Пресса
-                </a>
-              </li>
-              <li>
-                <a href="#" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
-                  Контакты
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-8 pt-8 border-t border-red-500/20">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="font-space-mono text-gray-400 text-sm">2025 SynapseAI. Все права защищены.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a
-                href="#"
-                className="font-space-mono text-gray-400 hover:text-red-500 text-sm transition-colors duration-200"
-              >
-                Конфиденциальность
-              </a>
-              <a
-                href="#"
-                className="font-space-mono text-gray-400 hover:text-red-500 text-sm transition-colors duration-200"
-              >
-                Условия использования
-              </a>
-              <a
-                href="#"
-                className="font-space-mono text-gray-400 hover:text-red-500 text-sm transition-colors duration-200"
-              >
-                Cookie-политика
-              </a>
-            </div>
-          </div>
+        <div className="border-t border-border pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+          <p className="text-muted-foreground text-xs">© 2026 P2P Арбитраж. Все права защищены.</p>
+          <p className="text-muted-foreground text-xs">
+            Доходы зависят от индивидуальных результатов и объёма работы
+          </p>
         </div>
       </div>
     </footer>
