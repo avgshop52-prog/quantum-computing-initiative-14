@@ -9,11 +9,15 @@ const myths = [
 
 export function SafetySection() {
   return (
-    <section className="py-20 sm:py-28 px-5">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-14">
-          <p className="text-primary text-xs font-medium tracking-widest uppercase mb-3">Честно о рисках</p>
-          <h2 className="font-display text-3xl sm:text-[2.8rem] font-bold text-foreground leading-tight mb-3">
+    <section className="py-24 sm:py-32 px-5 relative">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full bg-red-500/[0.02] blur-[120px]" />
+      </div>
+
+      <div className="max-w-3xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-3">Честно о рисках</p>
+          <h2 className="font-heading text-3xl sm:text-[2.8rem] font-extrabold text-foreground leading-tight mb-4">
             Мифы vs <span className="gradient-text">Реальность</span>
           </h2>
           <p className="text-muted-foreground text-base max-w-md mx-auto">
@@ -23,16 +27,16 @@ export function SafetySection() {
 
         <div className="flex flex-col gap-4">
           {myths.map((m) => (
-            <div key={m.myth} className="card-glass rounded-2xl p-5 sm:p-6">
-              <div className="flex items-start gap-3 mb-3">
-                <div className="w-6 h-6 rounded-full bg-red-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Icon name="X" size={12} className="text-red-400" />
+            <div key={m.myth} className="card-premium rounded-2xl p-6 sm:p-7">
+              <div className="flex items-start gap-3.5 mb-4">
+                <div className="w-7 h-7 rounded-full bg-red-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Icon name="X" size={13} className="text-red-400" />
                 </div>
-                <p className="text-foreground/60 text-sm line-through decoration-red-400/40">«{m.myth}»</p>
+                <p className="text-foreground/50 text-sm line-through decoration-red-400/40 leading-relaxed">«{m.myth}»</p>
               </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Icon name="Check" size={12} className="text-primary" />
+              <div className="flex items-start gap-3.5">
+                <div className="w-7 h-7 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Icon name="Check" size={13} className="text-primary" />
                 </div>
                 <p className="text-foreground text-sm leading-relaxed">{m.truth}</p>
               </div>

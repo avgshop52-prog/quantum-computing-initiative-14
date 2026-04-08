@@ -3,6 +3,7 @@ import { TechnologySection } from "@/components/technology-section"
 import { AboutSection } from "@/components/about-section"
 import { FeaturesSection } from "@/components/features-section"
 import { SafetySection } from "@/components/safety-section"
+import { GuaranteeSection } from "@/components/guarantee-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
@@ -23,6 +24,8 @@ export default function Index() {
         <FeaturesSection />
         <div className="section-divider" />
         <SafetySection />
+        <div className="section-divider" />
+        <GuaranteeSection />
         <div className="section-divider" />
         <TestimonialsSection />
         <div className="section-divider" />

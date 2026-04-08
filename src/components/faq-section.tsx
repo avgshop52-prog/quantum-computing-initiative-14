@@ -1,4 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import Icon from "@/components/ui/icon"
 
 const faqs = [
   { q: "Что вообще такое P2P арбитраж?", a: "Простыми словами: покупаешь криптовалюту дешевле на одной площадке и тут же продаёшь дороже на другой. Разница в цене — твой заработок. Это не трейдинг, не казино и не ставки." },
@@ -13,22 +14,30 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section id="faq" className="py-20 sm:py-28 px-5">
-      <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-14">
-          <p className="text-primary text-xs font-medium tracking-widest uppercase mb-3">Вопросы</p>
-          <h2 className="font-display text-3xl sm:text-[2.8rem] font-bold text-foreground leading-tight">
+    <section id="faq" className="py-24 sm:py-32 px-5 relative">
+      <div className="max-w-2xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-3">Вопросы</p>
+          <h2 className="font-heading text-3xl sm:text-[2.8rem] font-extrabold text-foreground leading-tight mb-4">
             Частые <span className="gradient-text">вопросы</span>
           </h2>
+          <p className="text-muted-foreground text-base max-w-md mx-auto">
+            Ответы на всё, что вы хотели спросить
+          </p>
         </div>
 
-        <Accordion type="single" collapsible className="flex flex-col gap-2.5">
+        <Accordion type="single" collapsible className="flex flex-col gap-3">
           {faqs.map((f, i) => (
-            <AccordionItem key={i} value={`q-${i}`} className="card-solid rounded-xl border-0 overflow-hidden">
-              <AccordionTrigger className="text-left text-sm font-medium text-foreground hover:text-primary transition-colors px-5 py-4 hover:no-underline">
-                {f.q}
+            <AccordionItem key={i} value={`q-${i}`} className="card-premium rounded-xl border-0 overflow-hidden">
+              <AccordionTrigger className="text-left text-sm font-semibold text-foreground hover:text-primary transition-colors px-6 py-5 hover:no-underline gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Icon name="HelpCircle" size={14} className="text-primary" />
+                  </div>
+                  {f.q}
+                </div>
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground text-[13px] leading-relaxed px-5 pb-4">
+              <AccordionContent className="text-muted-foreground text-[13px] leading-relaxed px-6 pb-5 pl-16">
                 {f.a}
               </AccordionContent>
             </AccordionItem>
