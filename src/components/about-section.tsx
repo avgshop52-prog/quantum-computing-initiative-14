@@ -39,7 +39,8 @@ export function AboutSection() {
           <div className="relative">
             <img
               src="https://cdn.poehali.dev/projects/166c0de3-fca3-4625-9fe7-cae8102d3439/files/85d7073c-7c7f-4ad1-8cd4-156e4ae1396a.jpg"
-              alt="P2P арбитраж"
+              alt="Дашборд P2P арбитража с графиками прибыли"
+              loading="lazy"
               className="w-full rounded-2xl object-cover aspect-[4/3]"
             />
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-background/70 via-transparent to-transparent" />

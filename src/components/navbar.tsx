@@ -24,7 +24,7 @@ export function Navbar() {
     }`}>
       <div className="max-w-6xl mx-auto px-5">
         <div className="flex items-center justify-between h-[60px]">
-          <a href="#" className="flex items-center gap-2">
+          <a href="#" className="flex items-center gap-2" aria-label="P2P Profit — главная">
             <div className="w-8 h-8 rounded-lg bg-primary/90 flex items-center justify-center">
               <Icon name="ArrowUpDown" size={14} className="text-primary-foreground" />
             </div>
@@ -51,7 +51,7 @@ export function Navbar() {
             Присоединиться
           </a>
 
-          <button className="md:hidden text-muted-foreground" onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="md:hidden text-muted-foreground" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}>
             <Icon name={menuOpen ? "X" : "Menu"} size={20} />
           </button>
         </div>

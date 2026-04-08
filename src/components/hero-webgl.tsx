@@ -8,19 +8,25 @@ export function Hero3DWebGL() {
   const [name, setName] = useState("")
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!name || !phone) return
+    if (!name.trim() || !phone.trim()) return
+    setError("")
     setLoading(true)
     try {
-      await fetch("https://functions.poehali.dev/1e3b2a64-3ec9-4963-aa20-f90aaff560b4", {
+      const res = await fetch("https://functions.poehali.dev/1e3b2a64-3ec9-4963-aa20-f90aaff560b4", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone }),
+        body: JSON.stringify({ name: name.trim(), phone: phone.trim() }),
       })
-    } catch (err) { console.error(err) }
-    setSubmitted(true)
+      if (!res.ok) throw new Error("Ошибка сервера")
+      setSubmitted(true)
+    } catch (err) {
+      console.error(err)
+      setError("Не удалось отправить. Попробуй ещё раз")
+    }
     setLoading(false)
   }
 
@@ -111,10 +117,17 @@ export function Hero3DWebGL() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
-                <input type="text" placeholder="Имя" value={name} onChange={(e) => setName(e.target.value)} required
-                  className="bg-input/50 border border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/30 transition-colors" />
-                <input type="tel" placeholder="Телефон или @telegram" value={phone} onChange={(e) => setPhone(e.target.value)} required
-                  className="bg-input/50 border border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/30 transition-colors" />
+                <div>
+                  <label htmlFor="hero-name" className="sr-only">Имя</label>
+                  <input id="hero-name" type="text" placeholder="Имя" value={name} onChange={(e) => setName(e.target.value)} required minLength={2}
+                    className="w-full bg-input/50 border border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/30 transition-colors" />
+                </div>
+                <div>
+                  <label htmlFor="hero-phone" className="sr-only">Телефон или Telegram</label>
+                  <input id="hero-phone" type="tel" placeholder="Телефон или @telegram" value={phone} onChange={(e) => setPhone(e.target.value)} required
+                    className="w-full bg-input/50 border border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/30 transition-colors" />
+                </div>
+                {error && <p className="text-red-400 text-xs text-center">{error}</p>}
                 <button type="submit" disabled={loading}
                   className="btn-glow w-full py-3 text-sm flex items-center justify-center gap-2 disabled:opacity-50">
                   {loading ? <Icon name="Loader2" size={16} className="animate-spin" /> : <Icon name="ArrowRight" size={16} />}
