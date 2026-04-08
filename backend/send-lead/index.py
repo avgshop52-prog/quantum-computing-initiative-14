@@ -50,7 +50,16 @@ def handler(event: dict, context) -> dict:
     }).encode('utf-8')
 
     req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
-    urllib.request.urlopen(req)
+    try:
+        resp = urllib.request.urlopen(req)
+        print(f"Telegram response: {resp.status} {resp.read().decode()}")
+    except Exception as e:
+        print(f"Telegram error: {e}")
+        return {
+            'statusCode': 500,
+            'headers': {'Access-Control-Allow-Origin': '*'},
+            'body': json.dumps({'error': str(e)})
+        }
 
     return {
         'statusCode': 200,
