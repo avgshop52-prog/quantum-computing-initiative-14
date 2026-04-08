@@ -19,7 +19,8 @@ def handler(event: dict, context) -> dict:
             'body': ''
         }
 
-    body = json.loads(event.get('body', '{}'))
+    raw_body = event.get('body') or '{}'
+    body = json.loads(raw_body)
     name = body.get('name', '').strip()
     phone = body.get('phone', '').strip()
     message = body.get('message', '').strip()
