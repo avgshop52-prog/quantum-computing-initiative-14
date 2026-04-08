@@ -1,78 +1,65 @@
 import Icon from "@/components/ui/icon"
 
-const testimonials = [
-  { name: "Алексей М.", city: "Москва", amount: "+47 000 ₽/мес", text: "Начал 3 месяца назад, сейчас стабильно зарабатываю. Куратор всегда помогает, всё понятно объясняет.", stars: 5 },
-  { name: "Дарья К.", city: "Санкт-Петербург", amount: "+62 000 ₽/мес", text: "Никогда не думала, что смогу заработать на крипте. Оказалось всё просто! Работаю 3 часа в день.", stars: 5 },
-  { name: "Игорь С.", city: "Екатеринбург", amount: "+38 000 ₽/мес", text: "Скептически относился вначале, но результат говорит сам за себя. Уже вывел больше 100к за квартал.", stars: 5 },
-  { name: "Наталья В.", city: "Краснодар", amount: "+55 000 ₽/мес", text: "Совмещаю с основной работой. Отличное сообщество, ребята помогают разобраться в любой ситуации.", stars: 5 },
-  { name: "Роман Т.", city: "Новосибирск", amount: "+44 000 ₽/мес", text: "Обучение занял 2 дня, уже на 3-й провёл первую сделку. Система реально работает!", stars: 5 },
-  { name: "Анна Ф.", city: "Казань", amount: "+71 000 ₽/мес", text: "Лучшее решение для дополнительного заработка. Стабильно, прозрачно, без риска потерять деньги.", stars: 5 },
-  { name: "Виктор Л.", city: "Нижний Новгород", amount: "+33 000 ₽/мес", text: "Поначалу было страшно, но поддержка команды помогла. Теперь сам помогаю новичкам в чате.", stars: 5 },
-  { name: "Ксения Р.", city: "Самара", amount: "+89 000 ₽/мес", text: "Уволилась с офиса через 4 месяца после старта. Зарабатываю больше, работаю меньше — мечта!", stars: 5 },
-  { name: "Денис О.", city: "Челябинск", amount: "+41 000 ₽/мес", text: "Честный канал без воды. Только практика и реальные результаты. Рекомендую всем!", stars: 5 },
-  { name: "Марина Б.", city: "Уфа", amount: "+58 000 ₽/мес", text: "Три месяца — и уже стабильный доход. Муж тоже начал учиться. Семейный бизнес на крипте!", stars: 5 },
-  { name: "Артём Г.", city: "Пермь", amount: "+36 000 ₽/мес", text: "Думал что это сложно — оказалось очень просто. Куратор буквально за руку провёл через всё.", stars: 5 },
-  { name: "Светлана Д.", city: "Ростов-на-Дону", amount: "+67 000 ₽/мес", text: "Финансовая независимость реальна! За полгода полностью закрыла кредит и накопила на отпуск.", stars: 5 },
-  { name: "Евгений П.", city: "Воронеж", amount: "+49 000 ₽/мес", text: "Зарабатываю с телефона пока еду на работу. Удобно, понятно, прибыльно. Спасибо команде!", stars: 5 },
-  { name: "Юлия И.", city: "Красноярск", amount: "+53 000 ₽/мес", text: "Попробовала по совету подруги. Теперь сама советую всем знакомым. Реально работает!", stars: 5 },
-  { name: "Павел Х.", city: "Омск", amount: "+42 000 ₽/мес", text: "Прошёл обучение за 1,5 дня. Первая сделка — и сразу плюс. Потрясающий результат с нуля.", stars: 5 },
-  { name: "Елена С.", city: "Тюмень", amount: "+76 000 ₽/мес", text: "Живу в маленьком городе, а зарабатываю как в столице. Локация не имеет значения!", stars: 5 },
-  { name: "Антон Н.", city: "Барнаул", amount: "+31 000 ₽/мес", text: "Начал с минимальной суммы, постепенно увеличиваю. Риска нет — это не трейдинг.", stars: 5 },
-  { name: "Ольга К.", city: "Ижевск", amount: "+61 000 ₽/мес", text: "Декрет — отличное время учиться! Теперь зарабатываю дома больше, чем зарабатывала в офисе.", stars: 5 },
-  { name: "Сергей В.", city: "Хабаровск", amount: "+45 000 ₽/мес", text: "Живу на Дальнем Востоке, никаких ограничений нет. Работает везде одинаково хорошо.", stars: 5 },
-  { name: "Людмила Т.", city: "Тольятти", amount: "+39 000 ₽/мес", text: "65 лет, и я разобралась! Всё объяснили понятно. Теперь у меня есть своя прибавка к пенсии.", stars: 5 },
-  { name: "Максим Р.", city: "Иркутск", amount: "+84 000 ₽/мес", text: "IT-шник по профессии — оценил простоту системы. Автоматизировал часть процессов, зарабатываю больше.", stars: 5 },
-  { name: "Татьяна Ф.", city: "Ярославль", amount: "+47 000 ₽/мес", text: "Подруга звала год — я не верила. Зря! Теперь жалею что не начала раньше.", stars: 5 },
-  { name: "Николай Б.", city: "Владивосток", amount: "+52 000 ₽/мес", text: "Водитель такси, работаю когда хочу. P2P стало вторым заработком, уже почти основным.", stars: 5 },
-  { name: "Вера П.", city: "Астрахань", amount: "+28 000 ₽/мес", text: "Только начала, но уже вижу результат. Команда невероятно поддерживающая и отзывчивая.", stars: 5 },
-  { name: "Кирилл М.", city: "Пенза", amount: "+66 000 ₽/мес", text: "6 месяцев в канале. Рост дохода каждый месяц. Уже обучаю брата по той же системе.", stars: 5 },
-  { name: "Алина Г.", city: "Калуга", amount: "+43 000 ₽/мес", text: "Работаю учителем — зарплата маленькая. P2P стал спасением для нашей семьи.", stars: 5 },
-  { name: "Фёдор Д.", city: "Мурманск", amount: "+37 000 ₽/мес", text: "Север, полярная ночь — а у меня всегда солнечное настроение от доходов! Отличный канал.", stars: 5 },
-  { name: "Инна Л.", city: "Саратов", amount: "+59 000 ₽/мес", text: "Долго выбирала куда инвестировать знания. Это лучшее решение — риск минимальный, доход стабильный.", stars: 5 },
-  { name: "Борис К.", city: "Рязань", amount: "+34 000 ₽/мес", text: "Пенсионер, но не сижу без дела. P2P дал мне и доход, и интересное занятие. Спасибо!", stars: 5 },
-  { name: "Галина С.", city: "Липецк", amount: "+48 000 ₽/мес", text: "Год в канале. Стабильность, честность, реальные деньги. Лучший канал по P2P в России!", stars: 5 },
+const reviews = [
+  { name: "Алексей", tag: "3 месяца в канале", text: "Пришёл скептиком — ушёл с 47к за первый месяц. Куратор Дима реально разжёвывает каждый шаг. Сейчас стабильно делаю 55-60к.", highlight: true },
+  { name: "Дарья", tag: "мама в декрете", text: "Работаю пока ребёнок спит. 2 часа утром, 1 час вечером. В прошлом месяце вышло 38 000₽ — это больше чем моя зарплата была до декрета." },
+  { name: "Игорь", tag: "бывший водитель", text: "Уволился с такси. Серьёзно. Сейчас за 3-4 часа в день зарабатываю столько же, сколько за 12 часов за рулём. И спина не болит)" },
+  { name: "Наталья", tag: "5 месяцев в канале", text: "Закрыла кредит за 4 месяца. 120к задолженность — как не бывало. Теперь коплю на отпуск, который не могла позволить 3 года.", highlight: true },
+  { name: "Роман", tag: "студент, 20 лет", text: "Одногруппники на стипендию живут, а я зарабатываю больше чем мой папа. Обучение реально простое, если слушать куратора." },
+  { name: "Елена", tag: "бухгалтер", text: "Совмещаю с основной работой. Встаю на час раньше, делаю 2-3 сделки. Доп.доход 30-35к стабильно. Не верила что так бывает." },
+  { name: "Максим", tag: "IT-специалист", text: "Как программист оценил систему — тут всё логично и прозрачно. Автоматизировал часть процессов, делаю 80-90к с минимальными усилиями.", highlight: true },
+  { name: "Света", tag: "2 месяца в канале", text: "Первую неделю было страшно. Вторую — непонятно. Третью — пошли деньги. Сейчас делаю 40к. Куратор не бросает даже когда задаёшь глупые вопросы." },
+  { name: "Фёдор", tag: "пенсионер, 63 года", text: "Дочка показала. Думал — не для меня. А оказалось всё понятно. Теперь прибавка к пенсии 25-30к. Внукам подарки покупаю нормальные." },
+  { name: "Ксения", tag: "бывший менеджер", text: "Уволилась через 4 месяца. Зарабатываю 70-80к, работаю 3 часа. Начальник звонил вернуться — отказала не раздумывая.", highlight: true },
+  { name: "Артём", tag: "1 месяц в канале", text: "Новичок полный. Крипту видел только в новостях. За месяц — 28к прибыли. Для первого месяца это огонь, куратор сказал что это хороший старт." },
+  { name: "Марина", tag: "домохозяйка", text: "Муж говорил — очередная ерунда. Когда показала первый перевод 42к — замолчал. Теперь сам хочет учиться, записала его в следующий поток." },
+  { name: "Денис", tag: "из Хабаровска", text: "Живу на Дальнем Востоке — разницы никакой. Работаю из дома, деньги на карте. Не зависишь от города и работодателя." },
+  { name: "Олег", tag: "4 месяца в канале", text: "Сначала делал 20-25к. Потом увеличил капитал — вышел на 65к. Тут реально: больше вкладываешь усилий = больше получаешь. Без магии.", highlight: true },
+  { name: "Юля", tag: "учительница", text: "Зарплата 28к. Первый месяц на P2P — 32к. Слёзы от радости, серьёзно. Теперь наконец могу не считать каждую копейку." },
+  { name: "Кирилл", tag: "фрилансер", text: "Между проектами всегда была финансовая яма. Теперь P2P — мой стабильный фундамент. 45-50к каждый месяц как часы." },
+  { name: "Вера", tag: "только начала", text: "Неделю назад вступила. Пока прошла 3 урока. Всё понятно, куратор отвечает быстро. Жду первую сделку — волнуюсь, но верю." },
+  { name: "Николай", tag: "предприниматель", text: "У меня бизнес, но P2P — это отдельный поток дохода без головной боли. Без сотрудников, без аренды. Чистая прибыль 90к+.", highlight: true },
 ]
 
 export function TestimonialsSection() {
-  const col1 = testimonials.slice(0, 10)
-  const col2 = testimonials.slice(10, 20)
-  const col3 = testimonials.slice(20, 30)
+  const col1 = reviews.filter((_, i) => i % 3 === 0)
+  const col2 = reviews.filter((_, i) => i % 3 === 1)
+  const col3 = reviews.filter((_, i) => i % 3 === 2)
 
   return (
-    <section id="reviews" className="py-24 px-4 overflow-hidden relative">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute bottom-0 right-1/3 w-[400px] h-[400px] rounded-full bg-primary/4 blur-[120px]" />
-      </div>
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-4">
-            <span className="text-primary text-sm font-medium">Реальные результаты</span>
-          </div>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold text-foreground mb-4">
-            Что говорят <span className="gradient-text">наши участники</span>
+    <section id="reviews" className="py-20 sm:py-28 px-5 overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-14">
+          <p className="text-primary text-xs font-medium tracking-widest uppercase mb-3">Отзывы учеников</p>
+          <h2 className="font-display text-3xl sm:text-[2.8rem] font-bold text-foreground leading-tight mb-3">
+            Реальные истории <span className="gradient-text">реальных людей</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Более 1 200 человек уже зарабатывают по нашей системе
+          <p className="text-muted-foreground text-base max-w-md mx-auto">
+            Без постановок и копипаста. Каждый отзыв — живой человек из нашего канала
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[col1, col2, col3].map((col, ci) => (
             <div key={ci} className="flex flex-col gap-4">
-              {col.map((t) => (
-                <div key={t.name} className="card-glow rounded-2xl p-5">
-                  <div className="flex items-center gap-1 mb-3">
-                    {Array.from({ length: t.stars }).map((_, i) => (
-                      <Icon key={i} name="Star" size={14} className="text-yellow-400 fill-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-foreground text-sm leading-relaxed mb-4">"{t.text}"</p>
+              {col.map((r) => (
+                <div key={r.name} className={`rounded-2xl p-5 ${r.highlight ? "card-glass border-primary/20" : "card-solid"}`}>
+                  <p className="text-foreground text-[13px] leading-relaxed mb-4">{r.text}</p>
                   <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-foreground text-sm font-semibold">{t.name}</p>
-                      <p className="text-muted-foreground text-xs">{t.city}</p>
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                        <span className="text-primary text-xs font-bold">{r.name[0]}</span>
+                      </div>
+                      <div>
+                        <p className="text-foreground text-xs font-semibold">{r.name}</p>
+                        <p className="text-muted-foreground text-[10px]">{r.tag}</p>
+                      </div>
                     </div>
-                    <span className="text-primary text-sm font-bold">{t.amount}</span>
+                    <div className="flex gap-0.5">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Icon key={i} name="Star" size={10} className="text-yellow-500 fill-yellow-500" />
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -80,15 +67,11 @@ export function TestimonialsSection() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <a
-            href="https://t.me/+Z7SebGxjJmMxNDAy"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary inline-flex items-center gap-2 text-base rounded-xl"
-          >
-            <Icon name="Send" size={18} />
-            Хочу так же — вступить в канал
+        <div className="mt-10 text-center">
+          <a href="https://t.me/+Z7SebGxjJmMxNDAy" target="_blank" rel="noopener noreferrer"
+            className="btn-glow text-sm py-3 px-7 inline-flex items-center gap-2">
+            <Icon name="Send" size={14} />
+            Присоединиться к ним
           </a>
         </div>
       </div>

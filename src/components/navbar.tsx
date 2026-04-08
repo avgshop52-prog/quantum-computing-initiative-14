@@ -6,94 +6,69 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    const h = () => setScrolled(window.scrollY > 30)
+    window.addEventListener("scroll", h)
+    return () => window.removeEventListener("scroll", h)
   }, [])
 
   const links = [
-    { label: "О нас", href: "#about" },
-    { label: "Как заработать", href: "#how" },
-    { label: "Преимущества", href: "#features" },
+    { label: "Обучение", href: "#how" },
+    { label: "Результаты", href: "#results" },
     { label: "Отзывы", href: "#reviews" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Вопросы", href: "#faq" },
   ]
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[hsl(220_20%_4%/0.95)] backdrop-blur-xl border-b border-border shadow-lg"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <a href="#" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
-              <span className="text-primary-foreground font-bold text-xs font-display">P2P</span>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled ? "bg-[hsl(225_25%_4%/0.92)] backdrop-blur-2xl border-b border-border" : "bg-transparent"
+    }`}>
+      <div className="max-w-6xl mx-auto px-5">
+        <div className="flex items-center justify-between h-[60px]">
+          <a href="#" className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-primary/90 flex items-center justify-center">
+              <Icon name="ArrowUpDown" size={14} className="text-primary-foreground" />
             </div>
-            <span className="font-display font-bold text-lg text-foreground">
-              P2P <span className="gradient-text">Арбитраж</span>
+            <span className="font-display font-bold text-[15px]">
+              P2P <span className="gradient-text">Profit</span>
             </span>
           </a>
 
-          <div className="hidden md:flex items-center gap-7">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
-              >
-                {link.label}
+          <div className="hidden md:flex items-center gap-6">
+            {links.map((l) => (
+              <a key={l.href} href={l.href} className="text-muted-foreground hover:text-foreground transition-colors text-[13px] font-medium">
+                {l.label}
               </a>
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="https://t.me/+Z7SebGxjJmMxNDAy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary text-sm py-2.5 px-5 inline-flex items-center gap-2 rounded-xl"
-            >
-              <Icon name="Send" size={15} />
-              Вступить в канал
-            </a>
-          </div>
-
-          <button
-            className="md:hidden p-2 text-muted-foreground"
-            onClick={() => setMenuOpen(!menuOpen)}
+          <a
+            href="https://t.me/+Z7SebGxjJmMxNDAy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex btn-glow text-[13px] py-2 px-4 items-center gap-1.5"
           >
-            <Icon name={menuOpen ? "X" : "Menu"} size={22} />
+            <Icon name="Send" size={13} />
+            Присоединиться
+          </a>
+
+          <button className="md:hidden text-muted-foreground" onClick={() => setMenuOpen(!menuOpen)}>
+            <Icon name={menuOpen ? "X" : "Menu"} size={20} />
           </button>
         </div>
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-[hsl(220_20%_4%/0.98)] backdrop-blur-xl border-b border-border">
-          <div className="px-4 py-5 flex flex-col gap-4">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-foreground hover:text-primary transition-colors font-medium py-1"
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="https://t.me/+Z7SebGxjJmMxNDAy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary text-sm text-center py-3 rounded-xl inline-flex items-center justify-center gap-2 mt-2"
-            >
-              <Icon name="Send" size={16} />
-              Вступить в канал
+        <div className="md:hidden bg-[hsl(225_25%_4%/0.98)] backdrop-blur-2xl border-b border-border px-5 py-5 flex flex-col gap-3">
+          {links.map((l) => (
+            <a key={l.href} href={l.href} className="text-foreground text-sm py-1" onClick={() => setMenuOpen(false)}>
+              {l.label}
             </a>
-          </div>
+          ))}
+          <a href="https://t.me/+Z7SebGxjJmMxNDAy" target="_blank" rel="noopener noreferrer"
+            className="btn-glow text-sm py-3 text-center mt-2 inline-flex items-center justify-center gap-2">
+            <Icon name="Send" size={14} />
+            Присоединиться
+          </a>
         </div>
       )}
     </nav>

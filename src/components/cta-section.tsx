@@ -1,110 +1,49 @@
 import Icon from "@/components/ui/icon"
-import { useState } from "react"
 
 export function CTASection() {
-  const [name, setName] = useState("")
-  const [phone, setPhone] = useState("")
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!name || !phone) return
-    setLoading(true)
-    try {
-      const res = await fetch("https://functions.poehali.dev/1e3b2a64-3ec9-4963-aa20-f90aaff560b4", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone }),
-      })
-      if (res.ok) setSubmitted(true)
-    } catch {
-      setSubmitted(true)
-    }
-    setLoading(false)
-  }
-
   return (
-    <section className="py-24 px-4 relative overflow-hidden">
+    <section className="py-20 sm:py-28 px-5 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-primary/8 blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-primary/[0.06] blur-[120px]" />
       </div>
 
-      <div className="max-w-4xl mx-auto relative z-10 text-center">
-        <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-6">
-          <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-primary text-sm font-medium">Начни зарабатывать сегодня</span>
-        </div>
+      <div className="max-w-2xl mx-auto relative z-10 text-center">
+        <div className="card-glass rounded-3xl p-8 sm:p-12 border-primary/15">
+          <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+            <Icon name="Rocket" size={24} className="text-primary" />
+          </div>
 
-        <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-          Готов изменить свой{" "}
-          <span className="gradient-text">финансовый путь?</span>
-        </h2>
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-3">
+            Через неделю ты будешь жалеть,<br />что не начал сегодня
+          </h2>
+          <p className="text-muted-foreground text-sm sm:text-base mb-8 max-w-md mx-auto">
+            1 200 человек уже зарабатывают. Вступай в канал — первый урок бесплатно, без обязательств
+          </p>
 
-        <p className="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto mb-12">
-          Более 1 200 человек уже зарабатывают от 30 000 ₽ в месяц. Присоединяйся — первый урок бесплатно!
-        </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="https://t.me/+Z7SebGxjJmMxNDAy" target="_blank" rel="noopener noreferrer"
+              className="btn-glow text-sm py-3.5 px-8 inline-flex items-center justify-center gap-2">
+              <Icon name="Send" size={16} />
+              Вступить в канал бесплатно
+            </a>
+            <a href="#lead" className="btn-ghost text-sm py-3.5 px-8 inline-flex items-center justify-center gap-2">
+              <Icon name="Phone" size={14} />
+              Оставить заявку на звонок
+            </a>
+          </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <a
-            href="https://t.me/+Z7SebGxjJmMxNDAy"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary inline-flex items-center justify-center gap-2 text-base rounded-xl py-4 px-8"
-          >
-            <Icon name="Send" size={20} />
-            Вступить в Telegram канал
-          </a>
-          <a href="#lead" className="btn-outline inline-flex items-center justify-center gap-2 text-base rounded-xl py-4 px-8">
-            <Icon name="Gift" size={20} />
-            Получить бесплатный урок
-          </a>
-        </div>
-
-        <div className="max-w-md mx-auto card-glow rounded-2xl p-7 border border-primary/20">
-          <h3 className="font-display font-bold text-xl text-foreground mb-2">Оставь заявку</h3>
-          <p className="text-muted-foreground text-sm mb-5">Мы перезвоним и ответим на все вопросы</p>
-          {submitted ? (
-            <div className="text-center py-4">
-              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-3">
-                <Icon name="CheckCircle" size={28} className="text-primary" />
+          <div className="flex items-center justify-center gap-5 mt-8 pt-6 border-t border-border">
+            {[
+              { icon: "Lock", text: "Бесплатный вход" },
+              { icon: "MessageCircle", text: "Куратор 24/7" },
+              { icon: "Zap", text: "Результат за 3 дня" },
+            ].map((b) => (
+              <div key={b.text} className="flex items-center gap-1.5">
+                <Icon name={b.icon} size={12} className="text-primary/60" />
+                <span className="text-muted-foreground text-[11px]">{b.text}</span>
               </div>
-              <p className="text-primary font-semibold text-lg">Отлично! Ждите звонка</p>
-              <p className="text-muted-foreground text-sm mt-1">Обычно перезваниваем в течение часа</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-              <input
-                type="text"
-                placeholder="Ваше имя"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                className="bg-input border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors"
-              />
-              <input
-                type="tel"
-                placeholder="Телефон или Telegram"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                required
-                className="bg-input border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors"
-              />
-              <button
-                type="submit"
-                disabled={loading}
-                className="btn-primary w-full py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-60"
-              >
-                {loading ? (
-                  <Icon name="Loader2" size={18} className="animate-spin" />
-                ) : (
-                  <Icon name="ArrowRight" size={18} />
-                )}
-                {loading ? "Отправляю..." : "Отправить заявку"}
-              </button>
-            </form>
-          )}
+            ))}
+          </div>
         </div>
       </div>
     </section>
