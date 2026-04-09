@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -37,7 +37,7 @@
   body {
     @apply bg-background text-foreground;
     font-family:
-      "Inter",
+      "Plus Jakarta Sans",
       system-ui,
       -apple-system,
       sans-serif;
@@ -56,12 +56,12 @@
   }
 
   .font-heading {
-    font-family: "Outfit", sans-serif;
+    font-family: "Sora", sans-serif;
     letter-spacing: -0.03em;
   }
 
   .font-serif {
-    font-family: "Playfair Display", serif;
+    font-family: "DM Serif Display", serif;
     font-style: italic;
   }
 
@@ -160,11 +160,11 @@
 
   .card-premium {
     background: linear-gradient(
-      135deg,
-      hsl(230 25% 7% / 0.95) 0%,
-      hsl(230 30% 5% / 0.85) 100%
+      145deg,
+      hsl(230 25% 8% / 0.95) 0%,
+      hsl(230 30% 5% / 0.9) 100%
     );
-    border: 1px solid hsl(230 15% 13%);
+    border: 1px solid hsl(230 15% 14%);
     backdrop-filter: blur(30px);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -181,18 +181,36 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(74, 222, 128, 0.4),
+      rgba(74, 222, 128, 0.5),
       transparent
     );
     opacity: 0;
     transition: opacity 0.5s;
   }
 
+  .card-premium::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle,
+      rgba(74, 222, 128, 0.03) 0%,
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+  }
+
   .card-premium:hover {
-    border-color: rgba(74, 222, 128, 0.2);
+    border-color: rgba(74, 222, 128, 0.25);
     box-shadow:
-      0 0 80px rgba(74, 222, 128, 0.06),
-      0 30px 100px rgba(0, 0, 0, 0.4);
+      0 0 80px rgba(74, 222, 128, 0.08),
+      0 30px 100px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
     transform: translateY(-6px);
   }
 
@@ -200,19 +218,25 @@
     opacity: 1;
   }
 
+  .card-premium:hover::after {
+    opacity: 1;
+  }
+
   .btn-glow {
-    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
     color: white;
-    font-weight: 600;
+    font-weight: 700;
     border-radius: 14px;
-    border: none;
+    border: 1px solid rgba(74, 222, 128, 0.3);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow:
-      0 4px 30px rgba(34, 197, 94, 0.35),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      0 4px 30px rgba(34, 197, 94, 0.4),
+      0 1px 3px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
     position: relative;
     overflow: hidden;
+    letter-spacing: -0.01em;
   }
 
   .btn-glow::before {
@@ -224,7 +248,7 @@
     height: 200%;
     background: radial-gradient(
       circle,
-      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.2) 0%,
       transparent 60%
     );
     opacity: 0;
@@ -232,30 +256,38 @@
   }
 
   .btn-glow:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.02);
     box-shadow:
-      0 8px 50px rgba(34, 197, 94, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      0 10px 60px rgba(34, 197, 94, 0.55),
+      0 4px 15px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    border-color: rgba(74, 222, 128, 0.5);
   }
 
   .btn-glow:hover::before {
     opacity: 1;
   }
 
+  .btn-glow:active {
+    transform: translateY(-1px) scale(0.99);
+  }
+
   .btn-ghost {
-    background: hsl(230 20% 8%);
-    color: hsl(0 0% 90%);
-    font-weight: 500;
+    background: hsl(230 20% 7%);
+    color: hsl(0 0% 92%);
+    font-weight: 600;
     border-radius: 14px;
-    border: 1px solid hsl(230 15% 14%);
+    border: 1px solid hsl(230 15% 16%);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
   }
 
   .btn-ghost:hover {
-    background: hsl(230 20% 11%);
-    border-color: hsl(230 15% 20%);
-    transform: translateY(-1px);
+    background: hsl(230 20% 10%);
+    border-color: rgba(74, 222, 128, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   }
 
   .section-divider {
