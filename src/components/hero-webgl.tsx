@@ -17,8 +17,8 @@ function GlowSphere() {
       <mesh ref={meshRef} scale={2.4}>
         <icosahedronGeometry args={[1, 4]} />
         <MeshDistortMaterial
-          color="#22c55e"
-          emissive="#16a34a"
+          color="#3b82f6"
+          emissive="#2563eb"
           emissiveIntensity={0.4}
           roughness={0.2}
           metalness={0.8}
@@ -33,7 +33,7 @@ function GlowSphere() {
 
 function StarParticles() {
   const ref = useRef<THREE.Points>(null)
-  const count = 250
+  const count = 300
   const positions = new Float32Array(count * 3)
   for (let i = 0; i < count; i++) {
     positions[i * 3] = (Math.random() - 0.5) * 14
@@ -51,7 +51,7 @@ function StarParticles() {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
-      <pointsMaterial size={0.02} color="#4ade80" transparent opacity={0.5} sizeAttenuation />
+      <pointsMaterial size={0.02} color="#60a5fa" transparent opacity={0.6} sizeAttenuation />
     </points>
   )
 }
@@ -60,8 +60,8 @@ function Scene3D() {
   return (
     <Canvas camera={{ position: [0, 0, 5], fov: 50 }} style={{ position: "absolute", inset: 0 }}>
       <ambientLight intensity={0.3} />
-      <pointLight position={[5, 5, 5]} intensity={0.8} color="#22c55e" />
-      <pointLight position={[-5, -3, 3]} intensity={0.3} color="#3b82f6" />
+      <pointLight position={[5, 5, 5]} intensity={0.8} color="#3b82f6" />
+      <pointLight position={[-5, -3, 3]} intensity={0.3} color="#6366f1" />
       <GlowSphere />
       <StarParticles />
     </Canvas>
@@ -94,7 +94,7 @@ function SpotsCounter() {
           <div className="w-2.5 h-2.5 rounded-full bg-red-500 ticker-urgent" />
           <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-red-500/40 ticker-urgent scale-150" />
         </div>
-        <span className="text-red-400 text-xs font-semibold uppercase tracking-wider">Мест мало</span>
+        <span className="text-red-400 text-xs font-bold uppercase tracking-wider">Мест мало</span>
       </div>
       <div className="w-px h-6 bg-border" />
       <div className="flex items-center gap-2">
@@ -125,7 +125,7 @@ function LiveTicker() {
           {names.map((n, i) => (
             <div key={i} className="h-4 flex items-center">
               <span className="text-muted-foreground">
-                <span className="text-foreground font-medium">{n}</span>{" "}
+                <span className="text-foreground font-bold">{n}</span>{" "}
                 <span className="text-primary/80">{actions[i]}</span>
               </span>
             </div>
@@ -173,7 +173,7 @@ export function Hero3DWebGL() {
 
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full opacity-[0.02]"
-          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234ade80' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }}
+          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }}
         />
       </div>
 
@@ -183,21 +183,21 @@ export function Hero3DWebGL() {
         </div>
 
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2.5 bg-primary/[0.07] border border-primary/15 rounded-full px-4 py-2 mb-8">
+          <div className="inline-flex items-center gap-2.5 bg-primary/[0.08] border border-primary/20 rounded-full px-5 py-2.5 mb-8">
             <div className="w-2 h-2 rounded-full bg-primary pulse-soft" />
-            <span className="text-primary/90 text-xs font-semibold tracking-wide">Набор в новую группу открыт</span>
+            <span className="text-primary text-xs font-bold tracking-wide uppercase">Набор в новую группу открыт</span>
             <div className="w-px h-3 bg-primary/20" />
-            <span className="text-primary/60 text-xs">Апрель 2026</span>
+            <span className="text-primary/60 text-xs font-semibold">Апрель 2026</span>
           </div>
 
-          <h1 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-extrabold text-foreground leading-[1.05] mb-6 tracking-tight reveal-up">
+          <h1 className="font-heading text-[clamp(2.6rem,6.5vw,5.5rem)] font-extrabold text-white leading-[1.02] mb-6 tracking-tight reveal-up">
             Курс по <span className="gradient-text text-shadow-glow">P2P арбитражу</span>:<br />
-            <span className="font-serif font-normal text-[0.8em] text-muted-foreground/80">заработок на крипте с нуля</span>
+            <span className="font-serif font-normal text-[0.75em] text-white/60">заработок на крипте с нуля</span>
           </h1>
 
-          <p className="text-muted-foreground text-lg sm:text-xl max-w-[560px] mx-auto mb-8 leading-relaxed font-light reveal-up reveal-up-delay-1">
+          <p className="text-white/60 text-lg sm:text-xl max-w-[580px] mx-auto mb-10 leading-relaxed font-medium reveal-up reveal-up-delay-1">
             Обучение P2P арбитражу криптовалюты с персональным куратором.<br className="hidden sm:block" />
-            Первые результаты — <span className="text-foreground font-medium">через 3 дня</span>. Без опыта в крипте.
+            Первые результаты — <span className="text-white font-bold">через 3 дня</span>. Без опыта в крипте.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8 reveal-up reveal-up-delay-2">
@@ -205,96 +205,87 @@ export function Hero3DWebGL() {
               href="https://t.me/+Z7SebGxjJmMxNDAy"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-glow text-[15px] py-4 px-9 inline-flex items-center justify-center gap-2.5"
+              className="btn-glow text-base sm:text-lg py-4 sm:py-5 px-8 sm:px-10 inline-flex items-center justify-center gap-3"
             >
-              <Icon name="Send" size={17} />
-              Начать обучение бесплатно
+              <Icon name="Send" size={18} />
+              <span>Начать бесплатно</span>
             </a>
-            <a href="#how" className="btn-ghost text-[15px] py-4 px-8 inline-flex items-center justify-center gap-2">
-              Как это работает
-              <Icon name="ChevronDown" size={15} />
+            <a href="#lead" className="btn-ghost text-base py-4 sm:py-5 px-8 inline-flex items-center justify-center gap-2">
+              <Icon name="Phone" size={16} />
+              <span>Заявка на звонок</span>
             </a>
           </div>
 
-          <div className="mb-10 reveal-up reveal-up-delay-3">
+          <div className="flex flex-wrap justify-center gap-6 mb-6 reveal-up reveal-up-delay-3">
             <SpotsCounter />
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-12 max-w-[720px] mx-auto">
-          {[
-            { val: "3 дня", sub: "до первого заработка", icon: "Zap" },
-            { val: "1 500+", sub: "учеников прошли курс", icon: "Users" },
-            { val: "от 150К", sub: "рублей в месяц", icon: "TrendingUp" },
-          ].map((s) => (
-            <div key={s.sub} className="card-premium rounded-2xl p-4 sm:p-6 text-center group">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/15 transition-colors">
-                <Icon name={s.icon} size={18} className="text-primary" />
-              </div>
-              <div className="font-display text-xl sm:text-2xl font-bold text-foreground mb-1">{s.val}</div>
-              <div className="text-muted-foreground text-[11px] sm:text-xs">{s.sub}</div>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex items-center justify-center gap-6 mb-12 flex-wrap">
-          {[
-            { icon: "ShieldCheck", text: "Официально и легально" },
-            { icon: "Lock", text: "Без рисков для новичков" },
-            { icon: "CreditCard", text: "Без скрытых платежей" },
-          ].map((b) => (
-            <div key={b.text} className="flex items-center gap-2">
-              <Icon name={b.icon} size={14} className="text-primary/60" />
-              <span className="text-muted-foreground text-[13px]">{b.text}</span>
-            </div>
-          ))}
-        </div>
-
-        <div className="overflow-hidden mb-14 relative">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[hsl(230_25%_3%)] to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[hsl(230_25%_3%)] to-transparent z-10" />
-          <div className="flex gap-10 marquee whitespace-nowrap">
-            {[...logos, ...logos, ...logos].map((l, i) => (
-              <span key={i} className="text-muted-foreground/20 text-sm font-display font-medium tracking-[0.2em] uppercase">{l}</span>
+        <div className="border-t border-white/[0.06] pt-8 reveal-up reveal-up-delay-3">
+          <p className="text-center text-muted-foreground/40 text-[11px] font-semibold uppercase tracking-widest mb-5">
+            Работаем с ведущими биржами
+          </p>
+          <div className="flex items-center justify-center gap-6 sm:gap-10 flex-wrap opacity-30">
+            {logos.map((l) => (
+              <span key={l} className="text-foreground/80 text-sm sm:text-base font-bold tracking-wide">{l}</span>
             ))}
           </div>
         </div>
+      </div>
 
-        <div id="lead" className="max-w-[420px] mx-auto">
-          <div className="card-premium rounded-3xl p-7 border-primary/15 glow-green">
-            <div className="text-center mb-6">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
-                <Icon name="Gift" size={22} className="text-primary" />
-              </div>
-              <h3 className="font-heading font-bold text-xl text-foreground">Бесплатный пробный урок</h3>
-              <p className="text-muted-foreground text-sm mt-1.5">Покажем на практике как заработать первые деньги</p>
-            </div>
-            {submitted ? (
-              <div className="text-center py-4">
-                <div className="w-14 h-14 rounded-full bg-primary/15 flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Check" size={24} className="text-primary" />
+      <div id="lead" className="relative z-10 max-w-md mx-auto w-full mt-20">
+        <div className="card-premium rounded-3xl p-8 sm:p-10 border-primary/15 glow-blue">
+          {!submitted ? (
+            <>
+              <div className="text-center mb-7">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
+                  <Icon name="Phone" size={24} className="text-primary" />
                 </div>
-                <p className="text-foreground font-bold text-lg">Заявка принята!</p>
-                <p className="text-muted-foreground text-sm mt-1.5">Свяжемся с тобой в ближайшее время</p>
+                <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-white mb-2">Оставь заявку</h3>
+                <p className="text-white/50 text-sm font-medium">Куратор перезвонит и расскажет подробности</p>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                <input type="text" placeholder="Ваше имя" value={name} onChange={(e) => setName(e.target.value)} required minLength={2}
-                  className="w-full bg-input/60 border border-border/80 rounded-xl px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/40 focus:bg-input/80 transition-all" />
-                <input type="tel" placeholder="Телефон или @telegram" value={phone} onChange={(e) => setPhone(e.target.value)} required
-                  className="w-full bg-input/60 border border-border/80 rounded-xl px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/40 focus:bg-input/80 transition-all" />
-                {error && <p className="text-red-400 text-xs text-center">{error}</p>}
-                <button type="submit" disabled={loading}
-                  className="btn-glow w-full py-3.5 text-[15px] flex items-center justify-center gap-2 disabled:opacity-50">
-                  {loading ? <Icon name="Loader2" size={17} className="animate-spin" /> : <Icon name="ArrowRight" size={17} />}
-                  {loading ? "Отправляю..." : "Получить бесплатный урок"}
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <input
+                  type="text"
+                  placeholder="Твоё имя"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  minLength={2}
+                  className="w-full bg-white/[0.05] border border-white/[0.1] rounded-xl px-5 py-3.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-primary/40 transition-colors font-medium"
+                />
+                <input
+                  type="text"
+                  placeholder="Телефон или Telegram"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                  className="w-full bg-white/[0.05] border border-white/[0.1] rounded-xl px-5 py-3.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-primary/40 transition-colors font-medium"
+                />
+                {error && <p className="text-red-400 text-xs font-semibold">{error}</p>}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full btn-glow text-base py-4 font-extrabold disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading ? "Отправляю..." : "Отправить заявку"}
                 </button>
-                <p className="text-muted-foreground/40 text-[10px] text-center">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
               </form>
-            )}
-          </div>
+              <p className="text-center text-white/25 text-[11px] mt-4 font-medium">Бесплатная консультация. Без обязательств</p>
+            </>
+          ) : (
+            <div className="text-center py-6">
+              <div className="w-16 h-16 rounded-full bg-primary/15 flex items-center justify-center mx-auto mb-4">
+                <Icon name="Check" size={28} className="text-primary" />
+              </div>
+              <h3 className="font-heading text-xl font-extrabold text-white mb-2">Заявка отправлена!</h3>
+              <p className="text-white/50 text-sm font-medium">Куратор свяжется с тобой в ближайшее время</p>
+            </div>
+          )}
         </div>
       </div>
     </section>
   )
 }
+
+export default Hero3DWebGL

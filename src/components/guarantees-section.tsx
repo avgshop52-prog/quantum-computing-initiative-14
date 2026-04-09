@@ -36,49 +36,49 @@ const guarantees = [
 
 export function GuaranteesSection() {
   return (
-    <section className="py-24 sm:py-32 px-5 relative overflow-hidden">
+    <section className="py-28 sm:py-36 px-5 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-primary/[0.07] border border-primary/15 rounded-full px-4 py-2 mb-6">
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 bg-primary/[0.08] border border-primary/20 rounded-full px-5 py-2.5 mb-6">
             <Icon name="Shield" size={14} className="text-primary" />
-            <span className="text-primary/90 text-xs font-semibold">Почему нам можно доверять</span>
+            <span className="text-primary text-xs font-extrabold uppercase tracking-wide">Почему нам можно доверять</span>
           </div>
-          <h2 className="font-heading text-3xl sm:text-[2.8rem] font-extrabold text-foreground leading-tight mb-4">
+          <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
             Мы учим, а не <span className="gradient-text">обманываем</span>
           </h2>
-          <p className="text-muted-foreground text-base max-w-lg mx-auto">
+          <p className="text-white/50 text-base max-w-lg mx-auto font-medium">
             Понимаем, что в интернете много мошенников. Поэтому максимально прозрачны — вот наши гарантии
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {guarantees.map((g) => (
-            <div key={g.title} className={`rounded-2xl p-6 group ${g.highlight ? "card-premium border-primary/20" : "card-glass"}`}>
-              <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-colors ${g.highlight ? "bg-primary/15" : "bg-primary/10 border border-primary/15 group-hover:bg-primary/15"}`}>
-                <Icon name={g.icon} size={20} className="text-primary" />
+            <div key={g.title} className={`rounded-2xl p-7 group ${g.highlight ? "card-premium border-primary/25" : "card-glass"}`}>
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors ${g.highlight ? "bg-primary/15" : "bg-primary/10 border border-primary/15 group-hover:bg-primary/15"}`}>
+                <Icon name={g.icon} size={22} className="text-primary" />
               </div>
-              <h3 className="font-heading font-bold text-[15px] text-foreground mb-2">{g.title}</h3>
-              <p className="text-muted-foreground text-[13px] leading-relaxed">{g.desc}</p>
+              <h3 className="font-heading font-extrabold text-[17px] text-white mb-3">{g.title}</h3>
+              <p className="text-white/50 text-[13px] leading-relaxed font-medium">{g.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <div className="card-glass-static rounded-2xl p-6 max-w-2xl mx-auto">
+        <div className="mt-14 text-center">
+          <div className="card-glass-static rounded-2xl p-7 max-w-2xl mx-auto">
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Icon name="Quote" size={18} className="text-primary" />
+              <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="Quote" size={20} className="text-primary" />
               </div>
               <div className="text-left">
-                <p className="text-foreground text-sm leading-relaxed italic mb-2">
+                <p className="text-white text-sm leading-relaxed italic mb-3 font-medium">
                   «1 500 учеников — но наша главная метрика не количество, а качество. 97% начали зарабатывать. Если ты не получишь результат — мы провалились.»
                 </p>
-                <p className="text-muted-foreground text-xs font-medium">— Дмитрий Волков, основатель P2P Profit</p>
+                <p className="text-white/40 text-xs font-bold">— Дмитрий Волков, основатель P2P Profit</p>
               </div>
             </div>
           </div>

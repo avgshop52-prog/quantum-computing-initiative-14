@@ -38,18 +38,18 @@ const mentors = [
 
 export function MentorsSection() {
   return (
-    <section id="team" className="py-24 sm:py-32 px-5 relative overflow-hidden">
+    <section id="team" className="py-28 sm:py-36 px-5 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-primary/[0.03] blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-primary/[0.05] blur-[150px]" />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-3">Команда</p>
-          <h2 className="font-heading text-3xl sm:text-[2.8rem] font-extrabold text-foreground leading-tight mb-4">
+        <div className="text-center mb-20">
+          <p className="text-primary text-xs font-extrabold tracking-widest uppercase mb-4">Команда</p>
+          <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
             Люди, которые <span className="gradient-text">научат тебя</span>
           </h2>
-          <p className="text-muted-foreground text-base max-w-lg mx-auto">
+          <p className="text-white/50 text-base max-w-lg mx-auto font-medium">
             Не анонимные «эксперты». Реальные люди с реальным опытом, которые лично ведут каждого ученика
           </p>
         </div>
@@ -60,25 +60,25 @@ export function MentorsSection() {
               <div className="aspect-[4/3] overflow-hidden relative">
                 <img src={m.img} alt={m.name} loading="lazy"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(230_25%_3%)] via-[hsl(230_25%_3%/0.3)] to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(222_47%_5%)] via-[hsl(222_47%_5%/0.3)] to-transparent" />
                 <div className="absolute bottom-4 left-5 right-5 flex gap-2">
                   {m.socials.map((s) => (
                     <a key={s.icon} href={s.href} target="_blank" rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-lg bg-white/10 backdrop-blur-md flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all">
-                      <Icon name={s.icon} size={14} />
+                      className="w-9 h-9 rounded-lg bg-white/10 backdrop-blur-md flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all">
+                      <Icon name={s.icon} size={15} />
                     </a>
                   ))}
                 </div>
               </div>
-              <div className="p-6">
-                <p className="text-primary text-[11px] font-semibold tracking-wider uppercase mb-1.5">{m.role}</p>
-                <h3 className="font-heading text-xl font-bold text-foreground mb-2">{m.name}</h3>
-                <p className="text-muted-foreground text-[13px] leading-relaxed mb-5">{m.desc}</p>
+              <div className="p-7">
+                <p className="text-primary text-[11px] font-extrabold tracking-wider uppercase mb-2">{m.role}</p>
+                <h3 className="font-heading text-xl font-extrabold text-white mb-3">{m.name}</h3>
+                <p className="text-white/50 text-[13px] leading-relaxed mb-5 font-medium">{m.desc}</p>
                 <div className="flex gap-3">
                   {m.stats.map((s) => (
-                    <div key={s.label} className="bg-muted/50 rounded-xl px-4 py-2.5 flex-1 text-center border border-border/50">
-                      <div className="font-display text-sm font-bold text-foreground">{s.val}</div>
-                      <div className="text-muted-foreground text-[10px] mt-0.5">{s.label}</div>
+                    <div key={s.label} className="bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 flex-1 text-center">
+                      <div className="font-display text-sm font-extrabold text-white">{s.val}</div>
+                      <div className="text-white/30 text-[10px] mt-0.5 font-bold uppercase">{s.label}</div>
                     </div>
                   ))}
                 </div>

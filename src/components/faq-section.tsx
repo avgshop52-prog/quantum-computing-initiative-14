@@ -10,18 +10,20 @@ const faqs = [
   { q: "А если я потеряю деньги?", a: "При соблюдении правил, которым мы учим, риск потери минимален. Сделки проходят через эскроу-защиту бирж — деньги замораживаются до подтверждения обеими сторонами." },
   { q: "Это законно?", a: "Да. P2P обмен криптовалюты — легальная деятельность. Все операции проходят через верифицированные площадки (Binance, Bybit и др.)." },
   { q: "Чем вы отличаетесь от других «курсов»?", a: "У нас нет курса за 100 000₽. Вступаешь в канал бесплатно, получаешь материалы и куратора. Платишь только если хочешь продвинутые стратегии. И главное — мы показываем результат с первой недели, а не через 3 месяца теории." },
+  { q: "Как связаться с поддержкой?", a: "Напиши в наш Telegram канал — куратор ответит в течение нескольких минут. Поддержка работает 24/7, без выходных и праздников." },
+  { q: "Какие биржи вы используете?", a: "Работаем с крупнейшими и проверенными биржами: Binance, Bybit, OKX, KuCoin, Gate.io и другими. Все площадки верифицированы и имеют эскроу-защиту." },
 ]
 
 export function FAQSection() {
   return (
-    <section id="faq" className="py-24 sm:py-32 px-5 relative">
+    <section id="faq" className="py-28 sm:py-36 px-5 relative">
       <div className="max-w-2xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-3">Вопросы</p>
-          <h2 className="font-heading text-3xl sm:text-[2.8rem] font-extrabold text-foreground leading-tight mb-4">
+        <div className="text-center mb-20">
+          <p className="text-primary text-xs font-extrabold tracking-widest uppercase mb-4">Вопросы</p>
+          <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
             Частые <span className="gradient-text">вопросы</span>
           </h2>
-          <p className="text-muted-foreground text-base max-w-md mx-auto">
+          <p className="text-white/50 text-base max-w-md mx-auto font-medium">
             Ответы на всё, что вы хотели спросить
           </p>
         </div>
@@ -29,15 +31,15 @@ export function FAQSection() {
         <Accordion type="single" collapsible className="flex flex-col gap-3">
           {faqs.map((f, i) => (
             <AccordionItem key={i} value={`q-${i}`} className="card-premium rounded-xl border-0 overflow-hidden">
-              <AccordionTrigger className="text-left text-sm font-semibold text-foreground hover:text-primary transition-colors px-6 py-5 hover:no-underline gap-3">
+              <AccordionTrigger className="text-left text-sm font-extrabold text-white hover:text-primary transition-colors px-6 py-5 hover:no-underline gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Icon name="HelpCircle" size={14} className="text-primary" />
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Icon name="HelpCircle" size={15} className="text-primary" />
                   </div>
                   {f.q}
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground text-[13px] leading-relaxed px-6 pb-5 pl-16">
+              <AccordionContent className="text-white/60 text-[13px] leading-relaxed px-6 pb-5 pl-[68px] font-medium">
                 {f.a}
               </AccordionContent>
             </AccordionItem>
@@ -47,3 +49,5 @@ export function FAQSection() {
     </section>
   )
 }
+
+export default FAQSection

@@ -2,7 +2,7 @@ import Icon from "@/components/ui/icon"
 
 const reviews = [
   { name: "Алексей К.", tag: "3 месяца в обучении", text: "Честно — первую неделю думал, что ничего не получится. Куратор Дима терпеливо объяснял одно и то же по три раза. На 4-й день закрыл первую сделку. Сейчас стабильно выхожу на 120-130 тыс., совмещаю с основной работой.", highlight: true, earned: "125 000₽/мес" },
-  { name: "Дарья М.", tag: "мама в декрете", text: "Занимаюсь пока дочка спит днём — 2 часа утром и час вечером. Прошлый месяц вышло 78 000. Это в 2 раза больше, чем была моя зарплата менеджером до декрета. Наконец не прошу у мужа на свои расходы.", earned: "78 000₽/мес" },
+  { name: "Дарья М.", tag: "мама в декрете", text: "Занимаюсь пока дочка спит днём — 2 часа утром и час вечером. Прошлый месяц вышло 78 000. Это в 2 раза больше, чем была моя зарплата менеджером до декрета.", earned: "78 000₽/мес" },
   { name: "Игорь В.", tag: "бывший водитель такси", text: "12 часов за рулём — 2500 в день. Тут за 3 часа столько же. Спина не болит, нервы целы. Жена не верила, пока не показал переводы. Ушёл из такси на 2-й месяц.", highlight: true, earned: "94 000₽/мес" },
   { name: "Наташа Р.", tag: "5 месяцев", text: "Закрыла кредит 120 000₽ за 2 месяца. Раньше платила по 15 тыс. в месяц и чувствовала себя в ловушке. Сейчас откладываю на отпуск — первый нормальный за 3 года.", earned: "85 000₽/мес" },
   { name: "Роман С.", tag: "студент, 20 лет", text: "Однокурсники работают кассирами за 20 тыс. Я работаю из общаги 2 часа в день. Да, пришлось вникать — не всё сразу понял. Но куратор Аня ответила на 100500 моих вопросов.", earned: "65 000₽/мес" },
@@ -16,8 +16,8 @@ const reviews = [
 ]
 
 const colors = [
-  "bg-emerald-500/20 text-emerald-400",
   "bg-blue-500/20 text-blue-400",
+  "bg-indigo-500/20 text-indigo-400",
   "bg-violet-500/20 text-violet-400",
   "bg-amber-500/20 text-amber-400",
   "bg-rose-500/20 text-rose-400",
@@ -30,53 +30,53 @@ export function TestimonialsSection() {
   const col3 = reviews.filter((_, i) => i % 3 === 2)
 
   return (
-    <section id="reviews" className="py-24 sm:py-32 px-5 overflow-hidden relative">
+    <section id="reviews" className="py-28 sm:py-36 px-5 overflow-hidden relative">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-0 w-[400px] h-[400px] rounded-full bg-primary/[0.03] blur-[120px]" />
-        <div className="absolute bottom-1/3 right-0 w-[400px] h-[400px] rounded-full bg-blue-500/[0.02] blur-[120px]" />
+        <div className="absolute top-1/3 left-0 w-[400px] h-[400px] rounded-full bg-primary/[0.05] blur-[120px]" />
+        <div className="absolute bottom-1/3 right-0 w-[400px] h-[400px] rounded-full bg-indigo-500/[0.03] blur-[120px]" />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-3">Отзывы учеников</p>
-          <h2 className="font-heading text-3xl sm:text-[2.8rem] font-extrabold text-foreground leading-tight mb-4">
+        <div className="text-center mb-20">
+          <p className="text-primary text-xs font-extrabold tracking-widest uppercase mb-4">Отзывы учеников</p>
+          <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
             Реальные истории{" "}
-            <span className="font-serif font-normal text-muted-foreground/80">реальных людей</span>
+            <span className="font-serif font-normal text-white/50">реальных людей</span>
           </h2>
-          <p className="text-muted-foreground text-base max-w-md mx-auto">
+          <p className="text-white/50 text-base max-w-md mx-auto font-medium">
             Без постановок и копипаста. Каждый отзыв — живой человек из нашего канала
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {[col1, col2, col3].map((col, ci) => (
-            <div key={ci} className="flex flex-col gap-4">
+            <div key={ci} className="flex flex-col gap-5">
               {col.map((r, ri) => (
-                <div key={r.name} className={`rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 ${r.highlight ? "card-premium border-primary/15" : "card-glass"}`}>
-                  <div className="flex items-center justify-between mb-4">
+                <div key={r.name} className={`rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 ${r.highlight ? "card-premium border-primary/20" : "card-glass"}`}>
+                  <div className="flex items-center justify-between mb-5">
                     <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center ${colors[(ci * 6 + ri) % colors.length]}`}>
-                        <span className="text-sm font-bold">{r.name[0]}</span>
+                      <div className={`w-11 h-11 rounded-full flex items-center justify-center ${colors[(ci * 6 + ri) % colors.length]}`}>
+                        <span className="text-sm font-extrabold">{r.name[0]}</span>
                       </div>
                       <div>
-                        <p className="text-foreground text-sm font-semibold">{r.name}</p>
-                        <p className="text-muted-foreground text-[11px]">{r.tag}</p>
+                        <p className="text-white text-sm font-extrabold">{r.name}</p>
+                        <p className="text-white/40 text-[11px] font-semibold">{r.tag}</p>
                       </div>
                     </div>
                     {r.earned && (
-                      <div className="bg-primary/10 border border-primary/20 rounded-lg px-2.5 py-1">
-                        <span className="text-primary text-[11px] font-bold">{r.earned}</span>
+                      <div className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-1.5">
+                        <span className="text-primary text-[11px] font-extrabold">{r.earned}</span>
                       </div>
                     )}
                   </div>
-                  <p className="text-foreground/90 text-[13px] leading-relaxed mb-4">{r.text}</p>
+                  <p className="text-white/80 text-[13px] leading-relaxed mb-4 font-medium">{r.text}</p>
                   <div className="flex items-center justify-between">
                     <div className="flex gap-0.5">
                       {Array.from({ length: 5 }).map((_, i) => (
-                        <Icon key={i} name="Star" size={11} className="text-yellow-500 fill-yellow-500" />
+                        <Icon key={i} name="Star" size={12} className="text-yellow-500 fill-yellow-500" />
                       ))}
                     </div>
-                    <span className="text-muted-foreground/40 text-[10px]">Telegram</span>
+                    <span className="text-white/20 text-[10px] font-bold">Telegram</span>
                   </div>
                 </div>
               ))}
@@ -84,10 +84,10 @@ export function TestimonialsSection() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-14 text-center">
           <a href="https://t.me/+Z7SebGxjJmMxNDAy" target="_blank" rel="noopener noreferrer"
-            className="btn-glow text-[15px] py-4 px-9 inline-flex items-center gap-2.5">
-            <Icon name="Send" size={15} />
+            className="btn-glow text-base py-4 px-10 inline-flex items-center gap-2.5 font-extrabold">
+            <Icon name="Send" size={16} />
             Присоединиться к ним
           </a>
         </div>
@@ -95,3 +95,5 @@ export function TestimonialsSection() {
     </section>
   )
 }
+
+export default TestimonialsSection
