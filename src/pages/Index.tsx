@@ -12,6 +12,7 @@ import { CTASection } from "@/components/cta-section"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { SeoTextBlock } from "@/components/seo-text-block"
+import { ChatWidget } from "@/components/chat-widget"
 
 export default function Index() {
   return (
@@ -41,6 +42,7 @@ export default function Index() {
       </main>
       <SeoTextBlock />
       <Footer />
+      <ChatWidget />
     </div>
   )
 }

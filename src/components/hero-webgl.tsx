@@ -224,8 +224,8 @@ export function Hero3DWebGL() {
         <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-12 max-w-[720px] mx-auto">
           {[
             { val: "3 дня", sub: "до первого заработка", icon: "Zap" },
-            { val: "1 200+", sub: "учеников прошли курс", icon: "Users" },
-            { val: "от 50К", sub: "рублей в месяц", icon: "TrendingUp" },
+            { val: "1 500+", sub: "учеников прошли курс", icon: "Users" },
+            { val: "от 150К", sub: "рублей в месяц", icon: "TrendingUp" },
           ].map((s) => (
             <div key={s.sub} className="card-premium rounded-2xl p-4 sm:p-6 text-center group">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/15 transition-colors">

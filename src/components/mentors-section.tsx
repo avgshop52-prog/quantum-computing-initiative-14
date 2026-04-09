@@ -4,11 +4,11 @@ const mentors = [
   {
     name: "Дмитрий Волков",
     role: "Основатель P2P Profit",
-    desc: "3 года в P2P арбитраже. Обучил 1 200+ учеников. Создал систему обучения, которая даёт результат с первой недели.",
+    desc: "4 года в P2P арбитраже. Обучил 1 500+ учеников. Создал систему обучения, которая даёт результат с первой недели.",
     img: "https://cdn.poehali.dev/projects/166c0de3-fca3-4625-9fe7-cae8102d3439/files/adc34bdc-0539-46c6-b99b-a3ee10e68fe3.jpg",
     stats: [
-      { label: "Опыт", val: "3+ лет" },
-      { label: "Учеников", val: "1 200+" },
+      { label: "Опыт", val: "4+ лет" },
+      { label: "Учеников", val: "1 500+" },
     ],
     socials: [{ icon: "Send", href: "https://t.me/+Z7SebGxjJmMxNDAy" }],
   },
@@ -18,8 +18,8 @@ const mentors = [
     desc: "Специалист по стратегиям для новичков. Терпеливо объясняет каждый шаг и помогает избежать типичных ошибок.",
     img: "https://cdn.poehali.dev/projects/166c0de3-fca3-4625-9fe7-cae8102d3439/files/f301f540-0573-4f0c-b9bc-05e9c8d921ef.jpg",
     stats: [
-      { label: "Учеников", val: "400+" },
-      { label: "Успешность", val: "96%" },
+      { label: "Учеников", val: "600+" },
+      { label: "Успешность", val: "97%" },
     ],
     socials: [{ icon: "Send", href: "https://t.me/+Z7SebGxjJmMxNDAy" }],
   },
@@ -29,7 +29,7 @@ const mentors = [
     desc: "IT-специалист, автоматизировал P2P процессы. Помогает масштабировать доход и оптимизировать стратегии.",
     img: "https://cdn.poehali.dev/projects/166c0de3-fca3-4625-9fe7-cae8102d3439/files/cb50b6bd-0b42-467e-924b-dbce44093e19.jpg",
     stats: [
-      { label: "Доход", val: "90К+/мес" },
+      { label: "Доход", val: "200К+/мес" },
       { label: "Опыт", val: "2 года" },
     ],
     socials: [{ icon: "Send", href: "https://t.me/+Z7SebGxjJmMxNDAy" }],

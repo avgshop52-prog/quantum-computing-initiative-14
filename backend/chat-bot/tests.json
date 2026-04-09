@@ -1,0 +1,19 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Empty message",
+      "method": "POST",
+      "path": "/",
+      "body": {"message": ""},
+      "expectedStatus": 400,
+      "expectedBody": {"error": "Сообщение не может быть пустым"},
+      "bodyMatcher": "partial"
+    }
+  ]
+}

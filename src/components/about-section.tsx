@@ -49,8 +49,8 @@ export function AboutSection() {
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-background/80 via-transparent to-transparent z-10" />
             <div className="absolute bottom-5 left-5 right-5 flex gap-3 z-20">
               {[
-                { val: "₽2.3М+", label: "выплачено ученикам" },
-                { val: "34%", label: "средний ROI" },
+                { val: "₽8.7М+", label: "заработано учениками" },
+                { val: "42%", label: "средний ROI" },
               ].map((s) => (
                 <div key={s.label} className="card-glass-static rounded-xl px-4 py-3.5 flex-1 text-center">
                   <div className="font-display text-lg font-bold gradient-text">{s.val}</div>
