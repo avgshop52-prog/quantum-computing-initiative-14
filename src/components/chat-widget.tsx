@@ -89,7 +89,7 @@ export function ChatWidget() {
       </button>
 
       {open && (
-        <div className="fixed bottom-24 right-5 z-50 w-[360px] max-w-[calc(100vw-40px)] animate-in">
+        <div className="fixed bottom-24 right-5 z-50 w-[360px] max-w-[calc(100vw-40px)]" style={{ animation: "chatSlideIn 0.25s ease-out forwards" }}>
           <div className="rounded-3xl overflow-hidden border border-white/[0.08] shadow-2xl shadow-black/40 bg-[hsl(230_25%_5%)] flex flex-col" style={{ height: "500px" }}>
             <div className="p-5 border-b border-white/[0.06] bg-gradient-to-r from-primary/10 via-transparent to-transparent">
               <div className="flex items-center gap-3">
