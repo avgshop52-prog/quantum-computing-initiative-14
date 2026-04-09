@@ -97,7 +97,7 @@ def handler(event: dict, context) -> dict:
     if len(message) > 500:
         message = message[:500]
 
-    api_key = os.environ.get('OPENAI_API_KEY', '')
+    api_key = os.environ.get('GROQ_API_KEY', '')
     if not api_key:
         reply = find_offline_answer(message)
         return {
@@ -117,14 +117,14 @@ def handler(event: dict, context) -> dict:
     messages.append({"role": "user", "content": message})
 
     payload = json.dumps({
-        "model": "gpt-4o-mini",
+        "model": "llama-3.3-70b-versatile",
         "messages": messages,
         "max_tokens": 300,
         "temperature": 0.7,
     }).encode('utf-8')
 
     req = urllib.request.Request(
-        "https://api.openai.com/v1/chat/completions",
+        "https://api.groq.com/openai/v1/chat/completions",
         data=payload,
         headers={
             'Content-Type': 'application/json',
@@ -137,7 +137,7 @@ def handler(event: dict, context) -> dict:
         result = json.loads(resp.read().decode())
         reply = result['choices'][0]['message']['content']
     except urllib.error.HTTPError as e:
-        print(f"OpenAI error: {e.code} {e.reason}")
+        print(f"Groq error: {e.code} {e.reason}")
         reply = find_offline_answer(message)
     except Exception as e:
         print(f"Request error: {e}")
