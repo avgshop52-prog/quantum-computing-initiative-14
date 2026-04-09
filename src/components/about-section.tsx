@@ -8,11 +8,11 @@ export function AboutSection() {
           <div>
             <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-3">Почему P2P</p>
             <h2 className="font-heading text-3xl sm:text-[2.5rem] font-extrabold text-foreground leading-tight mb-5">
-              Не трейдинг. Не инвестиции.<br />
-              <span className="gradient-text">Чистая математика.</span>
+              P2P арбитраж криптовалюты —<br />
+              <span className="gradient-text">не трейдинг и не инвестиции.</span>
             </h2>
             <p className="text-muted-foreground text-[15px] leading-relaxed mb-8">
-              P2P арбитраж — это покупка криптовалюты дешевле на одной площадке и продажа дороже на другой. Разница курсов = твой доход. Рынок может падать или расти — тебе всё равно, ты зарабатываешь всегда.
+              P2P арбитраж — это покупка криптовалюты дешевле на одной площадке и продажа дороже на другой. Разница курсов = твой доход. Наш курс по P2P арбитражу научит тебя зарабатывать стабильно, пока рынок падает или растёт.
             </p>
 
             <div className="grid grid-cols-2 gap-3 mb-8">

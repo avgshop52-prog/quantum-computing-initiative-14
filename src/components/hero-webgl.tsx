@@ -191,13 +191,12 @@ export function Hero3DWebGL() {
           </div>
 
           <h1 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-extrabold text-foreground leading-[1.05] mb-6 tracking-tight reveal-up">
-            Научим зарабатывать на<br />
-            <span className="gradient-text text-shadow-glow">P2P арбитраже</span>{" "}
-            <span className="font-serif font-normal text-[0.8em] text-muted-foreground/80">с нуля</span>
+            Курс по <span className="gradient-text text-shadow-glow">P2P арбитражу</span>:<br />
+            <span className="font-serif font-normal text-[0.8em] text-muted-foreground/80">заработок на крипте с нуля</span>
           </h1>
 
           <p className="text-muted-foreground text-lg sm:text-xl max-w-[560px] mx-auto mb-8 leading-relaxed font-light reveal-up reveal-up-delay-1">
-            Пошаговое обучение с персональным куратором.<br className="hidden sm:block" />
+            Обучение P2P арбитражу криптовалюты с персональным куратором.<br className="hidden sm:block" />
             Первые результаты — <span className="text-foreground font-medium">через 3 дня</span>. Без опыта в крипте.
           </p>
 

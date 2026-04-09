@@ -20,7 +20,7 @@ export function FeaturesSection() {
         <div className="text-center mb-16">
           <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-3">Преимущества</p>
           <h2 className="font-heading text-3xl sm:text-[2.8rem] font-extrabold text-foreground leading-tight mb-4">
-            Почему <span className="gradient-text">1 200 человек</span> уже с нами
+            Почему наши курсы по <span className="gradient-text">P2P арбитражу</span> выбирают 1 200 человек
           </h2>
         </div>
 
