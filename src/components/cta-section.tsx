@@ -69,9 +69,10 @@ export function CTASection() {
               <Icon name="Send" size={17} />
               Вступить в канал бесплатно
             </a>
-            <a href="#lead" className="btn-ghost text-base py-4 px-8 inline-flex items-center justify-center gap-2 font-bold">
-              <Icon name="Phone" size={16} />
-              Заявка на звонок
+            <a href="https://t.me/KuratorP2PProfit" target="_blank" rel="noopener noreferrer"
+              className="btn-ghost text-base py-4 px-8 inline-flex items-center justify-center gap-2 font-bold">
+              <Icon name="MessageCircle" size={16} />
+              Написать куратору
             </a>
           </div>
 

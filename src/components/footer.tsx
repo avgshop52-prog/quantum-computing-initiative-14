@@ -14,13 +14,17 @@ export function Footer() {
               </div>
               <span className="font-heading font-extrabold text-[18px] text-white">P2P <span className="gradient-text">Profit</span></span>
             </div>
-            <p className="text-white/40 text-sm leading-relaxed mb-5 font-medium">
+            <p className="text-white/40 text-sm leading-relaxed mb-5 font-semibold">
               Обучаем P2P арбитражу криптовалюты с нуля. 1 500+ учеников, персональные кураторы и результат с первой недели.
             </p>
             <div className="flex gap-3">
               <a href="https://t.me/+Z7SebGxjJmMxNDAy" target="_blank" rel="noopener noreferrer"
                 className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white/40 hover:text-primary hover:bg-primary/10 hover:border-primary/20 transition-all">
                 <Icon name="Send" size={17} />
+              </a>
+              <a href="https://t.me/KuratorP2PProfit" target="_blank" rel="noopener noreferrer"
+                className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white/40 hover:text-primary hover:bg-primary/10 hover:border-primary/20 transition-all">
+                <Icon name="MessageCircle" size={17} />
               </a>
             </div>
           </div>
@@ -48,6 +52,11 @@ export function Footer() {
                   <Icon name="Send" size={14} />
                   Telegram канал
                 </a>
+                <a href="https://t.me/KuratorP2PProfit" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 text-white/50 text-sm hover:text-white transition-colors font-bold">
+                  <Icon name="MessageCircle" size={14} />
+                  Написать куратору
+                </a>
               </div>
             </div>
           </div>
@@ -55,7 +64,7 @@ export function Footer() {
 
         <div className="border-t border-white/[0.06] pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-white/30 text-xs font-semibold">© 2026 P2P Profit. Все права защищены.</p>
-          <p className="text-white/20 text-[11px] font-medium">Результаты зависят от индивидуальных усилий каждого участника</p>
+          <p className="text-white/20 text-[11px] font-medium">Результаты зависят от индивидуальных усилий участника</p>
         </div>
       </div>
     </footer>

@@ -37,7 +37,7 @@ function AnimatedNumber({ target, suffix = "", prefix = "" }: { target: number; 
 }
 
 const stats = [
-  { target: 1500, suffix: "+", label: "учеников прошли обучение", icon: "Users" },
+  { target: 1500, suffix: "+", label: "учеников обучено", icon: "Users" },
   { target: 97, suffix: "%", label: "получили результат", icon: "Target" },
   { target: 8700000, prefix: "₽", suffix: "+", label: "заработано учениками", icon: "Banknote" },
   { target: 3, suffix: " дня", label: "до первой прибыли", icon: "Zap" },
@@ -55,7 +55,7 @@ export function ResultsSection() {
         <div className="text-center mb-20">
           <p className="text-primary text-xs font-extrabold tracking-widest uppercase mb-4">Цифры</p>
           <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
-            Результаты говорят <span className="font-serif font-normal text-white/50">за нас</span>
+            Результаты говорят <span className="font-serif font-normal text-white/50">сами за себя</span>
           </h2>
         </div>
 
@@ -73,9 +73,9 @@ export function ResultsSection() {
 
         <div className="mt-14 grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
           {[
-            { icon: "GraduationCap", text: "Обучение с абсолютного нуля — объясняем каждую кнопку" },
-            { icon: "HeartHandshake", text: "Куратор ведёт лично — не бросаем после оплаты" },
-            { icon: "RefreshCcw", text: "Пожизненный доступ к материалам и обновлениям" },
+            { icon: "GraduationCap", text: "Объясняем с абсолютного нуля — каждый шаг, каждую кнопку" },
+            { icon: "HeartHandshake", text: "Куратор ведёт лично до результата — не бросаем" },
+            { icon: "RefreshCcw", text: "Пожизненный доступ к обновлениям и стратегиям" },
           ].map((f) => (
             <div key={f.text} className="flex items-start gap-3 p-5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
               <Icon name={f.icon} size={17} className="text-primary flex-shrink-0 mt-0.5" />

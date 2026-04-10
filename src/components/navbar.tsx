@@ -36,23 +36,26 @@ export function Navbar() {
             </span>
           </a>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-7">
             {links.map((l) => (
-              <a key={l.href} href={l.href} className="text-white/50 hover:text-white transition-colors text-[13px] font-bold relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary/50 after:transition-all hover:after:w-full uppercase tracking-wide">
+              <a key={l.href} href={l.href} className="text-white/45 hover:text-white transition-colors text-[13px] font-bold relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary/50 after:transition-all hover:after:w-full">
                 {l.label}
               </a>
             ))}
           </div>
 
-          <a
-            href="https://t.me/+Z7SebGxjJmMxNDAy"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex btn-glow text-[13px] py-2.5 px-6 items-center gap-2 font-extrabold"
-          >
-            <Icon name="Send" size={13} />
-            Присоединиться
-          </a>
+          <div className="hidden md:flex items-center gap-2.5">
+            <a href="https://t.me/KuratorP2PProfit" target="_blank" rel="noopener noreferrer"
+              className="btn-ghost text-[12px] py-2 px-4 inline-flex items-center gap-1.5 font-bold rounded-xl">
+              <Icon name="MessageCircle" size={12} />
+              Куратор
+            </a>
+            <a href="https://t.me/+Z7SebGxjJmMxNDAy" target="_blank" rel="noopener noreferrer"
+              className="btn-glow text-[12px] py-2 px-5 inline-flex items-center gap-1.5 font-extrabold rounded-xl">
+              <Icon name="Send" size={12} />
+              Присоединиться
+            </a>
+          </div>
 
           <button className="md:hidden text-white/60 p-1" onClick={() => setMenuOpen(!menuOpen)}>
             <Icon name={menuOpen ? "X" : "Menu"} size={22} />
@@ -67,11 +70,18 @@ export function Navbar() {
               {l.label}
             </a>
           ))}
-          <a href="https://t.me/+Z7SebGxjJmMxNDAy" target="_blank" rel="noopener noreferrer"
-            className="btn-glow text-sm py-3.5 text-center mt-3 inline-flex items-center justify-center gap-2 font-extrabold">
-            <Icon name="Send" size={14} />
-            Присоединиться
-          </a>
+          <div className="flex gap-2 mt-3">
+            <a href="https://t.me/KuratorP2PProfit" target="_blank" rel="noopener noreferrer"
+              className="btn-ghost text-sm py-3 flex-1 text-center inline-flex items-center justify-center gap-2 font-bold">
+              <Icon name="MessageCircle" size={14} />
+              Куратор
+            </a>
+            <a href="https://t.me/+Z7SebGxjJmMxNDAy" target="_blank" rel="noopener noreferrer"
+              className="btn-glow text-sm py-3 flex-1 text-center inline-flex items-center justify-center gap-2 font-extrabold">
+              <Icon name="Send" size={14} />
+              Вступить
+            </a>
+          </div>
         </div>
       )}
     </nav>

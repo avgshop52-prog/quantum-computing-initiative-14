@@ -2,37 +2,40 @@ import Icon from "@/components/ui/icon"
 
 const mentors = [
   {
-    name: "Дмитрий Волков",
+    name: "Дмитрий В.",
     role: "Основатель P2P Profit",
-    desc: "4 года в P2P арбитраже. Обучил 1 500+ учеников. Создал систему обучения, которая даёт результат с первой недели.",
-    img: "https://cdn.poehali.dev/projects/166c0de3-fca3-4625-9fe7-cae8102d3439/files/adc34bdc-0539-46c6-b99b-a3ee10e68fe3.jpg",
+    desc: "4 года в P2P арбитраже. Создал систему обучения, которая даёт результат с первой недели. Лично курирует продвинутую группу.",
+    icon: "Crown",
+    color: "from-amber-500/20 to-amber-500/5",
+    iconBg: "bg-amber-500/15 text-amber-400",
     stats: [
       { label: "Опыт", val: "4+ лет" },
       { label: "Учеников", val: "1 500+" },
     ],
-    socials: [{ icon: "Send", href: "https://t.me/+Z7SebGxjJmMxNDAy" }],
   },
   {
-    name: "Анна Карпова",
+    name: "Анна К.",
     role: "Старший куратор",
-    desc: "Специалист по стратегиям для новичков. Терпеливо объясняет каждый шаг и помогает избежать типичных ошибок.",
-    img: "https://cdn.poehali.dev/projects/166c0de3-fca3-4625-9fe7-cae8102d3439/files/f301f540-0573-4f0c-b9bc-05e9c8d921ef.jpg",
+    desc: "Специалист по обучению новичков. Терпеливо объясняет каждый шаг и помогает избежать типичных ошибок начинающих.",
+    icon: "GraduationCap",
+    color: "from-blue-500/20 to-blue-500/5",
+    iconBg: "bg-blue-500/15 text-blue-400",
     stats: [
       { label: "Учеников", val: "600+" },
       { label: "Успешность", val: "97%" },
     ],
-    socials: [{ icon: "Send", href: "https://t.me/+Z7SebGxjJmMxNDAy" }],
   },
   {
-    name: "Артём Ким",
+    name: "Артём К.",
     role: "Куратор продвинутой группы",
     desc: "IT-специалист, автоматизировал P2P процессы. Помогает масштабировать доход и оптимизировать стратегии.",
-    img: "https://cdn.poehali.dev/projects/166c0de3-fca3-4625-9fe7-cae8102d3439/files/cb50b6bd-0b42-467e-924b-dbce44093e19.jpg",
+    icon: "Code",
+    color: "from-violet-500/20 to-violet-500/5",
+    iconBg: "bg-violet-500/15 text-violet-400",
     stats: [
       { label: "Доход", val: "200К+/мес" },
-      { label: "Опыт", val: "2 года" },
+      { label: "Опыт", val: "2+ года" },
     ],
-    socials: [{ icon: "Send", href: "https://t.me/+Z7SebGxjJmMxNDAy" }],
   },
 ]
 
@@ -47,34 +50,25 @@ export function MentorsSection() {
         <div className="text-center mb-20">
           <p className="text-primary text-xs font-extrabold tracking-widest uppercase mb-4">Команда</p>
           <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
-            Люди, которые <span className="gradient-text">научат тебя</span>
+            Кто будет тебя <span className="gradient-text">обучать</span>
           </h2>
-          <p className="text-white/50 text-base max-w-lg mx-auto font-medium">
-            Не анонимные «эксперты». Реальные люди с реальным опытом, которые лично ведут каждого ученика
+          <p className="text-white/50 text-base max-w-lg mx-auto font-semibold">
+            Реальные практики с подтверждённым опытом, которые лично ведут каждого ученика
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {mentors.map((m) => (
-            <div key={m.name} className="card-premium rounded-3xl overflow-hidden group">
-              <div className="aspect-[4/3] overflow-hidden relative">
-                <img src={m.img} alt={m.name} loading="lazy"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[hsl(222_47%_5%)] via-[hsl(222_47%_5%/0.3)] to-transparent" />
-                <div className="absolute bottom-4 left-5 right-5 flex gap-2">
-                  {m.socials.map((s) => (
-                    <a key={s.icon} href={s.href} target="_blank" rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-lg bg-white/10 backdrop-blur-md flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all">
-                      <Icon name={s.icon} size={15} />
-                    </a>
-                  ))}
+            <div key={m.name} className="card-premium rounded-3xl p-8 group relative overflow-hidden">
+              <div className={`absolute inset-0 rounded-3xl bg-gradient-to-b ${m.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              <div className="relative z-10">
+                <div className={`w-16 h-16 rounded-2xl ${m.iconBg} flex items-center justify-center mb-6`}>
+                  <Icon name={m.icon} size={28} />
                 </div>
-              </div>
-              <div className="p-7">
                 <p className="text-primary text-[11px] font-extrabold tracking-wider uppercase mb-2">{m.role}</p>
                 <h3 className="font-heading text-xl font-extrabold text-white mb-3">{m.name}</h3>
-                <p className="text-white/50 text-[13px] leading-relaxed mb-5 font-medium">{m.desc}</p>
-                <div className="flex gap-3">
+                <p className="text-white/50 text-[13px] leading-relaxed mb-6 font-semibold">{m.desc}</p>
+                <div className="flex gap-3 mb-6">
                   {m.stats.map((s) => (
                     <div key={s.label} className="bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 flex-1 text-center">
                       <div className="font-display text-sm font-extrabold text-white">{s.val}</div>
@@ -85,6 +79,14 @@ export function MentorsSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <a href="https://t.me/KuratorP2PProfit" target="_blank" rel="noopener noreferrer"
+            className="btn-glow text-base py-4 px-9 inline-flex items-center gap-2.5 font-extrabold">
+            <Icon name="MessageCircle" size={17} />
+            Написать куратору
+          </a>
         </div>
       </div>
     </section>
