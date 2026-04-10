@@ -37,9 +37,9 @@ function AnimatedNumber({ target, suffix = "", prefix = "" }: { target: number; 
 }
 
 const stats = [
-  { target: 1500, suffix: "+", label: "учеников обучено", icon: "Users" },
-  { target: 97, suffix: "%", label: "получили результат", icon: "Target" },
-  { target: 8700000, prefix: "₽", suffix: "+", label: "заработано учениками", icon: "Banknote" },
+  { target: 312, suffix: "+", label: "учеников обучено", icon: "Users" },
+  { target: 89, suffix: "%", label: "получили результат", icon: "Target" },
+  { target: 1800000, prefix: "₽", suffix: "+", label: "заработано учениками", icon: "Banknote" },
   { target: 3, suffix: " дня", label: "до первой прибыли", icon: "Zap" },
 ]
 

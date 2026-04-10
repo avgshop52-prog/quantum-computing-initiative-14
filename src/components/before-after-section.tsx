@@ -1,10 +1,10 @@
 import Icon from "@/components/ui/icon"
 
 const stories = [
-  { name: "Алексей", before: "Менеджер, 45 000₽/мес", after: "P2P + работа, 125 000₽/мес", months: 3, icon: "Briefcase" },
-  { name: "Дарья", before: "Декрет, 0₽ дохода", after: "P2P из дома, 78 000₽/мес", months: 2, icon: "Baby" },
-  { name: "Игорь", before: "Водитель такси, 60 000₽", after: "Ушёл из такси, 94 000₽/мес", months: 2, icon: "Car" },
-  { name: "Роман", before: "Студент, подработки 20 000₽", after: "P2P из общаги, 65 000₽/мес", months: 1, icon: "GraduationCap" },
+  { name: "Алексей", before: "Менеджер, 45 000 ₽/мес", after: "+38 000 ₽ с P2P", months: 3, icon: "Briefcase" },
+  { name: "Дарья", before: "Декрет, 0 ₽ дохода", after: "22 000 ₽/мес из дома", months: 2, icon: "Baby" },
+  { name: "Игорь", before: "Такси, 60 000 ₽/мес", after: "+42 000 ₽ доп. доход", months: 2, icon: "Car" },
+  { name: "Роман", before: "Студент, 0 ₽", after: "25 000 ₽/мес из общаги", months: 1, icon: "GraduationCap" },
 ]
 
 export function BeforeAfterSection() {

@@ -48,16 +48,16 @@ export function AboutSection() {
           <div className="relative">
             <div className="absolute -inset-4 rounded-3xl bg-primary/[0.05] blur-[60px]" />
             <img
-              src="https://cdn.poehali.dev/projects/166c0de3-fca3-4625-9fe7-cae8102d3439/files/8ddc52a6-4a5a-4fac-8689-f3deb0aae695.jpg"
-              alt="P2P арбитраж — торговый интерфейс"
+              src="https://cdn.poehali.dev/projects/166c0de3-fca3-4625-9fe7-cae8102d3439/files/992ce187-b6c8-4ea7-8d94-698292650b62.jpg"
+              alt="P2P арбитраж криптовалюты — рабочее место трейдера"
               loading="lazy"
               className="w-full rounded-2xl object-cover aspect-[4/3] relative z-10"
             />
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-background/80 via-transparent to-transparent z-10" />
             <div className="absolute bottom-5 left-5 right-5 flex gap-3 z-20">
               {[
-                { val: "8.7М ₽+", label: "заработано учениками" },
-                { val: "34%", label: "средний ROI" },
+                { val: "1.8М ₽+", label: "заработано учениками" },
+                { val: "28%", label: "средний ROI" },
               ].map((s) => (
                 <div key={s.label} className="card-glass-static rounded-xl px-4 py-3.5 flex-1 text-center">
                   <div className="font-display text-lg font-extrabold gradient-text">{s.val}</div>

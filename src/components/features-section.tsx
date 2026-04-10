@@ -5,8 +5,8 @@ const features = [
   { icon: "ShieldCheck", title: "Легально и прозрачно", desc: "Сделки через официальные биржи с верификацией. Никаких серых схем — всё по закону" },
   { icon: "LineChart", title: "Доход не зависит от рынка", desc: "Крипта растёт или падает — неважно. Ты зарабатываешь на разнице цен между площадками" },
   { icon: "Timer", title: "Быстрый результат", desc: "Первую прибыль получаешь на 3-й день обучения. Не через месяц — сейчас" },
-  { icon: "Users", title: "Живое сообщество", desc: "1 500+ учеников, общий чат, разборы сделок. Рядом люди с таким же опытом" },
-  { icon: "Wallet", title: "Старт с любой суммой", desc: "Нет минимального порога. Начни с 10 000₽ и постепенно наращивай обороты" },
+  { icon: "Users", title: "Живое сообщество", desc: "312+ учеников, общий чат, разборы сделок. Рядом люди с таким же опытом" },
+  { icon: "Wallet", title: "Старт с любой суммой", desc: "Начни с 10 000 ₽ и постепенно наращивай обороты. Нет минимального порога" },
 ]
 
 export function FeaturesSection() {
@@ -22,8 +22,8 @@ export function FeaturesSection() {
           <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
             Почему выбирают <span className="gradient-text">P2P Profit</span>
           </h2>
-          <p className="text-white/50 text-base max-w-lg mx-auto font-medium">
-            1 500+ учеников уже зарабатывают. Вот почему они выбрали нас
+          <p className="text-white/50 text-base max-w-lg mx-auto font-semibold">
+            312+ учеников уже зарабатывают. Вот почему они выбрали нас
           </p>
         </div>
 

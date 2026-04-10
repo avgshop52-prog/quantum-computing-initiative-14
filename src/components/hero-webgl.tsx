@@ -23,32 +23,29 @@ function CryptoCoin({ position, color, emissive, speed, size }: { position: [num
   )
 }
 
-function ArrowExchange() {
-  const groupRef = useRef<THREE.Group>(null)
+function CentralCoin() {
+  const meshRef = useRef<THREE.Mesh>(null)
+  const ringRef = useRef<THREE.Mesh>(null)
   useFrame(({ clock }) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y = clock.elapsedTime * 0.3
-      groupRef.current.position.y = Math.sin(clock.elapsedTime * 0.4) * 0.15
+    if (meshRef.current) {
+      meshRef.current.rotation.y = clock.elapsedTime * 0.4
+      meshRef.current.position.y = Math.sin(clock.elapsedTime * 0.5) * 0.2
+    }
+    if (ringRef.current) {
+      ringRef.current.rotation.z = clock.elapsedTime * 0.2
+      ringRef.current.rotation.x = Math.sin(clock.elapsedTime * 0.3) * 0.3
     }
   })
   return (
-    <Float speed={0.8} rotationIntensity={0.1} floatIntensity={0.4}>
-      <group ref={groupRef}>
-        <mesh position={[0, 0.3, 0]} rotation={[0, 0, -Math.PI / 2]}>
-          <coneGeometry args={[0.15, 0.35, 4]} />
-          <meshStandardMaterial color="#3b82f6" metalness={0.9} roughness={0.1} emissive="#2563eb" emissiveIntensity={0.4} />
+    <Float speed={1} rotationIntensity={0.2} floatIntensity={0.5}>
+      <group>
+        <mesh ref={ringRef} scale={1.8}>
+          <torusGeometry args={[1, 0.02, 16, 80]} />
+          <meshStandardMaterial color="#3b82f6" metalness={0.9} roughness={0.1} emissive="#2563eb" emissiveIntensity={0.6} transparent opacity={0.5} />
         </mesh>
-        <mesh position={[0, 0, 0]}>
-          <boxGeometry args={[0.08, 0.5, 0.08]} />
-          <meshStandardMaterial color="#3b82f6" metalness={0.9} roughness={0.1} emissive="#2563eb" emissiveIntensity={0.3} />
-        </mesh>
-        <mesh position={[0.5, -0.3, 0]} rotation={[0, 0, Math.PI / 2]}>
-          <coneGeometry args={[0.15, 0.35, 4]} />
-          <meshStandardMaterial color="#60a5fa" metalness={0.9} roughness={0.1} emissive="#3b82f6" emissiveIntensity={0.3} />
-        </mesh>
-        <mesh position={[0.5, 0, 0]}>
-          <boxGeometry args={[0.08, 0.5, 0.08]} />
-          <meshStandardMaterial color="#60a5fa" metalness={0.9} roughness={0.1} emissive="#3b82f6" emissiveIntensity={0.2} />
+        <mesh ref={meshRef} scale={1.2}>
+          <cylinderGeometry args={[1, 1, 0.22, 64]} />
+          <meshStandardMaterial color="#3b82f6" metalness={0.95} roughness={0.05} emissive="#1d4ed8" emissiveIntensity={0.35} />
         </mesh>
       </group>
     </Float>
@@ -88,7 +85,7 @@ function Scene3D() {
       <CryptoCoin position={[3, -0.5, -1.5]} color="#3b82f6" emissive="#2563eb" speed={0.7} size={0.5} />
       <CryptoCoin position={[-1.5, -1.8, -0.5]} color="#8b5cf6" emissive="#7c3aed" speed={0.4} size={0.4} />
       <CryptoCoin position={[1.5, 2, -2]} color="#10b981" emissive="#059669" speed={0.6} size={0.35} />
-      <ArrowExchange />
+      <CentralCoin />
       <StarParticles />
     </Canvas>
   )

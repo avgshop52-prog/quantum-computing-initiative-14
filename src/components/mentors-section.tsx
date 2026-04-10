@@ -9,8 +9,8 @@ const mentors = [
     color: "from-amber-500/20 to-amber-500/5",
     iconBg: "bg-amber-500/15 text-amber-400",
     stats: [
-      { label: "Опыт", val: "4+ лет" },
-      { label: "Учеников", val: "1 500+" },
+      { label: "Опыт", val: "3+ года" },
+      { label: "Учеников", val: "312+" },
     ],
   },
   {
@@ -21,8 +21,8 @@ const mentors = [
     color: "from-blue-500/20 to-blue-500/5",
     iconBg: "bg-blue-500/15 text-blue-400",
     stats: [
-      { label: "Учеников", val: "600+" },
-      { label: "Успешность", val: "97%" },
+      { label: "Учеников", val: "180+" },
+      { label: "Успешность", val: "89%" },
     ],
   },
   {
@@ -33,7 +33,7 @@ const mentors = [
     color: "from-violet-500/20 to-violet-500/5",
     iconBg: "bg-violet-500/15 text-violet-400",
     stats: [
-      { label: "Доход", val: "200К+/мес" },
+      { label: "Доход", val: "80К+/мес" },
       { label: "Опыт", val: "2+ года" },
     ],
   },

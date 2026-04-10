@@ -4,8 +4,8 @@ import Icon from "@/components/ui/icon"
 export function CalculatorSection() {
   const [capital, setCapital] = useState(20000)
 
-  const dailyPercent = 1.2
-  const monthly = Math.round(capital * (dailyPercent / 100) * 25)
+  const dailyPercent = 0.8
+  const monthly = Math.round(capital * (dailyPercent / 100) * 22)
   const yearly = monthly * 12
 
   return (
