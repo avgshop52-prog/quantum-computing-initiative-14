@@ -1,4 +1,5 @@
 import Icon from "@/components/ui/icon"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const myths = [
   { myth: "Это как казино — можно всё потерять", truth: "P2P арбитраж — это обмен, а не ставки. Ты покупаешь дешевле, продаёшь дороже. Риск потери денег минимален при соблюдении правил." },
@@ -26,21 +27,23 @@ export function SafetySection() {
         </div>
 
         <div className="flex flex-col gap-5">
-          {myths.map((m) => (
-            <div key={m.myth} className="card-premium rounded-2xl p-7 sm:p-8">
-              <div className="flex items-start gap-4 mb-5">
-                <div className="w-8 h-8 rounded-full bg-red-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Icon name="X" size={14} className="text-red-400" />
+          {myths.map((m, i) => (
+            <ScrollReveal key={m.myth} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
+              <div className="card-premium rounded-2xl p-7 sm:p-8 shine-effect">
+                <div className="flex items-start gap-4 mb-5">
+                  <div className="w-8 h-8 rounded-full bg-red-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon name="X" size={14} className="text-red-400" />
+                  </div>
+                  <p className="text-white/40 text-sm line-through decoration-red-400/40 leading-relaxed font-medium">«{m.myth}»</p>
                 </div>
-                <p className="text-white/40 text-sm line-through decoration-red-400/40 leading-relaxed font-medium">«{m.myth}»</p>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Icon name="Check" size={14} className="text-primary" />
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon name="Check" size={14} className="text-primary" />
+                  </div>
+                  <p className="text-white text-sm leading-relaxed font-semibold">{m.truth}</p>
                 </div>
-                <p className="text-white text-sm leading-relaxed font-semibold">{m.truth}</p>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

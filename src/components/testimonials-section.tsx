@@ -1,4 +1,5 @@
 import Icon from "@/components/ui/icon"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const reviews = [
   { name: "Алексей К.", tag: "3 месяца в обучении", text: "Честно — первую неделю думал, что ничего не получится. Куратор Дима терпеливо объяснял одно и то же по три раза. На 4-й день закрыл первую сделку. Сейчас стабильно выхожу на 35–40 тыс., совмещаю с основной работой.", highlight: true, earned: "38 000 ₽/мес" },
@@ -37,48 +38,52 @@ export function TestimonialsSection() {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-20">
-          <p className="text-primary text-xs font-extrabold tracking-widest uppercase mb-4">Отзывы учеников</p>
-          <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
-            Реальные истории{" "}
-            <span className="font-serif font-normal text-white/50">реальных людей</span>
-          </h2>
-          <p className="text-white/50 text-base max-w-md mx-auto font-medium">
-            Без постановок и копипаста. Каждый отзыв — живой человек из нашего канала
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-20">
+            <p className="text-primary text-xs font-extrabold tracking-widest uppercase mb-4">Отзывы учеников</p>
+            <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
+              Реальные истории{" "}
+              <span className="font-serif font-normal text-white/50">реальных людей</span>
+            </h2>
+            <p className="text-white/50 text-base max-w-md mx-auto font-medium">
+              Без постановок и копипаста. Каждый отзыв — живой человек из нашего канала
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {[col1, col2, col3].map((col, ci) => (
             <div key={ci} className="flex flex-col gap-5">
               {col.map((r, ri) => (
-                <div key={r.name} className={`rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 ${r.highlight ? "card-premium border-primary/20" : "card-glass"}`}>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="flex items-center gap-3">
-                      <div className={`w-11 h-11 rounded-full flex items-center justify-center ${colors[(ci * 6 + ri) % colors.length]}`}>
-                        <span className="text-sm font-extrabold">{r.name[0]}</span>
+                <ScrollReveal key={r.name} delay={(ci * col.length + ri) % 4 as 0 | 1 | 2 | 3 | 4}>
+                  <div className={`rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 shine-effect border-glow ${r.highlight ? "card-premium border-primary/20" : "card-glass"}`}>
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="flex items-center gap-3">
+                        <div className={`w-11 h-11 rounded-full flex items-center justify-center ${colors[(ci * 6 + ri) % colors.length]}`}>
+                          <span className="text-sm font-extrabold">{r.name[0]}</span>
+                        </div>
+                        <div>
+                          <p className="text-white text-sm font-extrabold">{r.name}</p>
+                          <p className="text-white/40 text-[11px] font-semibold">{r.tag}</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="text-white text-sm font-extrabold">{r.name}</p>
-                        <p className="text-white/40 text-[11px] font-semibold">{r.tag}</p>
-                      </div>
+                      {r.earned && (
+                        <div className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-1.5">
+                          <span className="text-primary text-[11px] font-extrabold">{r.earned}</span>
+                        </div>
+                      )}
                     </div>
-                    {r.earned && (
-                      <div className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-1.5">
-                        <span className="text-primary text-[11px] font-extrabold">{r.earned}</span>
-                      </div>
-                    )}
-                  </div>
-                  <p className="text-white/80 text-[13px] leading-relaxed mb-4 font-medium">{r.text}</p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex gap-0.5">
+                    <div className="flex gap-0.5 mb-4">
                       {Array.from({ length: 5 }).map((_, i) => (
-                        <Icon key={i} name="Star" size={12} className="text-yellow-500 fill-yellow-500" />
+                        <Icon key={i} name="Star" size={13} className="text-yellow-500 fill-yellow-500" />
                       ))}
                     </div>
-                    <span className="text-white/20 text-[10px] font-bold">Telegram</span>
+                    <p className="text-white/80 text-[13px] leading-relaxed mb-4 font-medium">{r.text}</p>
+                    <div className="flex items-center justify-end">
+                      <span className="text-white/20 text-[10px] font-bold">Telegram</span>
+                    </div>
                   </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           ))}

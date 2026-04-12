@@ -1,4 +1,5 @@
 import Icon from "@/components/ui/icon"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const stories = [
   { name: "Алексей", before: "Менеджер, 45 000 ₽/мес", after: "+38 000 ₽ с P2P", months: 3, icon: "Briefcase" },
@@ -26,8 +27,9 @@ export function BeforeAfterSection() {
         </div>
 
         <div className="grid sm:grid-cols-2 gap-5">
-          {stories.map((s) => (
-            <div key={s.name} className="card-premium rounded-2xl p-7 group">
+          {stories.map((s, i) => (
+            <ScrollReveal key={s.name} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
+            <div className="card-premium rounded-2xl p-7 group shine-effect">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Icon name={s.icon} size={22} className="text-primary" />
@@ -56,6 +58,7 @@ export function BeforeAfterSection() {
                 </div>
               </div>
             </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

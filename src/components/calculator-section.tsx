@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Icon from "@/components/ui/icon"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function CalculatorSection() {
   const [capital, setCapital] = useState(20000)
@@ -15,21 +16,23 @@ export function CalculatorSection() {
       </div>
 
       <div className="max-w-3xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <p className="text-primary text-xs font-extrabold tracking-widest uppercase mb-4">Калькулятор</p>
-          <h2 className="font-heading text-4xl sm:text-[3rem] font-extrabold text-white leading-tight mb-5">
-            Сколько ты можешь <span className="gradient-text">заработать</span>
-          </h2>
-          <p className="text-white/50 text-base max-w-md mx-auto font-semibold">
-            Двигай ползунок — посчитай потенциальный доход при средней доходности наших учеников
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <p className="text-primary text-xs font-extrabold tracking-widest uppercase mb-4">Калькулятор</p>
+            <h2 className="font-heading text-4xl sm:text-[3rem] font-extrabold text-white leading-tight mb-5">
+              Сколько ты можешь <span className="gradient-text">заработать</span>
+            </h2>
+            <p className="text-white/50 text-base max-w-md mx-auto font-semibold">
+              Двигай ползунок — посчитай потенциальный доход при средней доходности наших учеников
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="card-premium rounded-3xl p-8 sm:p-12">
           <div className="mb-10">
             <div className="flex items-center justify-between mb-4">
               <span className="text-white/50 text-sm font-bold">Стартовый капитал</span>
-              <span className="font-display text-2xl font-extrabold text-white">{capital.toLocaleString()} ₽</span>
+              <span className="font-display text-2xl font-extrabold text-white transition-all duration-300">{capital.toLocaleString()} ₽</span>
             </div>
             <input
               type="range"
@@ -52,17 +55,17 @@ export function CalculatorSection() {
           <div className="grid sm:grid-cols-3 gap-4 mb-8">
             <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 text-center">
               <Icon name="Calendar" size={18} className="text-primary mx-auto mb-3" />
-              <div className="font-display text-2xl font-extrabold gradient-text">{monthly.toLocaleString()} ₽</div>
+              <div className="font-display text-2xl font-extrabold gradient-text transition-all duration-300">{monthly.toLocaleString()} ₽</div>
               <div className="text-white/30 text-[11px] font-bold mt-1 uppercase">в месяц</div>
             </div>
             <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 text-center">
               <Icon name="TrendingUp" size={18} className="text-primary mx-auto mb-3" />
-              <div className="font-display text-2xl font-extrabold gradient-text">{yearly.toLocaleString()} ₽</div>
+              <div className="font-display text-2xl font-extrabold gradient-text transition-all duration-300">{yearly.toLocaleString()} ₽</div>
               <div className="text-white/30 text-[11px] font-bold mt-1 uppercase">в год</div>
             </div>
             <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 text-center">
               <Icon name="Percent" size={18} className="text-primary mx-auto mb-3" />
-              <div className="font-display text-2xl font-extrabold gradient-text">~{dailyPercent}%</div>
+              <div className="font-display text-2xl font-extrabold gradient-text transition-all duration-300">~{dailyPercent}%</div>
               <div className="text-white/30 text-[11px] font-bold mt-1 uppercase">в день</div>
             </div>
           </div>

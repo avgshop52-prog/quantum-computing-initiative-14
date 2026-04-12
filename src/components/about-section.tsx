@@ -1,4 +1,5 @@
 import Icon from "@/components/ui/icon"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function AboutSection() {
   return (
@@ -6,11 +7,13 @@ export function AboutSection() {
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <div>
+            <ScrollReveal>
             <p className="text-primary text-xs font-extrabold tracking-widest uppercase mb-4">Почему P2P</p>
             <h2 className="font-heading text-4xl sm:text-[2.8rem] font-extrabold text-white leading-tight mb-6">
               P2P арбитраж —<br />
               <span className="gradient-text">это не трейдинг.</span>
             </h2>
+            </ScrollReveal>
             <p className="text-white/50 text-base leading-relaxed mb-8 font-semibold">
               Покупаешь криптовалюту дешевле на одной площадке — продаёшь дороже на другой. Разница курсов = твой доход. Рынок растёт или падает — тебе неважно.
             </p>
@@ -45,6 +48,7 @@ export function AboutSection() {
             </div>
           </div>
 
+          <ScrollReveal delay={1}>
           <div className="relative">
             <div className="absolute -inset-4 rounded-3xl bg-primary/[0.05] blur-[60px]" />
             <img
@@ -66,6 +70,7 @@ export function AboutSection() {
               ))}
             </div>
           </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

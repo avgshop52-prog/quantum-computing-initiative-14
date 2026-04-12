@@ -1,4 +1,5 @@
 import Icon from "@/components/ui/icon"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const guarantees = [
   {
@@ -57,14 +58,16 @@ export function GuaranteesSection() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {guarantees.map((g) => (
-            <div key={g.title} className={`rounded-2xl p-7 group ${g.highlight ? "card-premium border-primary/25" : "card-glass"}`}>
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors ${g.highlight ? "bg-primary/15" : "bg-primary/10 border border-primary/15 group-hover:bg-primary/15"}`}>
-                <Icon name={g.icon} size={22} className="text-primary" />
+          {guarantees.map((g, i) => (
+            <ScrollReveal key={g.title} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
+              <div className={`rounded-2xl p-7 group shine-effect ${g.highlight ? "card-premium border-primary/25" : "card-glass"}`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors ${g.highlight ? "bg-primary/15" : "bg-primary/10 border border-primary/15 group-hover:bg-primary/15"}`}>
+                  <Icon name={g.icon} size={22} className="text-primary" />
+                </div>
+                <h3 className="font-heading font-extrabold text-[17px] text-white mb-3">{g.title}</h3>
+                <p className="text-white/50 text-[13px] leading-relaxed font-medium">{g.desc}</p>
               </div>
-              <h3 className="font-heading font-extrabold text-[17px] text-white mb-3">{g.title}</h3>
-              <p className="text-white/50 text-[13px] leading-relaxed font-medium">{g.desc}</p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 

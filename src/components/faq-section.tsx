@@ -1,5 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Icon from "@/components/ui/icon"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const faqs = [
   { q: "Что вообще такое P2P арбитраж?", a: "Простыми словами: покупаешь криптовалюту дешевле на одной площадке и тут же продаёшь дороже на другой. Разница в цене — твой заработок. Это не трейдинг, не казино и не ставки." },
@@ -18,16 +19,19 @@ export function FAQSection() {
   return (
     <section id="faq" className="py-28 sm:py-36 px-5 relative">
       <div className="max-w-2xl mx-auto relative z-10">
-        <div className="text-center mb-20">
-          <p className="text-primary text-xs font-extrabold tracking-widest uppercase mb-4">Вопросы</p>
-          <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
-            Частые <span className="gradient-text">вопросы</span>
-          </h2>
-          <p className="text-white/50 text-base max-w-md mx-auto font-medium">
-            Ответы на всё, что вы хотели спросить
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-20">
+            <p className="text-primary text-xs font-extrabold tracking-widest uppercase mb-4">Вопросы</p>
+            <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
+              Частые <span className="gradient-text">вопросы</span>
+            </h2>
+            <p className="text-white/50 text-base max-w-md mx-auto font-medium">
+              Ответы на всё, что вы хотели спросить
+            </p>
+          </div>
+        </ScrollReveal>
 
+        <ScrollReveal delay={1}>
         <Accordion type="single" collapsible className="flex flex-col gap-3">
           {faqs.map((f, i) => (
             <AccordionItem key={i} value={`q-${i}`} className="card-premium rounded-xl border-0 overflow-hidden">
@@ -45,6 +49,7 @@ export function FAQSection() {
             </AccordionItem>
           ))}
         </Accordion>
+        </ScrollReveal>
       </div>
     </section>
   )

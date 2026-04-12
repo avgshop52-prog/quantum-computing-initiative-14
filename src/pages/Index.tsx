@@ -17,6 +17,10 @@ import { Footer } from "@/components/footer"
 import { SeoTextBlock } from "@/components/seo-text-block"
 import { ChatWidget } from "@/components/chat-widget"
 import { StickyCTA } from "@/components/sticky-cta"
+import { VideoSection } from "@/components/video-section"
+import { WithdrawalSection } from "@/components/withdrawal-section"
+import { LiveDeals } from "@/components/live-deals"
+import { ExitPopup } from "@/components/exit-popup"
 
 export default function Index() {
   return (
@@ -27,11 +31,15 @@ export default function Index() {
         <div className="section-divider" />
         <TechnologySection />
         <div className="section-divider" />
+        <VideoSection />
+        <div className="section-divider" />
         <AboutSection />
         <div className="section-divider" />
         <ResultsSection />
         <div className="section-divider" />
         <CalculatorSection />
+        <div className="section-divider" />
+        <WithdrawalSection />
         <div className="section-divider" />
         <BeforeAfterSection />
         <div className="section-divider" />
@@ -54,6 +62,8 @@ export default function Index() {
       <Footer />
       <ChatWidget />
       <StickyCTA />
+      <LiveDeals />
+      <ExitPopup />
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import Icon from "@/components/ui/icon"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 function Countdown() {
   const [time, setTime] = useState({ hours: 23, minutes: 45, seconds: 12 })
@@ -45,6 +46,7 @@ export function CTASection() {
       </div>
 
       <div className="max-w-2xl mx-auto relative z-10 text-center">
+        <ScrollReveal>
         <div className="card-premium rounded-3xl p-10 sm:p-16 border-primary/20 glow-blue">
           <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-7">
             <Icon name="Rocket" size={30} className="text-primary" />
@@ -89,6 +91,7 @@ export function CTASection() {
             ))}
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   )

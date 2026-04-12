@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import Icon from "@/components/ui/icon"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 function AnimatedNumber({ target, suffix = "", prefix = "" }: { target: number; suffix?: string; prefix?: string }) {
   const [val, setVal] = useState(0)
@@ -65,32 +66,38 @@ export function ResultsSection() {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-20">
-          <p className="text-primary text-xs font-extrabold tracking-widest uppercase mb-4">Цифры</p>
-          <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
-            Результаты говорят <span className="font-serif font-normal text-white/50">сами за себя</span>
-          </h2>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-20">
+            <p className="text-primary text-xs font-extrabold tracking-widest uppercase mb-4">Цифры</p>
+            <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
+              Результаты говорят <span className="font-serif font-normal text-white/50">сами за себя</span>
+            </h2>
+          </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-          <div className="card-premium rounded-2xl p-7 text-center group">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 transition-colors">
-              <Icon name="Users" size={22} className="text-primary" />
-            </div>
-            <StudentsCounter />
-            <p className="text-white/40 text-xs mt-3 font-bold uppercase tracking-wide">учеников обучено</p>
-          </div>
-          {stats.map((s) => (
-            <div key={s.label} className="card-premium rounded-2xl p-7 text-center group">
+          <ScrollReveal delay={0}>
+            <div className="card-premium rounded-2xl p-7 text-center group">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 transition-colors">
-                <Icon name={s.icon} size={22} className="text-primary" />
+                <Icon name="Users" size={22} className="text-primary" />
               </div>
-              {s.display
-                ? <div className="font-display text-3xl sm:text-4xl font-extrabold gradient-text leading-tight">{s.display}</div>
-                : <AnimatedNumber target={s.target} suffix={s.suffix} prefix={s.prefix || ""} />
-              }
-              <p className="text-white/40 text-xs mt-3 font-bold uppercase tracking-wide">{s.label}</p>
+              <StudentsCounter />
+              <p className="text-white/40 text-xs mt-3 font-bold uppercase tracking-wide">учеников обучено</p>
             </div>
+          </ScrollReveal>
+          {stats.map((s, i) => (
+            <ScrollReveal key={s.label} delay={(i + 1) % 4 as 0 | 1 | 2 | 3 | 4}>
+              <div className="card-premium rounded-2xl p-7 text-center group">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 transition-colors">
+                  <Icon name={s.icon} size={22} className="text-primary" />
+                </div>
+                {s.display
+                  ? <div className="font-display text-3xl sm:text-4xl font-extrabold gradient-text leading-tight">{s.display}</div>
+                  : <AnimatedNumber target={s.target} suffix={s.suffix} prefix={s.prefix || ""} />
+                }
+                <p className="text-white/40 text-xs mt-3 font-bold uppercase tracking-wide">{s.label}</p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
 

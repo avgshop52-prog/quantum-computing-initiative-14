@@ -1,4 +1,5 @@
 import Icon from "@/components/ui/icon"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const features = [
   { icon: "Laptop", title: "Работай откуда угодно", desc: "Нужен только телефон и интернет. Дома, в кафе, в поездке — зарабатывай из любой точки мира" },
@@ -28,14 +29,16 @@ export function FeaturesSection() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((f) => (
-            <div key={f.title} className="card-premium rounded-2xl p-7 group">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors">
-                <Icon name={f.icon} size={22} className="text-primary" />
+          {features.map((f, i) => (
+            <ScrollReveal key={f.title} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
+              <div className="card-premium rounded-2xl p-7 group shine-effect border-glow">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors">
+                  <Icon name={f.icon} size={22} className="text-primary" />
+                </div>
+                <h3 className="font-heading font-extrabold text-[17px] text-white mb-3">{f.title}</h3>
+                <p className="text-white/50 text-[13px] leading-relaxed font-medium">{f.desc}</p>
               </div>
-              <h3 className="font-heading font-extrabold text-[17px] text-white mb-3">{f.title}</h3>
-              <p className="text-white/50 text-[13px] leading-relaxed font-medium">{f.desc}</p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
