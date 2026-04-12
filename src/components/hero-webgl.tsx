@@ -91,24 +91,47 @@ function Scene3D() {
   )
 }
 
+function getBaseOnline() {
+  const hour = new Date().getHours()
+  const curve: Record<number, number> = {
+    0: 80, 1: 60, 2: 45, 3: 38, 4: 35, 5: 42,
+    6: 90, 7: 160, 8: 240, 9: 320, 10: 390, 11: 430,
+    12: 460, 13: 450, 14: 420, 15: 400, 16: 410, 17: 440,
+    18: 500, 19: 560, 20: 590, 21: 570, 22: 480, 23: 300,
+  }
+  return curve[hour] ?? 300
+}
+
 function OnlineCounter() {
-  const [count, setCount] = useState(258)
+  const [count, setCount] = useState(() => {
+    const base = getBaseOnline()
+    return base + Math.floor(Math.random() * 30) - 15
+  })
+  const [trend, setTrend] = useState<1 | -1>(1)
+
   useEffect(() => {
     const t = setInterval(() => {
       setCount(c => {
-        const delta = Math.floor(Math.random() * 40) - 18
-        return Math.max(180, Math.min(600, c + delta))
+        const base = getBaseOnline()
+        const noise = Math.floor(Math.random() * 22) - 10
+        const pull = Math.sign(base - c) * Math.floor(Math.abs(base - c) * 0.12)
+        const next = c + pull + noise
+        setTrend(next > c ? 1 : -1)
+        return Math.max(30, Math.min(600, next))
       })
-    }, 60000)
+    }, 15000)
     return () => clearInterval(t)
   }, [])
+
   return (
     <div className="card-glass-static rounded-full pl-3 pr-5 py-2.5 inline-flex items-center gap-2.5 text-xs">
       <div className="relative">
         <div className="w-2 h-2 rounded-full bg-green-400" />
         <div className="absolute inset-0 w-2 h-2 rounded-full bg-green-400/50 pulse-soft scale-[2]" />
       </div>
-      <span className="text-white/50 font-bold">{count} смотрят сейчас</span>
+      <span className="text-white/50 font-bold">
+        {trend === 1 ? "▲" : "▼"} {count} онлайн
+      </span>
     </div>
   )
 }
