@@ -42,28 +42,15 @@ const stats = [
   { target: 3, suffix: " дня", label: "до первой прибыли", icon: "Zap" },
 ]
 
-function StudentsCounter() {
-  const [count, setCount] = useState(1580)
-  const ref = useRef<HTMLDivElement>(null)
-  const started = useRef(false)
+const BASE_COUNT = 1580
+const BASE_DATE = new Date("2026-04-12").getTime()
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true
-          const interval = setInterval(() => setCount(c => c + 2), 4000)
-          return () => clearInterval(interval)
-        }
-      },
-      { threshold: 0.5 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
+function StudentsCounter() {
+  const daysPassed = Math.floor((Date.now() - BASE_DATE) / (1000 * 60 * 60 * 24))
+  const count = BASE_COUNT + daysPassed * 2
 
   return (
-    <div ref={ref} className="font-display text-4xl sm:text-5xl font-extrabold gradient-text">
+    <div className="font-display text-4xl sm:text-5xl font-extrabold gradient-text">
       {count.toLocaleString()}+
     </div>
   )
