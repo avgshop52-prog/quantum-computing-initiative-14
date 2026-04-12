@@ -92,9 +92,14 @@ function Scene3D() {
 }
 
 function OnlineCounter() {
-  const [count, setCount] = useState(19)
+  const [count, setCount] = useState(258)
   useEffect(() => {
-    const t = setInterval(() => setCount(c => Math.max(12, Math.min(35, c + Math.floor(Math.random() * 3) - 1))), 8000)
+    const t = setInterval(() => {
+      setCount(c => {
+        const delta = Math.floor(Math.random() * 40) - 18
+        return Math.max(180, Math.min(600, c + delta))
+      })
+    }, 60000)
     return () => clearInterval(t)
   }, [])
   return (
