@@ -39,7 +39,7 @@ function AnimatedNumber({ target, suffix = "", prefix = "" }: { target: number; 
 const stats = [
   { target: 312, suffix: "+", label: "учеников обучено", icon: "Users" },
   { target: 89, suffix: "%", label: "получили результат", icon: "Target" },
-  { target: 1800000, prefix: "₽", suffix: "+", label: "заработано учениками", icon: "Banknote", display: "1.800.000" },
+  { target: 1800000, prefix: "", suffix: "", label: "заработано учениками", icon: "Banknote", display: "1.8 млн ₽" },
   { target: 3, suffix: " дня", label: "до первой прибыли", icon: "Zap" },
 ]
 
@@ -66,7 +66,7 @@ export function ResultsSection() {
                 <Icon name={s.icon} size={22} className="text-primary" />
               </div>
               {s.display
-                ? <div className="font-display text-4xl sm:text-5xl font-extrabold gradient-text">{s.prefix}{s.display}{s.suffix}</div>
+                ? <div className="font-display text-3xl sm:text-4xl font-extrabold gradient-text leading-tight">{s.display}</div>
                 : <AnimatedNumber target={s.target} suffix={s.suffix} prefix={s.prefix || ""} />
               }
               <p className="text-white/40 text-xs mt-3 font-bold uppercase tracking-wide">{s.label}</p>
