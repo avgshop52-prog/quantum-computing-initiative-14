@@ -37,11 +37,37 @@ function AnimatedNumber({ target, suffix = "", prefix = "" }: { target: number; 
 }
 
 const stats = [
-  { target: 312, suffix: "+", label: "учеников обучено", icon: "Users" },
   { target: 89, suffix: "%", label: "получили результат", icon: "Target" },
   { target: 1800000, prefix: "", suffix: "", label: "заработано учениками", icon: "Banknote", display: "1.8 млн ₽" },
   { target: 3, suffix: " дня", label: "до первой прибыли", icon: "Zap" },
 ]
+
+function StudentsCounter() {
+  const [count, setCount] = useState(1580)
+  const ref = useRef<HTMLDivElement>(null)
+  const started = useRef(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true
+          const interval = setInterval(() => setCount(c => c + 2), 4000)
+          return () => clearInterval(interval)
+        }
+      },
+      { threshold: 0.5 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div ref={ref} className="font-display text-4xl sm:text-5xl font-extrabold gradient-text">
+      {count.toLocaleString()}+
+    </div>
+  )
+}
 
 export function ResultsSection() {
   return (
@@ -60,6 +86,13 @@ export function ResultsSection() {
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="card-premium rounded-2xl p-7 text-center group">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 transition-colors">
+              <Icon name="Users" size={22} className="text-primary" />
+            </div>
+            <StudentsCounter />
+            <p className="text-white/40 text-xs mt-3 font-bold uppercase tracking-wide">учеников обучено</p>
+          </div>
           {stats.map((s) => (
             <div key={s.label} className="card-premium rounded-2xl p-7 text-center group">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 transition-colors">
