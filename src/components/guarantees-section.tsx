@@ -79,7 +79,7 @@ export function GuaranteesSection() {
               </div>
               <div className="text-left">
                 <p className="text-white text-sm leading-relaxed italic mb-3 font-medium">
-                  «1800+ учеников — но наша главная метрика не количество, а качество. 89% начали зарабатывать. Если ты не получишь результат — мы провалились.»
+                  «1843 ученика — но наша главная метрика не количество, а качество. 89% начали зарабатывать. Если ты не получишь результат — мы провалились.»
                 </p>
                 <p className="text-white/40 text-xs font-bold">— Дмитрий Волков, основатель P2P Profit</p>
               </div>
