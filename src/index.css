@@ -46,6 +46,22 @@
     letter-spacing: -0.01em;
     overflow-x: hidden;
     width: 100%;
+    cursor: none;
+  }
+
+  a,
+  button,
+  [role="button"] {
+    cursor: none;
+  }
+
+  @media (pointer: coarse) {
+    body,
+    a,
+    button,
+    [role="button"] {
+      cursor: auto;
+    }
   }
   html {
     scroll-behavior: smooth;

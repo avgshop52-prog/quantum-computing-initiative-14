@@ -20,6 +20,7 @@ import { StickyCTA } from "@/components/sticky-cta"
 import { VideoSection } from "@/components/video-section"
 import { WithdrawalSection } from "@/components/withdrawal-section"
 import { ExitPopup } from "@/components/exit-popup"
+import { CustomCursor, ScrollToTop, PageFadeIn } from "@/components/ui-extras"
 
 export default function Index() {
   return (
@@ -62,6 +63,9 @@ export default function Index() {
       <ChatWidget />
       <StickyCTA />
       <ExitPopup />
+      <CustomCursor />
+      <ScrollToTop />
+      <PageFadeIn />
     </div>
   )
 }
