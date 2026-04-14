@@ -19,7 +19,6 @@ import { ChatWidget } from "@/components/chat-widget"
 import { StickyCTA } from "@/components/sticky-cta"
 import { VideoSection } from "@/components/video-section"
 import { WithdrawalSection } from "@/components/withdrawal-section"
-import { LiveDeals } from "@/components/live-deals"
 import { ExitPopup } from "@/components/exit-popup"
 
 export default function Index() {
@@ -62,7 +61,6 @@ export default function Index() {
       <Footer />
       <ChatWidget />
       <StickyCTA />
-      <LiveDeals />
       <ExitPopup />
     </div>
   )
