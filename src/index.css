@@ -6,25 +6,25 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 84% 55%;
+    --background: 0 3% 5%;
+    --foreground: 0 0% 96%;
+    --card: 0 3% 8%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 3% 8%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 0 72% 42%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 15% 10%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 0 10% 12%;
-    --muted-foreground: 0 10% 55%;
-    --accent: 0 84% 55%;
+    --secondary: 0 8% 11%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 5% 13%;
+    --muted-foreground: 0 5% 50%;
+    --accent: 0 72% 42%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 0 15% 12%;
-    --input: 0 15% 10%;
-    --ring: 0 84% 55%;
+    --destructive-foreground: 0 0% 96%;
+    --border: 0 8% 14%;
+    --input: 0 8% 11%;
+    --ring: 0 72% 42%;
     --radius: 0.75rem;
     --gold: 45 93% 58%;
   }
@@ -121,10 +121,10 @@
     padding: 1px;
     background: linear-gradient(
       135deg,
-      rgba(239, 68, 68, 0.4),
+      rgba(153, 27, 27, 0.4),
       transparent 40%,
       transparent 60%,
-      rgba(185, 28, 28, 0.3)
+      rgba(127, 29, 29, 0.3)
     );
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
@@ -166,7 +166,7 @@
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #f87171 0%, #ef4444 40%, #fca5a5 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 40%, #ef4444 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -203,20 +203,20 @@
     background:
       radial-gradient(
         ellipse 80% 50% at 50% -20%,
-        rgba(239, 68, 68, 0.18) 0%,
+        rgba(153, 27, 27, 0.2) 0%,
         transparent 50%
       ),
       radial-gradient(
         ellipse 50% 50% at 80% 70%,
-        rgba(185, 28, 28, 0.08) 0%,
+        rgba(127, 29, 29, 0.1) 0%,
         transparent 50%
       ),
       radial-gradient(
         ellipse 50% 50% at 20% 60%,
-        rgba(220, 38, 38, 0.06) 0%,
+        rgba(153, 27, 27, 0.07) 0%,
         transparent 50%
       ),
-      hsl(0 0% 4%);
+      linear-gradient(180deg, hsl(0 3% 5%) 0%, hsl(0 3% 4%) 100%);
   }
 
   .card-red-border {
@@ -225,11 +225,11 @@
       hsl(0 0% 9% / 0.97) 0%,
       hsl(0 0% 6% / 0.95) 100%
     );
-    border: 1px solid rgba(239, 68, 68, 0.5);
+    border: 1px solid rgba(185, 28, 28, 0.45);
     border-radius: 16px;
     box-shadow:
-      0 0 0 1px rgba(239, 68, 68, 0.08),
-      0 0 30px rgba(239, 68, 68, 0.08),
+      0 0 0 1px rgba(127, 29, 29, 0.08),
+      0 0 30px rgba(127, 29, 29, 0.06),
       inset 0 1px 0 rgba(255, 255, 255, 0.03);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -246,33 +246,33 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(239, 68, 68, 0.6),
+      rgba(185, 28, 28, 0.6),
       transparent
     );
   }
 
   .card-red-border:hover {
-    border-color: rgba(239, 68, 68, 0.8);
+    border-color: rgba(185, 28, 28, 0.7);
     box-shadow:
-      0 0 0 1px rgba(239, 68, 68, 0.15),
-      0 0 50px rgba(239, 68, 68, 0.15),
-      0 20px 60px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(127, 29, 29, 0.15),
+      0 0 50px rgba(127, 29, 29, 0.12),
+      0 20px 60px rgba(0, 0, 0, 0.5),
       inset 0 1px 0 rgba(255, 255, 255, 0.04);
     transform: translateY(-4px);
   }
 
   .grid-bg {
     background-image:
-      linear-gradient(rgba(239, 68, 68, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(239, 68, 68, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(127, 29, 29, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(127, 29, 29, 0.06) 1px, transparent 1px);
     background-size: 60px 60px;
   }
 
   .card-glass {
     background: linear-gradient(
       135deg,
-      hsl(0 10% 9% / 0.9) 0%,
-      hsl(0 10% 6% / 0.7) 100%
+      hsl(0 3% 9% / 0.9) 0%,
+      hsl(0 3% 6% / 0.7) 100%
     );
     border: 1px solid hsl(0 15% 15%);
     backdrop-filter: blur(20px);
@@ -290,8 +290,8 @@
   .card-glass-static {
     background: linear-gradient(
       135deg,
-      hsl(0 10% 9% / 0.9) 0%,
-      hsl(0 10% 6% / 0.7) 100%
+      hsl(0 3% 9% / 0.9) 0%,
+      hsl(0 3% 6% / 0.7) 100%
     );
     border: 1px solid hsl(0 15% 15%);
     backdrop-filter: blur(20px);
@@ -372,17 +372,17 @@
   }
 
   .btn-glow {
-    background: linear-gradient(135deg, #f87171 0%, #ef4444 50%, #dc2626 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
     color: white;
     font-weight: 800;
     border-radius: 14px;
-    border: 1px solid rgba(248, 113, 113, 0.3);
+    border: 1px solid rgba(220, 38, 38, 0.4);
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow:
-      0 4px 30px rgba(239, 68, 68, 0.4),
-      0 1px 3px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      0 4px 30px rgba(185, 28, 28, 0.4),
+      0 1px 3px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
     position: relative;
     overflow: hidden;
     letter-spacing: -0.01em;
@@ -407,10 +407,10 @@
   .btn-glow:hover {
     transform: translateY(-3px) scale(1.02);
     box-shadow:
-      0 10px 60px rgba(239, 68, 68, 0.55),
-      0 4px 15px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.25);
-    border-color: rgba(248, 113, 113, 0.5);
+      0 10px 60px rgba(185, 28, 28, 0.55),
+      0 4px 15px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(220, 38, 38, 0.6);
   }
 
   .btn-glow:hover::before {
@@ -443,10 +443,11 @@
     height: 1px;
     background: linear-gradient(
       90deg,
-      transparent,
-      hsl(222 30% 14%) 20%,
-      hsl(222 30% 14%) 80%,
-      transparent
+      transparent 0%,
+      rgba(185, 28, 28, 0.15) 20%,
+      rgba(185, 28, 28, 0.35) 50%,
+      rgba(185, 28, 28, 0.15) 80%,
+      transparent 100%
     );
   }
 
@@ -500,20 +501,20 @@
 
   .text-shadow-glow {
     text-shadow:
-      0 0 40px rgba(239, 68, 68, 0.3),
-      0 0 80px rgba(239, 68, 68, 0.1);
+      0 0 40px rgba(153, 27, 27, 0.4),
+      0 0 80px rgba(127, 29, 29, 0.15);
   }
 
   .glow-blue {
     box-shadow:
-      0 0 80px rgba(239, 68, 68, 0.15),
-      0 0 200px rgba(239, 68, 68, 0.05);
+      0 0 80px rgba(127, 29, 29, 0.15),
+      0 0 200px rgba(127, 29, 29, 0.05);
   }
 
   .glow-green {
     box-shadow:
-      0 0 80px rgba(239, 68, 68, 0.15),
-      0 0 200px rgba(239, 68, 68, 0.05);
+      0 0 80px rgba(127, 29, 29, 0.15),
+      0 0 200px rgba(127, 29, 29, 0.05);
   }
 
   .scrollbar-hide {
@@ -560,10 +561,10 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #ef4444;
+    background: #b91c1c;
     cursor: pointer;
-    border: 3px solid #dc2626;
-    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+    border: 3px solid #991b1b;
+    box-shadow: 0 0 15px rgba(153, 27, 27, 0.5);
     transition: transform 0.2s;
   }
   input[type="range"]::-webkit-slider-thumb:hover {
@@ -573,10 +574,10 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #ef4444;
+    background: #b91c1c;
     cursor: pointer;
-    border: 3px solid #dc2626;
-    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+    border: 3px solid #991b1b;
+    box-shadow: 0 0 15px rgba(153, 27, 27, 0.5);
   }
 }
 
@@ -632,10 +633,10 @@
 @keyframes glowRing {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+    box-shadow: 0 0 20px rgba(153, 27, 27, 0.2);
   }
   50% {
-    box-shadow: 0 0 40px rgba(239, 68, 68, 0.4);
+    box-shadow: 0 0 40px rgba(153, 27, 27, 0.4);
   }
 }
 
@@ -725,10 +726,10 @@
 @keyframes chatBtnPulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+    box-shadow: 0 0 0 0 rgba(153, 27, 27, 0.4);
   }
   50% {
-    box-shadow: 0 0 0 12px rgba(239, 68, 68, 0);
+    box-shadow: 0 0 0 12px rgba(153, 27, 27, 0);
   }
 }
 

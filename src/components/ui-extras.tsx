@@ -31,13 +31,13 @@ export function CustomCursor() {
         className="fixed pointer-events-none z-[9999] transition-transform duration-100"
         style={{ left: pos.x, top: pos.y, transform: "translate(-50%, -50%)" }}
       >
-        <div className={`rounded-full bg-red-500 transition-all duration-200 ${isHover ? "w-5 h-5 opacity-90" : "w-3 h-3 opacity-80"}`} />
+        <div className={`rounded-full bg-red-800 transition-all duration-200 ${isHover ? "w-5 h-5 opacity-90" : "w-3 h-3 opacity-80"}`} />
       </div>
       <div
         className="fixed pointer-events-none z-[9998] transition-all duration-300 ease-out"
         style={{ left: pos.x, top: pos.y, transform: "translate(-50%, -50%)" }}
       >
-        <div className={`rounded-full border border-red-500/50 transition-all duration-300 ${isHover ? "w-10 h-10 opacity-60" : "w-7 h-7 opacity-30"}`} />
+        <div className={`rounded-full border border-red-800/50 transition-all duration-300 ${isHover ? "w-10 h-10 opacity-60" : "w-7 h-7 opacity-30"}`} />
       </div>
     </>
   )
@@ -57,7 +57,7 @@ export function ScrollToTop() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-24 right-5 z-40 w-11 h-11 rounded-full bg-red-600 hover:bg-red-500 text-white flex items-center justify-center shadow-lg shadow-red-900/40 transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+      className="fixed bottom-24 right-5 z-40 w-11 h-11 rounded-full bg-red-900 hover:bg-red-800 text-white flex items-center justify-center shadow-lg shadow-red-950/50 border border-red-800/30 transition-all duration-300 hover:scale-110 hover:-translate-y-1"
       aria-label="Наверх"
     >
       <Icon name="ChevronUp" size={20} />

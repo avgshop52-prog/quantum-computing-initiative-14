@@ -31,7 +31,7 @@ function AnimatedNumber({ target, suffix = "", prefix = "" }: { target: number; 
   }, [target])
 
   return (
-    <div ref={ref} className="font-display text-4xl sm:text-5xl font-extrabold gradient-text">
+    <div ref={ref} className="font-display text-5xl sm:text-6xl font-extrabold gradient-text">
       {prefix}{val.toLocaleString()}{suffix}
     </div>
   )
@@ -39,7 +39,7 @@ function AnimatedNumber({ target, suffix = "", prefix = "" }: { target: number; 
 
 const stats = [
   { target: 89, suffix: "%", label: "получили результат", icon: "Target" },
-  { target: 1800000, prefix: "", suffix: "", label: "заработано учениками", icon: "Banknote", display: "1.8 млн ₽" },
+  { target: 1800000, prefix: "", suffix: "", label: "заработано учениками", icon: "Banknote", display: "1.8 млн ₽+" },
   { target: 3, suffix: " дня", label: "до первой прибыли", icon: "Zap" },
 ]
 
@@ -51,8 +51,8 @@ function StudentsCounter() {
   const count = BASE_COUNT + daysPassed * 1
 
   return (
-    <div className="font-display text-4xl sm:text-5xl font-extrabold gradient-text">
-      {count.toLocaleString()}+
+    <div className="font-display text-5xl sm:text-6xl font-extrabold gradient-text">
+      {count.toLocaleString()}<span className="animate-pulse">+</span>
     </div>
   )
 }
