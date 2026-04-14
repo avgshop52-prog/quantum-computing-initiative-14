@@ -43,12 +43,12 @@ const stats = [
   { target: 3, suffix: " дня", label: "до первой прибыли", icon: "Zap" },
 ]
 
-const BASE_COUNT = 1580
-const BASE_DATE = new Date("2026-04-12").getTime()
+const BASE_COUNT = 1843
+const BASE_DATE = new Date("2026-04-14").getTime()
 
 function StudentsCounter() {
   const daysPassed = Math.floor((Date.now() - BASE_DATE) / (1000 * 60 * 60 * 24))
-  const count = BASE_COUNT + daysPassed * 2
+  const count = BASE_COUNT + daysPassed * 1
 
   return (
     <div className="font-display text-4xl sm:text-5xl font-extrabold gradient-text">
