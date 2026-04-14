@@ -52,8 +52,8 @@ export function AboutSection() {
           <div className="relative">
             <div className="absolute -inset-4 rounded-3xl bg-primary/[0.05] blur-[60px]" />
             <img
-              src="https://cdn.poehali.dev/projects/166c0de3-fca3-4625-9fe7-cae8102d3439/files/992ce187-b6c8-4ea7-8d94-698292650b62.jpg"
-              alt="P2P арбитраж криптовалюты — рабочее место трейдера"
+              src="https://cdn.poehali.dev/projects/166c0de3-fca3-4625-9fe7-cae8102d3439/files/5a3cfc0f-2698-4fcc-9955-7f5679a5defe.jpg"
+              alt="P2P арбитраж криптовалюты — трейдер"
               loading="lazy"
               className="w-full rounded-2xl object-cover aspect-[4/3] relative z-10"
             />
