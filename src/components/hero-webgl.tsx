@@ -4,72 +4,113 @@ import { Float } from "@react-three/drei"
 import Icon from "@/components/ui/icon"
 import * as THREE from "three"
 
-function CryptoCoin({ position, color, emissive, speed, size }: { position: [number, number, number]; color: string; emissive: string; speed: number; size: number }) {
+function FloatingOctahedron({ position, speed, size }: { position: [number, number, number]; speed: number; size: number }) {
   const meshRef = useRef<THREE.Mesh>(null)
   useFrame(({ clock }) => {
     if (meshRef.current) {
-      meshRef.current.rotation.x = Math.sin(clock.elapsedTime * speed) * 0.4
-      meshRef.current.rotation.y = clock.elapsedTime * speed * 0.5
-      meshRef.current.position.y = position[1] + Math.sin(clock.elapsedTime * speed * 0.7) * 0.3
+      meshRef.current.rotation.x = clock.elapsedTime * speed * 0.6
+      meshRef.current.rotation.y = clock.elapsedTime * speed * 0.4
+      meshRef.current.position.y = position[1] + Math.sin(clock.elapsedTime * speed * 0.5) * 0.25
     }
   })
   return (
-    <Float speed={1.2} rotationIntensity={0.2} floatIntensity={0.5}>
+    <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.6}>
       <mesh ref={meshRef} position={position} scale={size}>
-        <cylinderGeometry args={[1, 1, 0.18, 32]} />
-        <meshStandardMaterial color={color} metalness={0.95} roughness={0.05} emissive={emissive} emissiveIntensity={0.2} />
+        <octahedronGeometry args={[1, 0]} />
+        <meshStandardMaterial color="#ef4444" metalness={0.9} roughness={0.1} emissive="#dc2626" emissiveIntensity={0.4} wireframe />
       </mesh>
     </Float>
   )
 }
 
-function CentralCoin() {
+function FloatingIcosahedron({ position, speed, size }: { position: [number, number, number]; speed: number; size: number }) {
   const meshRef = useRef<THREE.Mesh>(null)
-  const ringRef = useRef<THREE.Mesh>(null)
   useFrame(({ clock }) => {
     if (meshRef.current) {
-      meshRef.current.rotation.y = clock.elapsedTime * 0.4
-      meshRef.current.position.y = Math.sin(clock.elapsedTime * 0.5) * 0.2
-    }
-    if (ringRef.current) {
-      ringRef.current.rotation.z = clock.elapsedTime * 0.2
-      ringRef.current.rotation.x = Math.sin(clock.elapsedTime * 0.3) * 0.3
+      meshRef.current.rotation.x = clock.elapsedTime * speed * 0.3
+      meshRef.current.rotation.z = clock.elapsedTime * speed * 0.5
+      meshRef.current.position.y = position[1] + Math.sin(clock.elapsedTime * speed * 0.6) * 0.3
     }
   })
   return (
-    <Float speed={1} rotationIntensity={0.2} floatIntensity={0.5}>
-      <group>
-        <mesh ref={ringRef} scale={1.8}>
-          <torusGeometry args={[1, 0.02, 16, 80]} />
-          <meshStandardMaterial color="#3b82f6" metalness={0.9} roughness={0.1} emissive="#2563eb" emissiveIntensity={0.6} transparent opacity={0.5} />
-        </mesh>
-        <mesh ref={meshRef} scale={1.2}>
-          <cylinderGeometry args={[1, 1, 0.22, 64]} />
-          <meshStandardMaterial color="#3b82f6" metalness={0.95} roughness={0.05} emissive="#1d4ed8" emissiveIntensity={0.35} />
-        </mesh>
-      </group>
+    <Float speed={1.2} rotationIntensity={0.4} floatIntensity={0.5}>
+      <mesh ref={meshRef} position={position} scale={size}>
+        <icosahedronGeometry args={[1, 0]} />
+        <meshStandardMaterial color="#1a0000" metalness={0.95} roughness={0.05} emissive="#ef4444" emissiveIntensity={0.15} />
+      </mesh>
     </Float>
   )
 }
 
-function StarParticles() {
+function CentralSphere() {
+  const groupRef = useRef<THREE.Group>(null)
+  const ring1Ref = useRef<THREE.Mesh>(null)
+  const ring2Ref = useRef<THREE.Mesh>(null)
+  const ring3Ref = useRef<THREE.Mesh>(null)
+  useFrame(({ clock }) => {
+    if (groupRef.current) {
+      groupRef.current.position.y = Math.sin(clock.elapsedTime * 0.4) * 0.15
+    }
+    if (ring1Ref.current) {
+      ring1Ref.current.rotation.z = clock.elapsedTime * 0.3
+      ring1Ref.current.rotation.x = Math.sin(clock.elapsedTime * 0.2) * 0.4
+    }
+    if (ring2Ref.current) {
+      ring2Ref.current.rotation.z = -clock.elapsedTime * 0.2
+      ring2Ref.current.rotation.y = clock.elapsedTime * 0.35
+    }
+    if (ring3Ref.current) {
+      ring3Ref.current.rotation.x = clock.elapsedTime * 0.25
+      ring3Ref.current.rotation.z = Math.sin(clock.elapsedTime * 0.3) * 0.5
+    }
+  })
+  return (
+    <group ref={groupRef}>
+      <mesh scale={1.1}>
+        <sphereGeometry args={[1, 32, 32]} />
+        <meshStandardMaterial color="#0a0000" metalness={0.95} roughness={0.05} emissive="#7f1d1d" emissiveIntensity={0.3} />
+      </mesh>
+      <mesh scale={1.12}>
+        <sphereGeometry args={[1, 16, 16]} />
+        <meshStandardMaterial color="#ef4444" metalness={0.9} roughness={0.1} emissive="#ef4444" emissiveIntensity={0.05} wireframe transparent opacity={0.15} />
+      </mesh>
+      <mesh ref={ring1Ref} scale={2.2}>
+        <torusGeometry args={[1, 0.015, 16, 100]} />
+        <meshStandardMaterial color="#ef4444" metalness={0.9} roughness={0.1} emissive="#ef4444" emissiveIntensity={0.8} transparent opacity={0.7} />
+      </mesh>
+      <mesh ref={ring2Ref} scale={1.8}>
+        <torusGeometry args={[1, 0.012, 16, 100]} />
+        <meshStandardMaterial color="#dc2626" metalness={0.9} roughness={0.1} emissive="#dc2626" emissiveIntensity={0.6} transparent opacity={0.5} />
+      </mesh>
+      <mesh ref={ring3Ref} scale={2.6}>
+        <torusGeometry args={[1, 0.008, 16, 100]} />
+        <meshStandardMaterial color="#7f1d1d" metalness={0.9} roughness={0.1} emissive="#7f1d1d" emissiveIntensity={0.4} transparent opacity={0.3} />
+      </mesh>
+    </group>
+  )
+}
+
+function RedParticles() {
   const ref = useRef<THREE.Points>(null)
-  const count = 200
+  const count = 350
   const positions = new Float32Array(count * 3)
   for (let i = 0; i < count; i++) {
-    positions[i * 3] = (Math.random() - 0.5) * 16
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 16
+    positions[i * 3] = (Math.random() - 0.5) * 18
+    positions[i * 3 + 1] = (Math.random() - 0.5) * 18
     positions[i * 3 + 2] = (Math.random() - 0.5) * 10
   }
   useFrame(({ clock }) => {
-    if (ref.current) ref.current.rotation.y = clock.elapsedTime * 0.012
+    if (ref.current) {
+      ref.current.rotation.y = clock.elapsedTime * 0.01
+      ref.current.rotation.x = clock.elapsedTime * 0.005
+    }
   })
   return (
     <points ref={ref}>
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
-      <pointsMaterial size={0.02} color="#60a5fa" transparent opacity={0.35} sizeAttenuation />
+      <pointsMaterial size={0.025} color="#ef4444" transparent opacity={0.4} sizeAttenuation />
     </points>
   )
 }
@@ -77,16 +118,18 @@ function StarParticles() {
 function Scene3D() {
   return (
     <Canvas camera={{ position: [0, 0, 6], fov: 45 }} style={{ position: "absolute", inset: 0 }}>
-      <ambientLight intensity={0.35} />
-      <pointLight position={[5, 5, 5]} intensity={1} color="#3b82f6" />
-      <pointLight position={[-5, -3, 3]} intensity={0.4} color="#6366f1" />
-      <pointLight position={[0, -5, 2]} intensity={0.2} color="#2563eb" />
-      <CryptoCoin position={[-2.8, 1, -1]} color="#f59e0b" emissive="#d97706" speed={0.5} size={0.65} />
-      <CryptoCoin position={[3, -0.5, -1.5]} color="#3b82f6" emissive="#2563eb" speed={0.7} size={0.5} />
-      <CryptoCoin position={[-1.5, -1.8, -0.5]} color="#8b5cf6" emissive="#7c3aed" speed={0.4} size={0.4} />
-      <CryptoCoin position={[1.5, 2, -2]} color="#10b981" emissive="#059669" speed={0.6} size={0.35} />
-      <CentralCoin />
-      <StarParticles />
+      <ambientLight intensity={0.2} />
+      <pointLight position={[5, 5, 5]} intensity={2} color="#ef4444" />
+      <pointLight position={[-5, -3, 3]} intensity={0.8} color="#dc2626" />
+      <pointLight position={[0, -5, 2]} intensity={0.4} color="#7f1d1d" />
+      <pointLight position={[3, 3, -2]} intensity={0.6} color="#ff6b6b" />
+      <CentralSphere />
+      <FloatingOctahedron position={[-3, 1.2, -1]} speed={0.5} size={0.55} />
+      <FloatingOctahedron position={[3.2, -0.8, -1.5]} speed={0.7} size={0.45} />
+      <FloatingIcosahedron position={[-2, -1.8, -0.5]} speed={0.4} size={0.5} />
+      <FloatingIcosahedron position={[2, 2, -2]} speed={0.6} size={0.38} />
+      <FloatingOctahedron position={[1, -2.5, -1]} speed={0.35} size={0.3} />
+      <RedParticles />
     </Canvas>
   )
 }
