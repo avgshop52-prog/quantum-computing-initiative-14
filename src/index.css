@@ -6,25 +6,25 @@
 
 @layer base {
   :root {
-    --background: 222 47% 5%;
-    --foreground: 210 40% 98%;
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217 91% 60%;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 84% 55%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 222 35% 12%;
+    --secondary: 0 15% 10%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 222 30% 14%;
-    --muted-foreground: 217 20% 55%;
-    --accent: 217 91% 60%;
+    --muted: 0 10% 12%;
+    --muted-foreground: 0 10% 55%;
+    --accent: 0 84% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 222 30% 12%;
-    --input: 222 35% 10%;
-    --ring: 217 91% 60%;
+    --border: 0 15% 12%;
+    --input: 0 15% 10%;
+    --ring: 0 84% 55%;
     --radius: 0.75rem;
     --gold: 45 93% 58%;
   }
@@ -101,10 +101,10 @@
     padding: 1px;
     background: linear-gradient(
       135deg,
-      rgba(59, 130, 246, 0.4),
+      rgba(239, 68, 68, 0.4),
       transparent 40%,
       transparent 60%,
-      rgba(99, 102, 241, 0.3)
+      rgba(185, 28, 28, 0.3)
     );
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
@@ -146,7 +146,7 @@
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 40%, #93c5fd 100%);
+    background: linear-gradient(135deg, #f87171 0%, #ef4444 40%, #fca5a5 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -183,37 +183,37 @@
     background:
       radial-gradient(
         ellipse 80% 50% at 50% -20%,
-        rgba(59, 130, 246, 0.18) 0%,
+        rgba(239, 68, 68, 0.18) 0%,
         transparent 50%
       ),
       radial-gradient(
         ellipse 50% 50% at 80% 70%,
-        rgba(99, 102, 241, 0.08) 0%,
+        rgba(185, 28, 28, 0.08) 0%,
         transparent 50%
       ),
       radial-gradient(
         ellipse 50% 50% at 20% 60%,
-        rgba(37, 99, 235, 0.06) 0%,
+        rgba(220, 38, 38, 0.06) 0%,
         transparent 50%
       ),
-      hsl(222 47% 5%);
+      hsl(0 0% 4%);
   }
 
   .card-glass {
     background: linear-gradient(
       135deg,
-      hsl(222 47% 9% / 0.9) 0%,
-      hsl(222 47% 6% / 0.7) 100%
+      hsl(0 10% 9% / 0.9) 0%,
+      hsl(0 10% 6% / 0.7) 100%
     );
-    border: 1px solid hsl(222 30% 15%);
+    border: 1px solid hsl(0 15% 15%);
     backdrop-filter: blur(20px);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .card-glass:hover {
-    border-color: rgba(59, 130, 246, 0.3);
+    border-color: rgba(239, 68, 68, 0.3);
     box-shadow:
-      0 0 60px rgba(59, 130, 246, 0.08),
+      0 0 60px rgba(239, 68, 68, 0.08),
       0 25px 80px rgba(0, 0, 0, 0.35);
     transform: translateY(-4px);
   }
@@ -221,30 +221,30 @@
   .card-glass-static {
     background: linear-gradient(
       135deg,
-      hsl(222 47% 9% / 0.9) 0%,
-      hsl(222 47% 6% / 0.7) 100%
+      hsl(0 10% 9% / 0.9) 0%,
+      hsl(0 10% 6% / 0.7) 100%
     );
-    border: 1px solid hsl(222 30% 15%);
+    border: 1px solid hsl(0 15% 15%);
     backdrop-filter: blur(20px);
   }
 
   .card-solid {
-    background: hsl(222 47% 8%);
-    border: 1px solid hsl(222 30% 12%);
+    background: hsl(0 10% 8%);
+    border: 1px solid hsl(0 15% 12%);
     transition: all 0.3s ease;
   }
 
   .card-solid:hover {
-    border-color: hsl(222 30% 18%);
+    border-color: hsl(0 15% 18%);
   }
 
   .card-premium {
     background: linear-gradient(
       145deg,
-      hsl(222 47% 10% / 0.95) 0%,
-      hsl(222 50% 6% / 0.9) 100%
+      hsl(0 10% 10% / 0.95) 0%,
+      hsl(0 10% 6% / 0.9) 100%
     );
-    border: 1px solid hsl(222 30% 16%);
+    border: 1px solid hsl(0 15% 16%);
     backdrop-filter: blur(30px);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -261,7 +261,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(59, 130, 246, 0.5),
+      rgba(239, 68, 68, 0.5),
       transparent
     );
     opacity: 0;
@@ -277,7 +277,7 @@
     height: 100%;
     background: radial-gradient(
       circle,
-      rgba(59, 130, 246, 0.04) 0%,
+      rgba(239, 68, 68, 0.04) 0%,
       transparent 60%
     );
     opacity: 0;
@@ -286,9 +286,9 @@
   }
 
   .card-premium:hover {
-    border-color: rgba(59, 130, 246, 0.3);
+    border-color: rgba(239, 68, 68, 0.3);
     box-shadow:
-      0 0 80px rgba(59, 130, 246, 0.1),
+      0 0 80px rgba(239, 68, 68, 0.1),
       0 30px 100px rgba(0, 0, 0, 0.5),
       inset 0 1px 0 rgba(255, 255, 255, 0.03);
     transform: translateY(-6px);
@@ -303,15 +303,15 @@
   }
 
   .btn-glow {
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
+    background: linear-gradient(135deg, #f87171 0%, #ef4444 50%, #dc2626 100%);
     color: white;
     font-weight: 800;
     border-radius: 14px;
-    border: 1px solid rgba(96, 165, 250, 0.3);
+    border: 1px solid rgba(248, 113, 113, 0.3);
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow:
-      0 4px 30px rgba(59, 130, 246, 0.4),
+      0 4px 30px rgba(239, 68, 68, 0.4),
       0 1px 3px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
     position: relative;
@@ -338,10 +338,10 @@
   .btn-glow:hover {
     transform: translateY(-3px) scale(1.02);
     box-shadow:
-      0 10px 60px rgba(59, 130, 246, 0.55),
+      0 10px 60px rgba(239, 68, 68, 0.55),
       0 4px 15px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.25);
-    border-color: rgba(96, 165, 250, 0.5);
+    border-color: rgba(248, 113, 113, 0.5);
   }
 
   .btn-glow:hover::before {
@@ -364,8 +364,8 @@
   }
 
   .btn-ghost:hover {
-    background: hsl(222 35% 12%);
-    border-color: rgba(59, 130, 246, 0.25);
+    background: hsl(0 10% 12%);
+    border-color: rgba(239, 68, 68, 0.25);
     transform: translateY(-2px);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   }
@@ -431,20 +431,20 @@
 
   .text-shadow-glow {
     text-shadow:
-      0 0 40px rgba(59, 130, 246, 0.3),
-      0 0 80px rgba(59, 130, 246, 0.1);
+      0 0 40px rgba(239, 68, 68, 0.3),
+      0 0 80px rgba(239, 68, 68, 0.1);
   }
 
   .glow-blue {
     box-shadow:
-      0 0 80px rgba(59, 130, 246, 0.15),
-      0 0 200px rgba(59, 130, 246, 0.05);
+      0 0 80px rgba(239, 68, 68, 0.15),
+      0 0 200px rgba(239, 68, 68, 0.05);
   }
 
   .glow-green {
     box-shadow:
-      0 0 80px rgba(59, 130, 246, 0.15),
-      0 0 200px rgba(59, 130, 246, 0.05);
+      0 0 80px rgba(239, 68, 68, 0.15),
+      0 0 200px rgba(239, 68, 68, 0.05);
   }
 
   .scrollbar-hide {
@@ -491,10 +491,10 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #3b82f6;
+    background: #ef4444;
     cursor: pointer;
-    border: 3px solid #1d4ed8;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    border: 3px solid #dc2626;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
     transition: transform 0.2s;
   }
   input[type="range"]::-webkit-slider-thumb:hover {
@@ -504,10 +504,10 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #3b82f6;
+    background: #ef4444;
     cursor: pointer;
-    border: 3px solid #1d4ed8;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    border: 3px solid #dc2626;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
   }
 }
 
@@ -563,10 +563,10 @@
 @keyframes glowRing {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
   }
   50% {
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 40px rgba(239, 68, 68, 0.4);
   }
 }
 
@@ -656,10 +656,10 @@
 @keyframes chatBtnPulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
   }
   50% {
-    box-shadow: 0 0 0 12px rgba(59, 130, 246, 0);
+    box-shadow: 0 0 0 12px rgba(239, 68, 68, 0);
   }
 }
 
