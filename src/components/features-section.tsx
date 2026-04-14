@@ -2,12 +2,12 @@ import Icon from "@/components/ui/icon"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
 const features = [
-  { icon: "Laptop", title: "Работай откуда угодно", desc: "Нужен только телефон и интернет. Дома, в кафе, в поездке — зарабатывай из любой точки мира" },
-  { icon: "ShieldCheck", title: "Легально и прозрачно", desc: "Сделки через официальные биржи с верификацией. Никаких серых схем — всё по закону" },
-  { icon: "LineChart", title: "Доход не зависит от рынка", desc: "Крипта растёт или падает — неважно. Ты зарабатываешь на разнице цен между площадками" },
-  { icon: "Timer", title: "Быстрый результат", desc: "Первую прибыль получаешь на 3-й день обучения. Не через месяц — сейчас" },
-  { icon: "Users", title: "Живое сообщество", desc: "1843 ученика, общий чат, разборы сделок. Рядом люди с таким же опытом" },
-  { icon: "Wallet", title: "Старт с любой суммой", desc: "Начни с 10 000 ₽ и постепенно наращивай обороты. Нет минимального порога" },
+  { icon: "Laptop", title: "Работай откуда угодно", desc: "Нужен только телефон и интернет. Дома, в кафе, в поездке — зарабатывай из любой точки мира", badge: "Мобильно" },
+  { icon: "ShieldCheck", title: "Легально и прозрачно", desc: "Сделки через официальные биржи с верификацией. Никаких серых схем — всё по закону", badge: "Безопасно" },
+  { icon: "LineChart", title: "Доход не зависит от рынка", desc: "Крипта растёт или падает — неважно. Ты зарабатываешь на разнице цен между площадками", badge: "Стабильно" },
+  { icon: "Timer", title: "Быстрый результат", desc: "Первую прибыль получаешь на 3-й день обучения. Не через месяц — сейчас", badge: "3 дня" },
+  { icon: "Users", title: "Живое сообщество", desc: "1843 ученика, общий чат, разборы сделок. Рядом люди с таким же опытом", badge: "1843+" },
+  { icon: "Wallet", title: "Старт с любой суммой", desc: "Начни с 10 000 ₽ и постепенно наращивай обороты. Нет минимального порога", badge: "От 10к ₽" },
 ]
 
 export function FeaturesSection() {
@@ -31,9 +31,14 @@ export function FeaturesSection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {features.map((f, i) => (
             <ScrollReveal key={f.title} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
-              <div className="card-premium rounded-2xl p-7 group shine-effect border-glow">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors">
-                  <Icon name={f.icon} size={22} className="text-primary" />
+              <div className="card-red-border p-7 group h-full">
+                <div className="flex items-start justify-between mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
+                    <Icon name={f.icon} size={22} className="text-primary" />
+                  </div>
+                  <span className="bg-primary text-white text-[11px] font-extrabold px-3 py-1.5 rounded-full">
+                    {f.badge}
+                  </span>
                 </div>
                 <h3 className="font-heading font-extrabold text-[17px] text-white mb-3">{f.title}</h3>
                 <p className="text-white/50 text-[13px] leading-relaxed font-medium">{f.desc}</p>

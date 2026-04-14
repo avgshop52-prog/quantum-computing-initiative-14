@@ -61,8 +61,8 @@ export function MentorsSection() {
         <div className="grid md:grid-cols-3 gap-6">
           {mentors.map((m, i) => (
             <ScrollReveal key={m.name} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
-            <div className="card-premium rounded-3xl p-8 group relative overflow-hidden shine-effect">
-              <div className={`absolute inset-0 rounded-3xl bg-gradient-to-b ${m.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+            <div className="card-red-border p-8 group relative overflow-hidden">
+              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-b ${m.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
               <div className="relative z-10">
                 <div className={`w-16 h-16 rounded-2xl ${m.iconBg} flex items-center justify-center mb-6`}>
                   <Icon name={m.icon} size={28} />

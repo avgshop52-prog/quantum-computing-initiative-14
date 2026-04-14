@@ -60,7 +60,7 @@ export function GuaranteesSection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {guarantees.map((g, i) => (
             <ScrollReveal key={g.title} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
-              <div className={`rounded-2xl p-7 group shine-effect ${g.highlight ? "card-premium border-primary/25" : "card-glass"}`}>
+              <div className="card-red-border p-7 group h-full">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors ${g.highlight ? "bg-primary/15" : "bg-primary/10 border border-primary/15 group-hover:bg-primary/15"}`}>
                   <Icon name={g.icon} size={22} className="text-primary" />
                 </div>

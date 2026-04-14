@@ -203,6 +203,48 @@
       hsl(0 0% 4%);
   }
 
+  .card-red-border {
+    background: linear-gradient(
+      145deg,
+      hsl(0 0% 9% / 0.97) 0%,
+      hsl(0 0% 6% / 0.95) 100%
+    );
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    border-radius: 16px;
+    box-shadow:
+      0 0 0 1px rgba(239, 68, 68, 0.08),
+      0 0 30px rgba(239, 68, 68, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-red-border::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(239, 68, 68, 0.6),
+      transparent
+    );
+  }
+
+  .card-red-border:hover {
+    border-color: rgba(239, 68, 68, 0.8);
+    box-shadow:
+      0 0 0 1px rgba(239, 68, 68, 0.15),
+      0 0 50px rgba(239, 68, 68, 0.15),
+      0 20px 60px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    transform: translateY(-4px);
+  }
+
   .grid-bg {
     background-image:
       linear-gradient(rgba(239, 68, 68, 0.04) 1px, transparent 1px),
