@@ -57,7 +57,7 @@ export function CTASection() {
             <span className="gradient-text">что не начал сегодня</span>
           </h2>
           <p className="text-white/50 text-sm sm:text-base mb-10 max-w-md mx-auto leading-relaxed font-semibold">
-            312 учеников уже зарабатывают дополнительно от 15 000 до 50 000 ₽ в месяц. Вступай в канал — первый урок бесплатно, без обязательств.
+            1800+ учеников уже зарабатывают дополнительно от 15 000 до 50 000 ₽ в месяц. Вступай в канал — первый урок бесплатно, без обязательств.
           </p>
 
           <div className="mb-10">

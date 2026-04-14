@@ -11,7 +11,7 @@ const mentors = [
     iconBg: "bg-amber-500/15 text-amber-400",
     stats: [
       { label: "Опыт", val: "3+ года" },
-      { label: "Учеников", val: "312+" },
+      { label: "Учеников", val: "1800+" },
     ],
   },
   {
