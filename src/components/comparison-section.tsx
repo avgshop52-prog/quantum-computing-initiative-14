@@ -23,7 +23,7 @@ export function ComparisonSection() {
         </div>
 
         <ScrollReveal>
-          <div className="card-premium rounded-3xl overflow-hidden">
+          <div className="card-red-border overflow-hidden">
             <div className="grid grid-cols-3 gap-0 border-b border-white/[0.06] px-6 py-5">
               <div className="text-white/30 text-xs font-bold uppercase"></div>
               <div className="text-center">

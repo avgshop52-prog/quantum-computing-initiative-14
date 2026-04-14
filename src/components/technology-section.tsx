@@ -49,7 +49,7 @@ export function TechnologySection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {steps.map((s, i) => (
             <ScrollReveal key={s.title} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
-              <div className="card-premium rounded-2xl p-7 relative group">
+              <div className="card-red-border p-7 relative group">
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-b ${s.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                 <div className="relative z-10">
                   <div className="flex items-center justify-between mb-6">

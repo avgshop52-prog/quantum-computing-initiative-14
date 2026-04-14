@@ -28,7 +28,7 @@ export function CalculatorSection() {
           </div>
         </ScrollReveal>
 
-        <div className="card-premium rounded-3xl p-8 sm:p-12">
+        <div className="card-red-border p-8 sm:p-12">
           <div className="mb-10">
             <div className="flex items-center justify-between mb-4">
               <span className="text-white/50 text-sm font-bold">Стартовый капитал</span>

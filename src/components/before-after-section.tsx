@@ -29,7 +29,7 @@ export function BeforeAfterSection() {
         <div className="grid sm:grid-cols-2 gap-5">
           {stories.map((s, i) => (
             <ScrollReveal key={s.name} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
-            <div className="card-premium rounded-2xl p-7 group shine-effect">
+            <div className="card-red-border p-7 group">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Icon name={s.icon} size={22} className="text-primary" />

@@ -34,7 +34,7 @@ export function FAQSection() {
         <ScrollReveal delay={1}>
         <Accordion type="single" collapsible className="flex flex-col gap-3">
           {faqs.map((f, i) => (
-            <AccordionItem key={i} value={`q-${i}`} className="card-premium rounded-xl border-0 overflow-hidden">
+            <AccordionItem key={i} value={`q-${i}`} className="card-red-border overflow-hidden">
               <AccordionTrigger className="text-left text-sm font-extrabold text-white hover:text-primary transition-colors px-6 py-5 hover:no-underline gap-3">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">

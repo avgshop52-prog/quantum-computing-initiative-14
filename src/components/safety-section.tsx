@@ -29,7 +29,7 @@ export function SafetySection() {
         <div className="flex flex-col gap-5">
           {myths.map((m, i) => (
             <ScrollReveal key={m.myth} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
-              <div className="card-premium rounded-2xl p-7 sm:p-8 shine-effect">
+              <div className="card-red-border p-7 sm:p-8">
                 <div className="flex items-start gap-4 mb-5">
                   <div className="w-8 h-8 rounded-full bg-red-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Icon name="X" size={14} className="text-red-400" />

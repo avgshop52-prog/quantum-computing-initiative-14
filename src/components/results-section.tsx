@@ -77,7 +77,7 @@ export function ResultsSection() {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
           <ScrollReveal delay={0}>
-            <div className="card-premium rounded-2xl p-7 text-center group">
+            <div className="card-red-border p-7 text-center group">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 transition-colors">
                 <Icon name="Users" size={22} className="text-primary" />
               </div>
@@ -87,7 +87,7 @@ export function ResultsSection() {
           </ScrollReveal>
           {stats.map((s, i) => (
             <ScrollReveal key={s.label} delay={(i + 1) % 4 as 0 | 1 | 2 | 3 | 4}>
-              <div className="card-premium rounded-2xl p-7 text-center group">
+              <div className="card-red-border p-7 text-center group">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 transition-colors">
                   <Icon name={s.icon} size={22} className="text-primary" />
                 </div>

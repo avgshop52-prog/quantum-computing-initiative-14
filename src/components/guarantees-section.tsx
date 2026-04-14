@@ -72,7 +72,7 @@ export function GuaranteesSection() {
         </div>
 
         <div className="mt-14 text-center">
-          <div className="card-glass-static rounded-2xl p-7 max-w-2xl mx-auto">
+          <div className="card-red-border p-7 max-w-2xl mx-auto">
             <div className="flex items-start gap-4">
               <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                 <Icon name="Quote" size={20} className="text-primary" />

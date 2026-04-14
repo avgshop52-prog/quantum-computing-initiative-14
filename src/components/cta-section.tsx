@@ -47,7 +47,7 @@ export function CTASection() {
 
       <div className="max-w-2xl mx-auto relative z-10 text-center">
         <ScrollReveal>
-        <div className="card-premium rounded-3xl p-10 sm:p-16 border-primary/20 glow-blue">
+        <div className="card-red-border p-10 sm:p-16">
           <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-7">
             <Icon name="Rocket" size={30} className="text-primary" />
           </div>

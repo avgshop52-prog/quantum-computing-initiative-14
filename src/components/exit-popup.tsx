@@ -60,7 +60,7 @@ export function ExitPopup() {
         className="relative z-10 w-full max-w-md animate-[popupScale_0.5s_cubic-bezier(0.16,1,0.3,1)]"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="card-premium rounded-3xl p-8 sm:p-10 text-center border-primary/20">
+        <div className="card-red-border p-8 sm:p-10 text-center">
           {/* Close button */}
           <button
             onClick={handleClose}

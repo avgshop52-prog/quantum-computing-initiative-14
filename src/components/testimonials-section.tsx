@@ -56,7 +56,7 @@ export function TestimonialsSection() {
             <div key={ci} className="flex flex-col gap-5">
               {col.map((r, ri) => (
                 <ScrollReveal key={r.name} delay={(ci * col.length + ri) % 4 as 0 | 1 | 2 | 3 | 4}>
-                  <div className={`rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 shine-effect border-glow ${r.highlight ? "card-premium border-primary/20" : "card-glass"}`}>
+                  <div className="card-red-border p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1">
                     <div className="flex items-center justify-between mb-5">
                       <div className="flex items-center gap-3">
                         <div className={`w-11 h-11 rounded-full flex items-center justify-center ${colors[(ci * 6 + ri) % colors.length]}`}>

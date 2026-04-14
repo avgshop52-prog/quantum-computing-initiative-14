@@ -34,7 +34,7 @@ export function VideoSection() {
           {/* Video card */}
           <ScrollReveal delay={1}>
           <div
-            className="card-premium rounded-3xl overflow-hidden cursor-pointer group"
+            className="card-red-border overflow-hidden cursor-pointer group"
             onClick={() => setIsOpen(true)}
           >
             {/* Aspect ratio container */}
@@ -111,7 +111,7 @@ export function VideoSection() {
               <Icon name="X" size={18} />
             </button>
 
-            <div className="card-premium rounded-3xl overflow-hidden">
+            <div className="card-red-border overflow-hidden">
               <div className="relative aspect-video flex items-center justify-center bg-gradient-to-br from-[hsl(222,47%,12%)] via-[hsl(225,50%,7%)] to-[hsl(230,47%,5%)]">
                 {/* Background decorative elements */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.1)_0%,transparent_60%)]" />
