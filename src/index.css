@@ -199,6 +199,13 @@
       hsl(0 0% 4%);
   }
 
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(239, 68, 68, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(239, 68, 68, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
   .card-glass {
     background: linear-gradient(
       135deg,

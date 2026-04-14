@@ -22,7 +22,7 @@ export function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled
-        ? "bg-[hsl(222_47%_5%/0.95)] backdrop-blur-2xl border-b border-white/[0.06] shadow-2xl shadow-black/20"
+        ? "bg-[rgba(8,0,0,0.95)] backdrop-blur-2xl border-b border-red-900/30 shadow-2xl shadow-black/40"
         : "bg-transparent"
     }`}>
       <div className="max-w-6xl mx-auto px-5">
@@ -64,7 +64,7 @@ export function Navbar() {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-[hsl(222_47%_5%/0.98)] backdrop-blur-2xl border-b border-white/[0.06] px-5 py-6 flex flex-col gap-1">
+        <div className="md:hidden bg-[rgba(8,0,0,0.98)] backdrop-blur-2xl border-b border-red-900/30 px-5 py-6 flex flex-col gap-1">
           {links.map((l) => (
             <a key={l.href} href={l.href} className="text-white text-sm py-3 px-4 rounded-xl hover:bg-white/[0.04] transition-colors font-bold" onClick={() => setMenuOpen(false)}>
               {l.label}

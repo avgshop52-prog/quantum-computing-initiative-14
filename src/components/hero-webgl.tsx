@@ -243,6 +243,7 @@ export function Hero3DWebGL() {
 
   return (
     <section className="hero-bg min-h-screen flex flex-col items-center justify-center px-5 pt-24 pb-16 relative overflow-hidden noise-bg">
+      <div className="absolute inset-0 grid-bg opacity-100 pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
         <Scene3D />
       </div>
@@ -254,28 +255,34 @@ export function Hero3DWebGL() {
         </div>
 
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2.5 bg-primary/[0.08] border border-primary/20 rounded-full px-5 py-2.5 mb-8">
-            <div className="w-2 h-2 rounded-full bg-primary pulse-soft" />
-            <span className="text-primary text-xs font-bold tracking-wide uppercase">Набор открыт</span>
-            <div className="w-px h-3 bg-primary/20" />
-            <span className="text-primary/60 text-xs font-bold">Апрель 2026</span>
+          <div className="inline-flex items-center gap-2.5 bg-primary/[0.1] border border-primary/30 rounded-full px-5 py-2.5 mb-8 shadow-lg shadow-primary/10">
+            <div className="relative flex">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              <div className="absolute w-2 h-2 rounded-full bg-primary/60 animate-ping" />
+            </div>
+            <span className="text-primary text-xs font-extrabold tracking-widest uppercase">Набор открыт</span>
+            <div className="w-px h-3 bg-primary/30" />
+            <span className="text-primary/70 text-xs font-bold">1843 ученика уже внутри</span>
           </div>
 
-          <h1 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-extrabold text-white leading-[1.05] mb-6 tracking-tight reveal-up">
-            Научим зарабатывать на<br />
-            <span className="gradient-text text-shadow-glow">P2P арбитраже</span> с нуля
+          <h1 className="font-heading text-[clamp(2.8rem,7vw,5.5rem)] font-extrabold text-white leading-[1.02] mb-6 tracking-tight reveal-up">
+            Научим зарабатывать<br />
+            на <span className="gradient-text text-shadow-glow">P2P арбитраже</span><br className="sm:hidden" /> с нуля
           </h1>
 
-          <p className="text-white/50 text-lg sm:text-xl max-w-[580px] mx-auto mb-10 leading-relaxed font-semibold reveal-up reveal-up-delay-1">
-            Персональный куратор, пошаговое обучение и первая прибыль <span className="text-white font-bold">через 3 дня</span>. Без опыта в крипте.
+          <p className="text-white/55 text-lg sm:text-xl max-w-[560px] mx-auto mb-10 leading-relaxed font-medium reveal-up reveal-up-delay-1">
+            Персональный куратор · пошаговое обучение · первая прибыль <span className="text-white font-bold">через 3 дня</span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6 reveal-up reveal-up-delay-2">
-            <a href="https://t.me/+Z7SebGxjJmMxNDAy" target="_blank" rel="noopener noreferrer"
-              className="btn-glow text-base sm:text-lg py-4 sm:py-5 px-8 sm:px-10 inline-flex items-center justify-center gap-3">
-              <Icon name="Send" size={18} />
-              Начать бесплатно
-            </a>
+            <div className="relative inline-flex">
+              <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-red-500 to-red-700 rounded-2xl blur-md opacity-60 animate-pulse" />
+              <a href="https://t.me/+Z7SebGxjJmMxNDAy" target="_blank" rel="noopener noreferrer"
+                className="relative btn-glow text-base sm:text-lg py-4 sm:py-5 px-8 sm:px-10 inline-flex items-center justify-center gap-3">
+                <Icon name="Send" size={18} />
+                Начать бесплатно
+              </a>
+            </div>
             <a href="https://t.me/KuratorP2PProfit" target="_blank" rel="noopener noreferrer"
               className="btn-ghost text-base py-4 sm:py-5 px-8 inline-flex items-center justify-center gap-2">
               <Icon name="MessageCircle" size={16} />
