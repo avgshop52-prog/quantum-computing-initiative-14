@@ -15,7 +15,7 @@ export function Footer() {
               <span className="font-heading font-extrabold text-[18px] text-white">P2P <span className="gradient-text">Profit</span></span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed mb-5 font-semibold">
-              Обучаем P2P арбитражу криптовалюты с нуля. 312+ учеников, персональные кураторы и первая прибыль через 3 дня.
+              Обучаем P2P арбитражу криптовалюты с нуля. 1800+ учеников, персональные кураторы и первая прибыль через 3 дня.
             </p>
             <div className="flex gap-3">
               <a href="https://t.me/+Z7SebGxjJmMxNDAy" target="_blank" rel="noopener noreferrer"
