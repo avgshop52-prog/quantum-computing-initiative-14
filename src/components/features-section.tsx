@@ -24,7 +24,7 @@ export function FeaturesSection() {
             Почему выбирают <span className="gradient-text">P2P Profit</span>
           </h2>
           <p className="text-white/50 text-base max-w-lg mx-auto font-semibold">
-            312+ учеников уже зарабатывают. Вот почему они выбрали нас
+            1800+ учеников уже зарабатывают. Вот почему они выбрали нас
           </p>
         </div>
 
