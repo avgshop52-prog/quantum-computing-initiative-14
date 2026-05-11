@@ -53,7 +53,7 @@ export function MentorsSection() {
           <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
             Кто будет тебя <span className="gradient-text">обучать</span>
           </h2>
-          <p className="text-white/50 text-base max-w-lg mx-auto font-semibold">
+          <p className="text-white/65 text-base max-w-lg mx-auto font-medium">
             Реальные практики с подтверждённым опытом, которые лично ведут каждого ученика
           </p>
         </div>
@@ -61,20 +61,21 @@ export function MentorsSection() {
         <div className="grid md:grid-cols-3 gap-6">
           {mentors.map((m, i) => (
             <ScrollReveal key={m.name} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
-            <div className="card-red-border p-8 group relative overflow-hidden">
-              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-b ${m.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+            <div className="card-red-border tilt-card shine-hover p-8 group relative overflow-hidden">
+              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-b ${m.color} opacity-30 group-hover:opacity-100 transition-opacity duration-500`} />
+              <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-primary/15 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="relative z-10">
-                <div className={`w-16 h-16 rounded-2xl ${m.iconBg} flex items-center justify-center mb-6`}>
+                <div className={`icon-box w-16 h-16 rounded-2xl ${m.iconBg} flex items-center justify-center mb-6 shadow-lg`}>
                   <Icon name={m.icon} size={28} />
                 </div>
                 <p className="text-primary text-[11px] font-extrabold tracking-wider uppercase mb-2">{m.role}</p>
-                <h3 className="font-heading text-xl font-extrabold text-white mb-3">{m.name}</h3>
-                <p className="text-white/50 text-[13px] leading-relaxed mb-6 font-semibold">{m.desc}</p>
-                <div className="flex gap-3 mb-6">
+                <h3 className="font-heading text-xl font-extrabold text-white mb-3 group-hover:translate-x-1 transition-transform">{m.name}</h3>
+                <p className="text-white/65 text-[13px] leading-relaxed mb-6 font-medium">{m.desc}</p>
+                <div className="flex gap-3 mb-2">
                   {m.stats.map((s) => (
-                    <div key={s.label} className="bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 flex-1 text-center">
+                    <div key={s.label} className="bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 flex-1 text-center group-hover:bg-primary/10 group-hover:border-primary/25 transition-all">
                       <div className="font-display text-sm font-extrabold text-white">{s.val}</div>
-                      <div className="text-white/30 text-[10px] mt-0.5 font-bold uppercase">{s.label}</div>
+                      <div className="text-white/50 text-[10px] mt-0.5 font-bold uppercase">{s.label}</div>
                     </div>
                   ))}
                 </div>

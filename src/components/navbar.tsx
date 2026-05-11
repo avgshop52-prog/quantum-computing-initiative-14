@@ -63,14 +63,21 @@ export function Navbar() {
         </div>
       </div>
 
-      {menuOpen && (
-        <div className="md:hidden bg-[rgba(8,0,0,0.98)] backdrop-blur-2xl border-b border-red-900/30 px-5 py-6 flex flex-col gap-1">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-white text-sm py-3 px-4 rounded-xl hover:bg-white/[0.04] transition-colors font-bold" onClick={() => setMenuOpen(false)}>
-              {l.label}
+      <div className={`md:hidden overflow-hidden transition-all duration-500 ease-out ${menuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}>
+        <div className="bg-[rgba(8,0,0,0.98)] backdrop-blur-2xl border-b border-red-900/30 px-5 py-6 flex flex-col gap-1">
+          {links.map((l, i) => (
+            <a
+              key={l.href}
+              href={l.href}
+              style={{ transitionDelay: `${menuOpen ? i * 60 + 100 : 0}ms` }}
+              className={`text-white text-sm py-3 px-4 rounded-xl hover:bg-primary/10 hover:translate-x-1 transition-all duration-300 font-bold flex items-center justify-between ${menuOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
+              onClick={() => setMenuOpen(false)}
+            >
+              <span>{l.label}</span>
+              <Icon name="ChevronRight" size={14} className="text-primary/60" />
             </a>
           ))}
-          <div className="flex gap-2 mt-3">
+          <div className="flex gap-2 mt-4">
             <a href="https://t.me/KuratorP2PProfit" target="_blank" rel="noopener noreferrer"
               className="btn-ghost text-sm py-3 flex-1 text-center inline-flex items-center justify-center gap-2 font-bold">
               <Icon name="MessageCircle" size={14} />
@@ -83,7 +90,7 @@ export function Navbar() {
             </a>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   )
 }

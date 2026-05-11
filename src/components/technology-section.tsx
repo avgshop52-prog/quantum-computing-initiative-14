@@ -49,22 +49,22 @@ export function TechnologySection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {steps.map((s, i) => (
             <ScrollReveal key={s.title} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
-              <div className="card-red-border p-7 relative group">
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-b ${s.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              <div className="card-red-border tilt-card shine-hover p-7 relative group h-full">
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-b ${s.color} opacity-30 group-hover:opacity-100 transition-opacity duration-500`} />
                 <div className="relative z-10">
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
+                    <div className="icon-box w-12 h-12 rounded-xl bg-primary/15 border border-primary/25 flex items-center justify-center">
                       <Icon name={s.icon} size={22} className="text-primary" />
                     </div>
-                    <span className="text-white/10 font-display text-4xl font-extrabold">
+                    <span className="text-white/10 font-display text-4xl font-extrabold group-hover:text-primary/30 transition-colors">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <h3 className="font-heading font-extrabold text-[17px] text-white mb-3">{s.title}</h3>
-                  <p className="text-white/50 text-[13px] leading-relaxed mb-4 font-medium">{s.desc}</p>
-                  <div className="flex items-center gap-1.5">
-                    <Icon name="Clock" size={11} className="text-primary/50" />
-                    <span className="text-primary/70 text-[11px] font-bold">{s.time}</span>
+                  <h3 className="font-heading font-extrabold text-[17px] text-white mb-3 group-hover:text-primary transition-colors">{s.title}</h3>
+                  <p className="text-white/65 text-[13px] leading-relaxed mb-4 font-medium">{s.desc}</p>
+                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 w-fit">
+                    <Icon name="Clock" size={10} className="text-primary" />
+                    <span className="text-primary text-[10px] font-bold">{s.time}</span>
                   </div>
                 </div>
               </div>

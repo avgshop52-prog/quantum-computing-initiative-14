@@ -29,30 +29,33 @@ export function BeforeAfterSection() {
         <div className="grid sm:grid-cols-2 gap-5">
           {stories.map((s, i) => (
             <ScrollReveal key={s.name} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
-            <div className="card-red-border p-7 group">
+            <div className="card-red-border tilt-card shine-hover p-7 group">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                <div className="icon-box w-12 h-12 rounded-xl bg-primary/15 border border-primary/20 flex items-center justify-center">
                   <Icon name={s.icon} size={22} className="text-primary" />
                 </div>
                 <div>
                   <p className="text-white font-extrabold text-[15px]">{s.name}</p>
-                  <p className="text-white/30 text-[11px] font-bold">Результат за {s.months} мес.</p>
+                  <p className="text-primary/80 text-[11px] font-bold flex items-center gap-1">
+                    <Icon name="Clock" size={10} />
+                    Результат за {s.months} мес.
+                  </p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 mb-4">
-                <div className="flex-1 bg-red-500/5 border border-red-500/10 rounded-xl px-4 py-3">
+                <div className="flex-1 bg-red-950/30 border border-red-900/30 rounded-xl px-4 py-3 group-hover:bg-red-950/50 transition-all">
                   <div className="flex items-center gap-2 mb-1">
                     <Icon name="X" size={11} className="text-red-400" />
-                    <span className="text-red-400/60 text-[10px] font-bold uppercase">Было</span>
+                    <span className="text-red-400/80 text-[10px] font-bold uppercase">Было</span>
                   </div>
-                  <p className="text-white/50 text-[13px] font-bold">{s.before}</p>
+                  <p className="text-white/60 text-[13px] font-bold">{s.before}</p>
                 </div>
-                <Icon name="ArrowRight" size={16} className="text-primary/40 flex-shrink-0" />
-                <div className="flex-1 bg-primary/5 border border-primary/10 rounded-xl px-4 py-3">
+                <Icon name="ArrowRight" size={18} className="text-primary flex-shrink-0 group-hover:translate-x-1 transition-transform animate-pulse" />
+                <div className="flex-1 bg-primary/10 border border-primary/30 rounded-xl px-4 py-3 group-hover:bg-primary/20 group-hover:shadow-lg group-hover:shadow-red-950/30 transition-all">
                   <div className="flex items-center gap-2 mb-1">
-                    <Icon name="Check" size={11} className="text-primary" />
-                    <span className="text-primary/60 text-[10px] font-bold uppercase">Стало</span>
+                    <Icon name="TrendingUp" size={11} className="text-primary" />
+                    <span className="text-primary text-[10px] font-bold uppercase">Стало</span>
                   </div>
                   <p className="text-white text-[13px] font-extrabold">{s.after}</p>
                 </div>

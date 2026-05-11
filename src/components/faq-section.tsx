@@ -34,17 +34,17 @@ export function FAQSection() {
         <ScrollReveal delay={1}>
         <Accordion type="single" collapsible className="flex flex-col gap-3">
           {faqs.map((f, i) => (
-            <AccordionItem key={i} value={`q-${i}`} className="card-red-border overflow-hidden">
-              <AccordionTrigger className="text-left text-sm font-extrabold text-white hover:text-primary transition-colors px-6 py-5 hover:no-underline gap-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Icon name="HelpCircle" size={15} className="text-primary" />
+            <AccordionItem key={i} value={`q-${i}`} className="card-red-border overflow-hidden group/item data-[state=open]:border-primary/40 data-[state=open]:shadow-[0_0_30px_rgba(185,28,28,0.15)] transition-all">
+              <AccordionTrigger className="text-left text-sm font-extrabold text-white hover:text-primary transition-colors px-6 py-5 hover:no-underline gap-3 group">
+                <div className="flex items-center gap-3 flex-1">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/25 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <span className="text-primary text-xs font-extrabold">{String(i + 1).padStart(2, "0")}</span>
                   </div>
-                  {f.q}
+                  <span className="flex-1">{f.q}</span>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="text-white/60 text-[13px] leading-relaxed px-6 pb-5 pl-[68px] font-medium">
-                {f.a}
+              <AccordionContent className="text-white/70 text-[13px] leading-relaxed px-6 pb-5 pl-[68px] font-medium">
+                <div className="border-l-2 border-primary/30 pl-4">{f.a}</div>
               </AccordionContent>
             </AccordionItem>
           ))}

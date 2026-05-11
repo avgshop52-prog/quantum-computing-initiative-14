@@ -56,19 +56,20 @@ export function TestimonialsSection() {
             <div key={ci} className="flex flex-col gap-5">
               {col.map((r, ri) => (
                 <ScrollReveal key={r.name} delay={(ci * col.length + ri) % 4 as 0 | 1 | 2 | 3 | 4}>
-                  <div className="card-red-border p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1">
+                  <div className="card-red-border tilt-card shine-hover p-6 sm:p-7 group relative">
+                    <Icon name="Quote" size={28} className="absolute top-4 right-4 text-primary/15 group-hover:text-primary/40 group-hover:scale-110 transition-all" />
                     <div className="flex items-center justify-between mb-5">
                       <div className="flex items-center gap-3">
-                        <div className={`w-11 h-11 rounded-full flex items-center justify-center ${colors[(ci * 6 + ri) % colors.length]}`}>
+                        <div className={`w-11 h-11 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform ${colors[(ci * 6 + ri) % colors.length]}`}>
                           <span className="text-sm font-extrabold">{r.name[0]}</span>
                         </div>
                         <div>
                           <p className="text-white text-sm font-extrabold">{r.name}</p>
-                          <p className="text-white/40 text-[11px] font-semibold">{r.tag}</p>
+                          <p className="text-white/50 text-[11px] font-semibold">{r.tag}</p>
                         </div>
                       </div>
                       {r.earned && (
-                        <div className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-1.5">
+                        <div className="bg-primary/15 border border-primary/30 rounded-lg px-3 py-1.5 group-hover:bg-primary/25 group-hover:scale-105 transition-all">
                           <span className="text-primary text-[11px] font-extrabold">{r.earned}</span>
                         </div>
                       )}
@@ -78,9 +79,10 @@ export function TestimonialsSection() {
                         <Icon key={i} name="Star" size={13} className="text-yellow-500 fill-yellow-500" />
                       ))}
                     </div>
-                    <p className="text-white/80 text-[13px] leading-relaxed mb-4 font-medium">{r.text}</p>
-                    <div className="flex items-center justify-end">
-                      <span className="text-white/20 text-[10px] font-bold">Telegram</span>
+                    <p className="text-white/85 text-[13px] leading-relaxed mb-4 font-medium">{r.text}</p>
+                    <div className="flex items-center justify-end gap-1.5">
+                      <Icon name="Send" size={10} className="text-white/30" />
+                      <span className="text-white/30 text-[10px] font-bold">Telegram</span>
                     </div>
                   </div>
                 </ScrollReveal>

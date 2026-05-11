@@ -35,15 +35,21 @@ export function ComparisonSection() {
             </div>
 
             {rows.map((row, i) => (
-              <div key={row.feature} className={`grid grid-cols-3 gap-0 px-6 py-4 ${i < rows.length - 1 ? "border-b border-white/[0.04]" : ""} hover:bg-white/[0.02] transition-colors`}>
-                <div className="text-white/60 text-[13px] font-bold flex items-center">{row.feature}</div>
+              <div
+                key={row.feature}
+                className={`group relative grid grid-cols-3 gap-0 px-6 py-4 ${i < rows.length - 1 ? "border-b border-white/[0.04]" : ""} hover:bg-gradient-to-r hover:from-primary/5 hover:via-primary/10 hover:to-transparent transition-all duration-300`}
+              >
+                <span className="absolute left-0 top-0 bottom-0 w-[2px] bg-primary scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-300" />
+                <div className="text-white/70 text-[13px] font-bold flex items-center group-hover:text-white transition-colors">{row.feature}</div>
                 <div className="text-center flex items-center justify-center gap-1.5">
-                  <Icon name="Check" size={13} className="text-primary" />
+                  <div className="w-4 h-4 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center group-hover:bg-primary/40 group-hover:scale-110 transition-all">
+                    <Icon name="Check" size={10} className="text-primary" />
+                  </div>
                   <span className="text-white text-[13px] font-extrabold">{row.us}</span>
                 </div>
-                <div className="text-center flex items-center justify-center gap-1.5">
+                <div className="text-center flex items-center justify-center gap-1.5 opacity-50 group-hover:opacity-70 transition-opacity">
                   <Icon name="X" size={13} className="text-red-400/50" />
-                  <span className="text-white/30 text-[13px] font-semibold">{row.others}</span>
+                  <span className="text-white/40 text-[13px] font-semibold line-through decoration-red-500/40">{row.others}</span>
                 </div>
               </div>
             ))}

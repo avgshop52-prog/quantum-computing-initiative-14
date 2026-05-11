@@ -60,12 +60,13 @@ export function GuaranteesSection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {guarantees.map((g, i) => (
             <ScrollReveal key={g.title} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
-              <div className="card-red-border p-7 group h-full">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors ${g.highlight ? "bg-primary/15" : "bg-primary/10 border border-primary/15 group-hover:bg-primary/15"}`}>
+              <div className="card-red-border tilt-card shine-hover p-7 group h-full relative">
+                <div className={`icon-box w-12 h-12 rounded-xl border flex items-center justify-center mb-5 transition-all ${g.highlight ? "bg-primary/20 border-primary/40" : "bg-primary/10 border-primary/20 group-hover:bg-primary/20 group-hover:border-primary/40"}`}>
                   <Icon name={g.icon} size={22} className="text-primary" />
                 </div>
-                <h3 className="font-heading font-extrabold text-[17px] text-white mb-3">{g.title}</h3>
-                <p className="text-white/50 text-[13px] leading-relaxed font-medium">{g.desc}</p>
+                <h3 className="font-heading font-extrabold text-[17px] text-white mb-3 group-hover:text-primary transition-colors">{g.title}</h3>
+                <p className="text-white/65 text-[13px] leading-relaxed font-medium">{g.desc}</p>
+                <div className="absolute top-5 right-5 w-2 h-2 rounded-full bg-primary/40 group-hover:bg-primary group-hover:shadow-[0_0_10px_rgba(220,38,38,0.7)] transition-all" />
               </div>
             </ScrollReveal>
           ))}

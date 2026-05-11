@@ -19,11 +19,11 @@ export function Footer() {
             </p>
             <div className="flex gap-3">
               <a href="https://t.me/+Z7SebGxjJmMxNDAy" target="_blank" rel="noopener noreferrer"
-                className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white/40 hover:text-primary hover:bg-primary/10 hover:border-primary/20 transition-all">
+                className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white/50 hover:text-white hover:bg-primary hover:border-primary hover:scale-110 hover:rotate-6 hover:shadow-lg hover:shadow-red-950/50 transition-all duration-300">
                 <Icon name="Send" size={17} />
               </a>
               <a href="https://t.me/KuratorP2PProfit" target="_blank" rel="noopener noreferrer"
-                className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white/40 hover:text-primary hover:bg-primary/10 hover:border-primary/20 transition-all">
+                className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-white/50 hover:text-white hover:bg-primary hover:border-primary hover:scale-110 hover:-rotate-6 hover:shadow-lg hover:shadow-red-950/50 transition-all duration-300">
                 <Icon name="MessageCircle" size={17} />
               </a>
             </div>
@@ -40,7 +40,7 @@ export function Footer() {
                   { label: "Отзывы", href: "#reviews" },
                   { label: "Вопросы", href: "#faq" },
                 ].map((l) => (
-                  <a key={l.href} href={l.href} className="text-white/40 hover:text-white text-sm transition-colors font-semibold">{l.label}</a>
+                  <a key={l.href} href={l.href} className="text-white/50 hover:text-primary text-sm transition-all font-semibold link-underline inline-block w-fit">{l.label}</a>
                 ))}
               </div>
             </div>

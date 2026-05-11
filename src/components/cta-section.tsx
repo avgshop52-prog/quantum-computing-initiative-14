@@ -6,16 +6,28 @@ function Countdown() {
   const [time, setTime] = useState({ hours: 23, minutes: 45, seconds: 12 })
 
   useEffect(() => {
-    const target = Date.now() + 24 * 60 * 60 * 1000
-    const interval = setInterval(() => {
+    const key = "p2p_cta_deadline"
+    let target = Number(localStorage.getItem(key))
+    if (!target || target < Date.now()) {
+      target = Date.now() + 24 * 60 * 60 * 1000
+      localStorage.setItem(key, String(target))
+    }
+    const tick = () => {
       const diff = target - Date.now()
-      if (diff <= 0) return
+      if (diff <= 0) {
+        const nt = Date.now() + 24 * 60 * 60 * 1000
+        localStorage.setItem(key, String(nt))
+        target = nt
+        return
+      }
       setTime({
         hours: Math.floor(diff / 3600000),
         minutes: Math.floor((diff % 3600000) / 60000),
         seconds: Math.floor((diff % 60000) / 1000),
       })
-    }, 1000)
+    }
+    tick()
+    const interval = setInterval(tick, 1000)
     return () => clearInterval(interval)
   }, [])
 
@@ -27,11 +39,12 @@ function Countdown() {
         { val: time.seconds, label: "сек" },
       ].map((t, i) => (
         <div key={t.label} className="flex items-center gap-2.5">
-          <div className="bg-primary/10 border border-primary/15 rounded-lg px-4 py-2.5 min-w-[56px] text-center">
-            <div className="font-display text-xl font-extrabold text-white">{String(t.val).padStart(2, "0")}</div>
-            <div className="text-white/30 text-[9px] uppercase tracking-wider font-bold">{t.label}</div>
+          <div className="bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 rounded-lg px-4 py-3 min-w-[64px] text-center shadow-lg shadow-red-950/30 relative overflow-hidden">
+            <div className="absolute inset-x-0 top-1/2 h-px bg-black/40" />
+            <div className="font-display text-2xl font-extrabold text-white num-glow">{String(t.val).padStart(2, "0")}</div>
+            <div className="text-white/50 text-[9px] uppercase tracking-wider font-bold mt-1">{t.label}</div>
           </div>
-          {i < 2 && <span className="text-white/20 font-extrabold text-lg">:</span>}
+          {i < 2 && <span className="text-primary/40 font-extrabold text-lg animate-pulse">:</span>}
         </div>
       ))}
     </div>
@@ -47,8 +60,10 @@ export function CTASection() {
 
       <div className="max-w-2xl mx-auto relative z-10 text-center">
         <ScrollReveal>
-        <div className="card-red-border p-10 sm:p-16">
-          <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-7">
+        <div className="card-red-border p-10 sm:p-16 relative overflow-hidden">
+          <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-primary/20 blur-3xl pulse-soft" />
+          <div className="absolute -bottom-32 -left-32 w-64 h-64 rounded-full bg-primary/15 blur-3xl pulse-soft" style={{ animationDelay: "1.5s" }} />
+          <div className="relative w-16 h-16 rounded-2xl bg-primary/15 border border-primary/30 flex items-center justify-center mx-auto mb-7 shadow-lg shadow-red-950/40 glow-ring">
             <Icon name="Rocket" size={30} className="text-primary" />
           </div>
 
@@ -56,7 +71,7 @@ export function CTASection() {
             Через неделю ты будешь жалеть,<br />
             <span className="gradient-text">что не начал сегодня</span>
           </h2>
-          <p className="text-white/50 text-sm sm:text-base mb-10 max-w-md mx-auto leading-relaxed font-semibold">
+          <p className="text-white/65 text-sm sm:text-base mb-10 max-w-md mx-auto leading-relaxed font-medium relative">
             1843 ученика уже зарабатывают дополнительно от 15 000 до 87 000 ₽ в месяц. Вступай в канал — первый урок бесплатно, без обязательств.
           </p>
 
@@ -78,15 +93,17 @@ export function CTASection() {
             </a>
           </div>
 
-          <div className="flex items-center justify-center gap-6 mt-12 pt-8 border-t border-white/[0.06]">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-12 pt-8 border-t border-white/[0.06] relative">
             {[
               { icon: "Lock", text: "Бесплатный вход" },
               { icon: "MessageCircle", text: "Куратор 24/7" },
               { icon: "Zap", text: "Результат за 3 дня" },
             ].map((b) => (
-              <div key={b.text} className="flex items-center gap-2">
-                <Icon name={b.icon} size={14} className="text-primary/50" />
-                <span className="text-white/40 text-[11px] font-bold">{b.text}</span>
+              <div key={b.text} className="flex items-center gap-2 group">
+                <div className="w-7 h-7 rounded-md bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/25 group-hover:scale-110 transition-all">
+                  <Icon name={b.icon} size={12} className="text-primary" />
+                </div>
+                <span className="text-white/60 text-[11px] font-bold">{b.text}</span>
               </div>
             ))}
           </div>

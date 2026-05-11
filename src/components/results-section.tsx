@@ -31,8 +31,9 @@ function AnimatedNumber({ target, suffix = "", prefix = "" }: { target: number; 
   }, [target])
 
   return (
-    <div ref={ref} className="font-display text-5xl sm:text-6xl font-extrabold gradient-text">
+    <div ref={ref} className="font-display text-5xl sm:text-6xl font-extrabold gradient-text num-glow leading-none">
       {prefix}{val.toLocaleString()}{suffix}
+      <span className="text-primary animate-pulse">+</span>
     </div>
   )
 }
@@ -51,8 +52,8 @@ function StudentsCounter() {
   const count = BASE_COUNT + daysPassed * 1
 
   return (
-    <div className="font-display text-5xl sm:text-6xl font-extrabold gradient-text">
-      {count.toLocaleString()}<span className="animate-pulse">+</span>
+    <div className="font-display text-5xl sm:text-6xl font-extrabold gradient-text num-glow leading-none">
+      {count.toLocaleString()}<span className="text-primary animate-pulse">+</span>
     </div>
   )
 }
@@ -77,25 +78,25 @@ export function ResultsSection() {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
           <ScrollReveal delay={0}>
-            <div className="card-red-border p-7 text-center group">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 transition-colors">
-                <Icon name="Users" size={22} className="text-primary" />
+            <div className="card-red-border tilt-card shine-hover p-7 text-center group">
+              <div className="icon-box w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/25 group-hover:border-primary/50">
+                <Icon name="Users" size={24} className="text-primary" />
               </div>
               <StudentsCounter />
-              <p className="text-white/40 text-xs mt-3 font-bold uppercase tracking-wide">учеников обучено</p>
+              <p className="text-white/50 text-xs mt-4 font-bold uppercase tracking-wider">учеников обучено</p>
             </div>
           </ScrollReveal>
           {stats.map((s, i) => (
             <ScrollReveal key={s.label} delay={(i + 1) % 4 as 0 | 1 | 2 | 3 | 4}>
-              <div className="card-red-border p-7 text-center group">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 transition-colors">
-                  <Icon name={s.icon} size={22} className="text-primary" />
+              <div className="card-red-border tilt-card shine-hover p-7 text-center group">
+                <div className="icon-box w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/25 group-hover:border-primary/50">
+                  <Icon name={s.icon} size={24} className="text-primary" />
                 </div>
                 {s.display
-                  ? <div className="font-display text-3xl sm:text-4xl font-extrabold gradient-text leading-tight">{s.display}</div>
+                  ? <div className="font-display text-4xl sm:text-5xl font-extrabold gradient-text num-glow leading-tight">{s.display}</div>
                   : <AnimatedNumber target={s.target} suffix={s.suffix} prefix={s.prefix || ""} />
                 }
-                <p className="text-white/40 text-xs mt-3 font-bold uppercase tracking-wide">{s.label}</p>
+                <p className="text-white/50 text-xs mt-4 font-bold uppercase tracking-wider">{s.label}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -107,8 +108,10 @@ export function ResultsSection() {
             { icon: "HeartHandshake", text: "Куратор ведёт лично до результата — не бросаем" },
             { icon: "RefreshCcw", text: "Пожизненный доступ к обновлениям и стратегиям" },
           ].map((f) => (
-            <div key={f.text} className="flex items-start gap-3 p-5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-              <Icon name={f.icon} size={17} className="text-primary flex-shrink-0 mt-0.5" />
+            <div key={f.text} className="group flex items-start gap-3 p-5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:bg-primary/5 hover:border-primary/20 transition-all duration-300 hover:-translate-y-1">
+              <div className="w-7 h-7 rounded-lg bg-primary/15 border border-primary/30 flex-shrink-0 flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all">
+                <Icon name={f.icon} size={14} className="text-primary" />
+              </div>
               <span className="text-white text-[13px] leading-relaxed font-semibold">{f.text}</span>
             </div>
           ))}

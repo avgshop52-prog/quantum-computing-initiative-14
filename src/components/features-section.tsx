@@ -23,7 +23,7 @@ export function FeaturesSection() {
           <h2 className="font-heading text-4xl sm:text-[3.2rem] font-extrabold text-white leading-tight mb-5">
             Почему выбирают <span className="gradient-text">P2P Profit</span>
           </h2>
-          <p className="text-white/50 text-base max-w-lg mx-auto font-semibold">
+          <p className="text-white/65 text-base max-w-lg mx-auto font-medium">
             1843 ученика уже зарабатывают. Вот почему они выбрали нас
           </p>
         </div>
@@ -31,17 +31,20 @@ export function FeaturesSection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {features.map((f, i) => (
             <ScrollReveal key={f.title} delay={i % 4 as 0 | 1 | 2 | 3 | 4}>
-              <div className="card-red-border p-7 group h-full">
+              <div className="card-red-border tilt-card shine-hover p-7 group h-full relative">
                 <div className="flex items-start justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
+                  <div className="icon-box w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/50">
                     <Icon name={f.icon} size={22} className="text-primary" />
                   </div>
-                  <span className="bg-primary text-white text-[11px] font-extrabold px-3 py-1.5 rounded-full">
+                  <span className="bg-primary text-white text-[11px] font-extrabold px-3 py-1.5 rounded-full shadow-lg shadow-red-950/40 group-hover:scale-105 transition-transform">
                     {f.badge}
                   </span>
                 </div>
-                <h3 className="font-heading font-extrabold text-[17px] text-white mb-3">{f.title}</h3>
-                <p className="text-white/50 text-[13px] leading-relaxed font-medium">{f.desc}</p>
+                <h3 className="font-heading font-extrabold text-[17px] text-white mb-3 group-hover:text-primary transition-colors duration-300">{f.title}</h3>
+                <p className="text-white/60 text-[13px] leading-relaxed font-medium">{f.desc}</p>
+                <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-60 transition-all duration-500 -translate-x-2 group-hover:translate-x-0">
+                  <Icon name="ArrowUpRight" size={16} className="text-primary" />
+                </div>
               </div>
             </ScrollReveal>
           ))}

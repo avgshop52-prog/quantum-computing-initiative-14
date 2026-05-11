@@ -21,13 +21,15 @@ import { VideoSection } from "@/components/video-section"
 import { WithdrawalSection } from "@/components/withdrawal-section"
 import { ExitPopup } from "@/components/exit-popup"
 import { ExchangeMarquee } from "@/components/exchange-marquee"
-import { CustomCursor, ScrollToTop, PageFadeIn } from "@/components/ui-extras"
+import { CustomCursor, ScrollToTop, PageFadeIn, ScrollProgress, AmbientOrbs } from "@/components/ui-extras"
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <AmbientOrbs />
+      <ScrollProgress />
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <HeroSection />
         <ExchangeMarquee />
         <div className="section-divider" />
